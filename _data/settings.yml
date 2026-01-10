@@ -2,7 +2,7 @@
 #-------------------------------
 # General Site Settings
 
-title: Kross
+title: Karan Keskar
 logo:
 author: themefisher
 description: this is meta description
@@ -36,19 +36,18 @@ disqus-identifier: # Add your shortname for Disqus Comment. For example mr-brown
 # Hero Section
 
 hero:
-  hero-title: Hi! I’m <br> Christoher <br> UX designer
+  hero-title: Hi! I’m <br> Karan <br> Software Developer
 
 social:
-  - { icon: "ti-facebook", link: "#" }
-  - { icon: "ti-instagram", link: "#" }
-  - { icon: "ti-dribbble", link: "#" }
-  - { icon: "ti-twitter", link: "#" }
+  - { icon: "ti-email", link: "mailto:karankeskar058@gmail.com" }
+  - { icon: "ti-github", link: "https://github.com/karankeskar" }
+  - { icon: "ti-linkedin", link: "https://www.linkedin.com/in/karan-keskar/" }
 
 #-------------------------------
 # About (Section and Page)
 
 # About Section
-blurb: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+blurb: Aspiring Software Engineer with professional experience in Full-Stack Development, Data Analysis, Production Support and Data Engineering. Currently pursuing a Master’s degree in Computer Science, Specialising in Software Engineering at the University of Sydney. Seeking to leverage my industry experience and academic knowledge to contribute to innovative software solutions.
 
 blurb-btn-link: "/about"
 blurb-btn-name: know more
@@ -86,12 +85,64 @@ team:
 #-------------------------------
 # Skills Section
 
-skills-title: Skills
-skills:
-  - { name: Web Design, color: "#fdb157", value: "90%" }
-  - { name: Logo Design, color: "#9473e6", value: "60%" }
-  - { name: After Effects, color: "#bdecf6", value: "80%" }
-  - { name: Web App, color: "#ffbcaa", value: "70%" }
+skill-categories:
+  - category: "FRONTEND"
+    skills:
+      - name: "JavaScript"
+        icon: "fab fa-js"
+        color: "#808080"
+      - name: "React"
+        icon: "fab fa-react"
+        color: "#808080"
+      - name: "HTML"
+        icon: "fab fa-html5"
+        color: "#808080"
+      - name: "CSS"
+        icon: "fab fa-css3-alt"
+        color: "#808080"
+      - name: "TypeScript"
+        icon: "fas fa-code"
+        color: "#808080"
+  
+  - category: "BACKEND"
+    skills:
+      - name: "Node.js"
+        icon: "fab fa-node-js"
+        color: "#808080"
+      - name: "Python"
+        icon: "fab fa-python"
+        color: "#808080"
+      - name: "Express.js"
+        icon: "fas fa-server"
+        color: "#808080"
+  
+  - category: "DATABASE"
+    skills:
+      - name: "MongoDB"
+        icon: "fas fa-leaf"
+        color: "#808080"
+      - name: "PostgreSQL"
+        icon: "fas fa-database"
+        color: "#808080"
+      - name: "MySQL"
+        icon: "fas fa-database"
+        color: "#808080"
+  
+  - category: "TOOLS"
+    skills:
+      - name: "Git"
+        icon: "fab fa-git-alt"
+        color: "#808080"
+      - name: "Docker"
+        icon: "fab fa-docker"
+        color: "#808080"
+      - name: "AWS"
+        icon: "fab fa-aws"
+        color: "#808080"
+      - name: "GitHub"
+        icon: "fab fa-github"
+        color: "#808080"
+
 
 #-------------------------------
 # Exprerience Section
@@ -99,22 +150,34 @@ skills:
 experience-title: Experience
 experience:
   - {
-      name: Junior UX Designer,
+      name: Full Stack Developer,
       icon: "icon-1.png",
-      date: "Jan 2007 - Feb 2009",
-      organization: "WEBEX",
+      date: "Aug 2025 - Nov 2025",
+      organization: "Slidezilla.ai",
     }
   - {
-      name: UX & UI Designer,
-      icon: "icon-2.png",
-      date: "Mar 2009 - Aug 2014",
-      organization: "AUGMEDIX",
+      name: Assessment and AI Transition Assistant,
+      icon: "usyd-logo.png",
+      date: "May 2025 - Present",
+      organization: "The University of Sydney",
     }
   - {
-      name: Senior UI Designer,
-      icon: "icon-3.png",
-      date: "Sep 2014 - Present",
-      organization: "THEMEFISHER",
+      name: Software Engineer,
+      icon: "agilepoint.jpg",
+      date: "Mar 2023 - Nov 2023",
+      organization: "Agilepoint",
+    }
+  - {
+      name: Production Support Engineer,
+      icon: "Epsilon-logo.jpg",
+      date: "Sept 2020 - Oct 2022",
+      organization: "Epsilon",
+    }
+  - {
+      name: Data Engineering Intern,
+      icon: "eagle-eye.png",
+      date: "Feb 2020 - Apr 2020",
+      organization: "Uncanny Vision",
     }
 
 #-------------------------------
@@ -123,49 +186,16 @@ experience:
 education-title: Education
 education:
   - {
-      name: Marters in UX Design,
-      date: "2006",
-      organization: "Masassusets Institute of Technology",
+      name: Masters in Computer Science Specialising on Software Engineering,
+      date: "2025",
+      organization: "The University of Sydney",
     }
   - {
-      name: Honours in Fine Arts,
-      date: "2004",
-      organization: "Harvard University",
-    }
-  - {
-      name: Higher Secondary Certificat,
-      date: "2000",
-      organization: "Cardiff School",
-    }
-  - {
-      name: Secondary School Certificate,
-      date: "1998",
-      organization: "Cardiff School",
+      name: Bachelors in Computer Science and Engineering,
+      date: "2020",
+      organization: "New Horizon College of Engineering",
     }
 
-#-------------------------------
-# Services Section
-
-services-title: Services
-services:
-  - {
-      name: UI Design,
-      icon: ti-palette,
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      active: ,# Add true to select section
-    }
-  - {
-      name: UX Design,
-      icon: ti-vector,
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      active: true, # Add true to select section
-    }
-  - {
-      name: Interaction Design,
-      icon: ti-panel,
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      active: ,# Add true to select section
-    }
 
 #-------------------------------
 # Portfolio (Section and Page)
@@ -243,58 +273,6 @@ portfolio-items:
     portfolio-type:
       - type: "illustration"
 
-#-------------------------------
-# Testimonials Section
-
-testimonial-items:
-  - name: "Jesica Gomez"
-    image: "assets/images/testimonial/client-1.png"
-    designation: "CEO, Funder"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-
-  - name: "Jesica Gomez"
-    image: "assets/images/testimonial/client-1.png"
-    designation: "CEO, Funder"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-
-  - name: "Jesica Gomez"
-    image: "assets/images/testimonial/client-1.png"
-    designation: "CEO, Funder"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-
-#-------------------------------
-# Client Slider Section
-
-client-slider-items:
-  - logo: "assets/images/clients-logo/client-logo-1.png"
-    url: "#"
-
-  - logo: "assets/images/clients-logo/client-logo-2.png"
-    url: "#"
-
-  - logo: "assets/images/clients-logo/client-logo-3.png"
-    url: "#"
-
-  - logo: "assets/images/clients-logo/client-logo-4.png"
-    url: "#"
-
-  - logo: "assets/images/clients-logo/client-logo-5.png"
-    url: "#"
-
-  - logo: "assets/images/clients-logo/client-logo-1.png"
-    url: "#"
-
-  - logo: "assets/images/clients-logo/client-logo-2.png"
-    url: "#"
-
-  - logo: "assets/images/clients-logo/client-logo-3.png"
-    url: "#"
-
-  - logo: "assets/images/clients-logo/client-logo-4.png"
-    url: "#"
-
-  - logo: "assets/images/clients-logo/client-logo-5.png"
-    url: "#"
 
 #-------------------------------
 # Contact Section

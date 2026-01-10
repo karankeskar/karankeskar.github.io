@@ -2,18 +2,28 @@
 <!-- experience -->
 <section class="section">
   <div class="container">
-    <div class="row justify-content-around">
-      <div class="col-lg-12 text-center">
+    <div class="row">
+      <div class="col-lg-12 text-center mb-5">
         <h2 class="section-title">{{ site.data.settings.experience-title }}</h2>
       </div>
-      {% for experience in site.data.settings.experience %}
-      <div class="col-lg-3 col-md-4 text-center">
-        <img src="{{ site.baseurl }}/assets/images/experience/{{ experience.icon }}" alt="{{ site.data.settings.experience-title }} icon">
-        <p class="mb-0">{{ experience.date }}</p>
-        <h4>{{ experience.name }}</h4>
-        <h6 class="text-light">{{ experience.organization }}</h6>
+      <div class="col-lg-8 mx-auto">
+        {% for experience in site.data.settings.experience %}
+        <div class="experience-item d-flex mb-4 pb-4 {% unless forloop.last %}border-bottom{% endunless %}">
+          <div class="mr-4">
+            <img src="{{ site.baseurl }}/assets/images/experience/{{ experience.icon }}" 
+                 alt="{{ experience.organization }}" 
+                 style="width: 60px; height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.8;">
+          </div>
+          <div class="flex-grow-1">
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <h4 class="mb-1">{{ experience.name }}</h4>
+              <span class="badge badge-light text-muted">{{ experience.date }}</span>
+            </div>
+            <h6 class="text-muted mb-0">{{ experience.organization }}</h6>
+          </div>
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
   </div>
 </section>
