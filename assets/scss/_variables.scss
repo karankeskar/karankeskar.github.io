@@ -1,16 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 // Color Variables
-$primary-color: #41228e;
-$secondary-color: #2bfdff;
-$text-color: #4c4c4c;
+$primary-color: #000000;  // Almost black
+$secondary-color: #3B82F6;  // Bright blue
+$text-color: #F8FAFC;
 $text-color-dark: #000;
-$text-color-light: #999;
+$text-color-light: #000;
 $body-color: #fff;
 $border-color: #c7c7c7;
 $black: #000;
 $white: #fff;
 $gray: #eaeaea;
 
+// Extended Color Palette
+$slate-gray: #64748B;        // Secondary text
+$border-light: #E5E7EB;      // Light borders
+$bg-lightest: #F8FAFC;       // Lightest backgrounds
+$bg-light: #F1F5F9;          // Light backgrounds
+$bg-gray: #F3F4F6;           // Gray backgrounds
+$bg-blue-light: #EFF6FF;     // Light blue backgrounds
+$primary-dark: #1E293B;      // Dark hover states
+
 // Font Variables
-$primary-font: 'Roboto', sans-serif;
-$secondary-font: 'Playfair Display', serif;
+$primary-font: 'Inter', sans-serif;
+$secondary-font: 'Inter', sans-serif;
 $icon-font: 'themify';

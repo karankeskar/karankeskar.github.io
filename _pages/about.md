@@ -4,14 +4,7 @@ title: About Me
 author: Karan Keskar
 image: assets/images/about/karan.jpeg
 ---
+I'm a Software Engineer based in Sydney, Australia, passionate about building scalable applications and solving complex problems. I specialize in full-stack development, with expertise spanning modern web technologies, cloud platforms, and algorithmic problem-solving.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-commodo consequat.
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident.
-
-Deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.
+Currently, I'm on a 24-week learning journey where I build projects and share my progress weekly, while deepening my knowledge in data structures, algorithms, and system design. When I'm not coding, I'm exploring new technologies, contributing to the developer community, and staying current with industry trends.
+I'm always interested in connecting with fellow developers and discussing interesting technical challenges. Feel free to reach out!

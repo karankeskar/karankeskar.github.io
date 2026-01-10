@@ -272,3 +272,308 @@ textarea.form-control{
   }
 }
 /* /card */
+
+/* ========== Extended Utility Classes ========== */
+
+/* Color Utilities */
+.text-slate {
+  color: $slate-gray !important;
+}
+
+.bg-lightest {
+  background-color: $bg-lightest !important;
+}
+
+.bg-light {
+  background-color: $bg-light !important;
+}
+
+.bg-gray-light {
+  background-color: $bg-gray !important;
+}
+
+.bg-blue-light {
+  background-color: $bg-blue-light !important;
+}
+
+.text-secondary-color {
+  color: $secondary-color !important;
+}
+
+.section-white {
+  background-color: $white !important;
+}
+
+/* Border Utilities */
+.border-light {
+  border: 1px solid $border-light !important;
+}
+
+.border-radius-lg {
+  border-radius: 12px !important;
+}
+
+.border-radius-full {
+  border-radius: 50% !important;
+}
+
+.border-radius-pill {
+  border-radius: 20px !important;
+}
+
+.border-radius-md {
+  border-radius: 8px !important;
+}
+
+/* Spacing Utilities */
+.p-2 {
+  padding: 1rem !important;
+}
+
+.p-2-5 {
+  padding: 1.5rem !important;
+}
+
+.p-3 {
+  padding: 2rem !important;
+}
+
+.p-3-5 {
+  padding: 2.5rem !important;
+}
+
+.gap-1 {
+  gap: 0.5rem !important;
+}
+
+.gap-2 {
+  gap: 1rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem !important;
+}
+
+.mb-3-custom {
+  margin-bottom: 0.75rem !important;
+}
+
+.mb-4-custom {
+  margin-bottom: 1rem !important;
+}
+
+.mb-5-custom {
+  margin-bottom: 1.5rem !important;
+}
+
+.mb-6-custom {
+  margin-bottom: 2rem !important;
+}
+
+.mr-4-custom {
+  margin-right: 1rem !important;
+}
+
+.mt-1-custom {
+  margin-top: 0.25rem !important;
+}
+
+/* Form Utilities */
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid $border-light;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: $white;
+  color: $primary-color;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $secondary-color;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid $border-light;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: $white;
+  color: $primary-color;
+  transition: all 0.3s ease;
+  resize: vertical;
+
+  &:focus {
+    outline: none;
+    border-color: $secondary-color;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+}
+
+/* Button Utilities */
+.btn-dark {
+  width: 100%;
+  padding: 0.875rem;
+  background: $primary-color;
+  color: $white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $primary-dark;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+  }
+}
+
+/* Card Utilities */
+.card-hover {
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+}
+
+/* Icon Utilities */
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $bg-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary-color;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $secondary-color;
+    color: $white;
+    transform: translateY(-2px);
+  }
+}
+
+.icon-color-primary {
+  color: $secondary-color !important;
+}
+
+.icon-lg {
+  font-size: 1.25rem !important;
+}
+
+.icon-xl {
+  font-size: 1.5rem !important;
+}
+
+/* Layout Utilities */
+.object-fit-cover {
+  object-fit: cover;
+}
+
+.height-200 {
+  height: 200px;
+}
+
+.height-250 {
+  height: 250px;
+}
+
+/* Typography Utilities */
+.font-weight-500 {
+  font-weight: 500 !important;
+}
+
+.font-weight-600 {
+  font-weight: 600 !important;
+}
+
+.line-height-relaxed {
+  line-height: 1.6 !important;
+}
+
+.line-height-loose {
+  line-height: 1.8 !important;
+}
+
+.letter-spacing-wide {
+  letter-spacing: 2px !important;
+}
+
+.font-size-sm {
+  font-size: 0.875rem !important;
+}
+
+.font-size-md {
+  font-size: 0.95rem !important;
+}
+
+.font-size-lg {
+  font-size: 1.1rem !important;
+}
+
+.font-size-xl {
+  font-size: 1.25rem !important;
+}
+
+/* Tech Tag Component */
+.tech-tag {
+  display: inline-block;
+  background: $bg-blue-light;
+  color: $secondary-color;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Project Card Component */
+.project-card {
+  border: 1px solid $border-light;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  background: $white;
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+}
+
+.project-title {
+  color: $primary-color;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.project-desc {
+  color: $slate-gray;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.project-link {
+  color: $secondary-color;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: darken($secondary-color, 10%);
+  }
+}
