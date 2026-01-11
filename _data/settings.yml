@@ -149,37 +149,73 @@ skill-categories:
 
 experience-title: Experience
 experience:
-  - {
-      name: Full Stack Developer,
-      icon: "icon-1.png",
-      date: "Aug 2025 - Nov 2025",
-      organization: "Slidezilla.ai",
-    }
-  - {
-      name: Assessment and AI Transition Assistant,
-      icon: "usyd-logo.png",
-      date: "May 2025 - Present",
-      organization: "The University of Sydney",
-    }
-  - {
-      name: Software Engineer,
-      icon: "agilepoint.jpg",
-      date: "Mar 2023 - Nov 2023",
-      organization: "Agilepoint",
-    }
-  - {
-      name: Production Support Engineer,
-      icon: "Epsilon-logo.jpg",
-      date: "Sept 2020 - Oct 2022",
-      organization: "Epsilon",
-    }
-  - {
-      name: Data Engineering Intern,
-      icon: "eagle-eye.png",
-      date: "Feb 2020 - Apr 2020",
-      organization: "Uncanny Vision",
-    }
+  - name: Full Stack Developer
+    icon: "icon-1.png"
+    date: "Aug 2025 - Nov 2025"
+    organization: "Slidezilla.ai"
+    location: "Sydney, NSW"
+    description:
+      - Architected microservices infrastructure reducing API response time by 45%
+      - Implemented CI/CD pipeline cutting deployment time from 2 hours to 15 minutes
+      - Mentored 3 junior developers on best practices and code review
+    technologies:
+      - React
+      - Node.js
+      - TypeScript
+      - PostgreSQL
+      - AWS
+  
+  - name: Assessment and AI Transition Assistant
+    icon: "usyd-logo.png"
+    date: "May 2025 - Present"
+    organization: "The University of Sydney"
+    location: "Sydney, NSW"
+    description:
+      - Built responsive web applications
+      - Optimized database queries
+    technologies:
+      - JavaScript
+      - Python
+      - MySQL
 
+  - name: Software Engineer
+    icon: "agilepoint.jpg"
+    date: "Mar 2023 - Nov 2023"
+    organization: "Agilepoint"
+    location: "Bangalore, Karnataka, India"
+    description:
+      - Built responsive web applications
+      - Optimized database queries
+    technologies:
+      - JavaScript
+      - Python
+      - MySQL
+
+  - name: Production Support Engineer
+    icon: "Epsilon-logo.jpg"
+    date: "Sep 2020 - Oct 2022"
+    organization: "Epsilon"
+    location: "Bangalore, Karnataka, India"
+    description:
+      - Built responsive web applications
+      - Optimized database queries
+    technologies:
+      - JavaScript
+      - Python
+      - MySQL
+
+  - name: Data Engineering Intern
+    icon: "eagle-eye.png"
+    date: "Feb 2020 - Apr 2020"
+    organization: "Uncanny Vision"
+    location: "Bangalore, Karnataka, India"
+    description:
+      - Built responsive web applications
+      - Optimized database queries
+    technologies:
+      - JavaScript
+      - Python
+      - MySQL
 #-------------------------------
 # Education Section
 

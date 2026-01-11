@@ -1,27 +1,36 @@
 {% if site.data.settings.skill-categories %}
 <!-- skills -->
-<section class="section section-white">
+<section class="section section-white" style="padding: 60px 0;">
   <div class="container">
     <div class="row">
-      <div class="col-12 text-center mb-5">
+      <div class="col-12 text-center mb-3">
         <h2 class="section-title" style="color: #0F172A;">Technical Skills</h2>
       </div>
     </div>
 
     {% for category in site.data.settings.skill-categories %}
-    <div class="row mb-5">
-      <div class="col-12 mb-4">
-        <h5 class="text-uppercase text-slate font-weight-600 letter-spacing-wide font-size-sm">
+    <div class="row mb-3 pb-2" style="border-bottom: 1px solid #E2E8F0;">
+      <div class="col-12 mb-3">
+        <h5 class="text-uppercase font-weight-600" style="color: #64748B; font-size: 0.75rem; letter-spacing: 0.1em;">
           {{ category.category }}
         </h5>
       </div>
       {% for skill in category.skills %}
       <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-        <div class="d-flex align-items-center" style="color: #0F172A;">
+        <div class="skill-item d-flex align-items-center p-3" style="
+          color: #0F172A;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          cursor: default;
+        ">
           {% if skill.icon %}
-          <i class="{{ skill.icon }} icon-xl primary-color" style="margin-right: 0.75rem;"></i>
+          <i class="{{ skill.icon }}" style="
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+            color: #3B82F6;
+          "></i>
           {% endif %}
-          <span class="font-weight-500">{{ skill.name }}</span>
+          <span class="font-weight-500" style="font-size: 0.95rem;">{{ skill.name }}</span>
         </div>
       </div>
       {% endfor %}
@@ -29,5 +38,13 @@
     {% endfor %}
   </div>
 </section>
+
+<style>
+.skill-item:hover {
+  background-color: #F8FAFC;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+</style>
 <!-- /skills -->
 {% endif %}
