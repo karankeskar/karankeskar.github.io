@@ -1,0 +1,167 @@
+/* ========================================
+   FLOATING CODE ELEMENTS ANIMATIONS
+   ======================================== */
+
+/* Keyframe animations for floating effect */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-20px); 
+    opacity: 1;
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px); 
+    opacity: 0.6;
+  }
+  50% { 
+    transform: translateY(-15px) translateX(5px); 
+    opacity: 0.9;
+  }
+}
+
+@keyframes float-diagonal {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) rotate(0deg); 
+    opacity: 0.5;
+  }
+  50% { 
+    transform: translateY(-25px) translateX(-10px) rotate(5deg); 
+    opacity: 0.8;
+  }
+}
+
+/* Fade in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   CODE ELEMENT STYLES
+   ======================================== */
+
+.code-element {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.code-element code {
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  display: inline-block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Different sizes for variety */
+.code-element.size-sm code {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.code-element.size-md code {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.code-element.size-lg code {
+  font-size: 1.3rem;
+  padding: 0.6rem 1.2rem;
+}
+
+/* ========================================
+   SECTION DECORATIONS
+   ======================================== */
+
+.section-decorated {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background decoration dots */
+.section-decorated::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 100px;
+  height: 100px;
+  background-image: radial-gradient(circle, #F59E0B 2px, transparent 2px);
+  background-size: 20px 20px;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.section-decorated::after {
+  content: '';
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  width: 80px;
+  height: 80px;
+  background-image: radial-gradient(circle, #F59E0B 2px, transparent 2px);
+  background-size: 15px 15px;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* Make sure content stays above decorations */
+.section-decorated > .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ========================================
+   CODE WINDOW ILLUSTRATION
+   ======================================== */
+
+.code-window-illustration {
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Pulse animation for code lines */
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.code-line-1 { animation: pulse 3s ease-in-out infinite; }
+.code-line-2 { animation: pulse 3s ease-in-out 0.5s infinite; }
+.code-line-3 { animation: pulse 3s ease-in-out 1s infinite; }
+.code-line-4 { animation: pulse 3s ease-in-out 1.5s infinite; }
+.code-line-5 { animation: pulse 3s ease-in-out 2s infinite; }
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+  .code-element {
+    display: none; /* Hide floating elements on mobile for cleaner look */
+  }
+  
+  .section-decorated::before,
+  .section-decorated::after {
+    opacity: 0.08; /* Reduce decoration opacity on mobile */
+  }
+}  

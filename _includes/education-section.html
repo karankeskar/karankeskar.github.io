@@ -1,29 +1,61 @@
 {% if site.data.settings.education %}
 <!-- education -->
-<section class="section position-relative">
+<section class="section position-relative section-decorated" style="overflow: hidden;">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center">
+      <div class="col-lg-12 text-center mb-5">
         <h2 class="section-title">{{ site.data.settings.education-title }}</h2>
       </div>
       {% for education in site.data.settings.education %}
-      <div class="col-lg-6 col-md-6 mb-80">
-        <div class="d-flex">
+      <div class="col-lg-6 col-md-6 mb-5">
+        <div class="d-flex" style="position: relative; z-index: 2;">
           <div class="mr-lg-5 mr-3">
-            <i class="ti-medall icon icon-light icon-bg bg-white shadow rounded-circle d-block"></i>
+            <i class="ti-medall icon icon-light icon-bg bg-white shadow rounded-circle d-block" style="font-size: 2rem; color: #F59E0B;"></i>
           </div>
           <div>
-            <p class="text-dark mb-1">{{ education.date }}</p>
-            <h4>{{ education.name }}</h4>
-            <p class="mb-0 text-light">{{ education.organization }}</p>
+            <p class="text-dark mb-1" style="font-weight: 600; color: #64748B !important; font-size: 0.9rem;">{{ education.date }}</p>
+            <h4 style="color: #0F172A; font-weight: 600; margin-bottom: 0.5rem;">{{ education.name }}</h4>
+            <p class="mb-0 text-light" style="color: #64748B;">{{ education.organization }}</p>
+            {% if education.gpa or education.honors %}
+            <div class="mt-2">
+              {% if education.gpa %}
+              <span class="badge mr-2" style="background-color: #F1F5F9; color: #475569; font-weight: 500; padding: 0.3rem 0.6rem; font-size: 0.75rem;">
+                GPA: {{ education.gpa }}
+              </span>
+              {% endif %}
+              {% if education.honors %}
+              <span class="badge" style="background-color: #FEF3C7; color: #92400E; font-weight: 500; padding: 0.3rem 0.6rem; font-size: 0.75rem;">
+                {{ education.honors }}
+              </span>
+              {% endif %}
+            </div>
+            {% endif %}
           </div>
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
-  <!-- bg image -->
-  <img class="img-fluid edu-bg-image w-100" src="{{ site.baseurl }}/assets/images/backgrounds/education-bg.png" alt="bg-image">
+  
+  <!-- bg image (made more subtle) -->
+  <img class="img-fluid edu-bg-image w-100" src="{{ site.baseurl }}/assets/images/backgrounds/education-bg.png" alt="bg-image" style="opacity: 0.4;">
+  
+  <!-- Floating code elements for education section -->
+  <div class="code-element size-md" style="top: 12%; right: 10%; animation: float 7s ease-in-out infinite; z-index: 1;">
+    <code style="color: #A78BFA;">class</code>
+  </div>
+  <div class="code-element size-sm" style="top: 45%; left: 8%; animation: float-slow 8s ease-in-out infinite; z-index: 1;">
+    <code style="color: #34D399;">extends</code>
+  </div>
+  <div class="code-element size-lg" style="bottom: 20%; right: 12%; animation: float-diagonal 9s ease-in-out infinite; z-index: 1;">
+    <code style="color: #F59E0B;">super</code>
+  </div>
+  <div class="code-element size-md" style="top: 30%; right: 25%; animation: float 8.5s ease-in-out infinite; z-index: 1;">
+    <code style="color: #60A5FA;">new</code>
+  </div>
+  <div class="code-element size-sm" style="bottom: 35%; left: 15%; animation: float-diagonal 7.5s ease-in-out infinite; z-index: 1;">
+    <code style="color: #F472B6;">this</code>
+  </div>
 </section>
 <!-- /education -->
 {% endif %}

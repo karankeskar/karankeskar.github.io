@@ -1,44 +1,74 @@
 <!-- hero area -->
-<section class="hero-area bg-primary" id="parallax">
+<section class="hero-area bg-primary" id="parallax" style="position: relative; overflow: hidden; min-height: 100vh; display: flex; align-items: center;">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-11 mx-auto">
-        <h1 class="text-white font-tertiary">{{ site.data.settings.hero.hero-title }}</h1>
+    <div class="row align-items-center">
+      <!-- Left side: Text content -->
+      <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10; position: relative;">
+        <h1 class="text-white font-tertiary" style="font-size: 3.5rem; line-height: 1.2;">
+          {{ site.data.settings.hero.hero-title }}
+        </h1>
+        {% if site.data.settings.hero.hero-description %}
+        <p class="text-white-50 mt-4 mb-4" style="font-size: 1.1rem; max-width: 500px;">
+          {{ site.data.settings.hero.hero-description }}
+        </p>
+        {% endif %}
+      </div>
+      
+      <!-- Right side: Code window illustration -->
+      <div class="col-lg-6" style="position: relative; z-index: 10;">
+        <svg viewBox="0 0 500 500" class="code-window-illustration">
+          <!-- Main code window -->
+          <rect x="50" y="100" width="400" height="300" rx="10" fill="#1E293B" opacity="0.9"/>
+          
+          <!-- Window header -->
+          <rect x="50" y="100" width="400" height="35" rx="10" fill="#334155"/>
+          <rect x="50" y="125" width="400" height="10" fill="#1E293B"/>
+          
+          <!-- Traffic light buttons -->
+          <circle cx="75" cy="117" r="6" fill="#EF4444"/>
+          <circle cx="95" cy="117" r="6" fill="#F59E0B"/>
+          <circle cx="115" cy="117" r="6" fill="#10B981"/>
+          
+          <!-- Code lines with animation classes -->
+          <rect class="code-line-1" x="70" y="160" width="220" height="10" rx="5" fill="#F59E0B" opacity="0.7"/>
+          <rect class="code-line-2" x="90" y="185" width="180" height="10" rx="5" fill="#60A5FA" opacity="0.6"/>
+          <rect class="code-line-3" x="90" y="210" width="200" height="10" rx="5" fill="#A78BFA" opacity="0.6"/>
+          <rect class="code-line-4" x="70" y="235" width="190" height="10" rx="5" fill="#34D399" opacity="0.6"/>
+          <rect class="code-line-5" x="90" y="260" width="160" height="10" rx="5" fill="#F472B6" opacity="0.6"/>
+          <rect class="code-line-1" x="90" y="285" width="140" height="10" rx="5" fill="#FBBF24" opacity="0.6"/>
+          <rect class="code-line-2" x="70" y="310" width="170" height="10" rx="5" fill="#60A5FA" opacity="0.6"/>
+          <rect class="code-line-3" x="90" y="335" width="150" height="10" rx="5" fill="#34D399" opacity="0.6"/>
+          
+          <!-- Decorative circles -->
+          <circle cx="400" cy="80" r="35" fill="#F59E0B" opacity="0.15"/>
+          <circle cx="100" cy="370" r="45" fill="#60A5FA" opacity="0.12"/>
+          <circle cx="420" cy="390" r="30" fill="#A78BFA" opacity="0.1"/>
+        </svg>
       </div>
     </div>
   </div>
-  <div class="layer-bg w-100 h-10">
-      <img src="{{ site.baseurl }}/assets/images/illustrations/page-title.png" alt="illustrations" class="bg-shape-1 w-100">
+  <!-- Floating code elements -->
+  <div class="code-element size-lg" style="top: 15%; left: 8%; animation: float 6s ease-in-out infinite;">
+    <code style="color: #F59E0B;">{ }</code>
   </div>
-  <!-- <div class="layer-bg w-100">
-    <img class="img-fluid w-100" src="{{ site.baseurl }}/assets/images/illustrations/leaf-bg.png" alt="bg-shape">
-  </div> -->
-  <div class="layer" id="l2">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/dots-cyan.png" alt="bg-shape">
+  <div class="code-element size-md" style="top: 25%; right: 12%; animation: float-slow 8s ease-in-out infinite;">
+    <code style="color: #60A5FA;">&lt;/&gt;</code>
   </div>
-  <!-- <div class="layer" id="l3">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="bg-shape">
-  </div> -->
-  <div class="layer" id="l4">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/dots-orange.png" alt="bg-shape">
+  <div class="code-element size-sm" style="bottom: 30%; left: 15%; animation: float-diagonal 7s ease-in-out infinite;">
+    <code style="color: #34D399;">( )</code>
   </div>
-  <!-- <div class="layer" id="l5">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-yellow.png" alt="bg-shape">
+  <div class="code-element size-md" style="bottom: 20%; right: 18%; animation: float 9s ease-in-out infinite;">
+    <code style="color: #A78BFA;">[ ]</code>
   </div>
-  <div class="layer" id="l6">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan.png" alt="bg-shape">
-  </div> -->
-  <div class="layer" id="l7">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-orange.png" alt="bg-shape">
+  <div class="code-element size-sm" style="top: 45%; left: 5%; animation: float-slow 7.5s ease-in-out infinite;">
+    <code style="color: #F472B6;">=&gt;</code>
   </div>
-  <!-- <div class="layer" id="l8">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.png" alt="bg-shape">
+  <div class="code-element size-lg" style="top: 60%; right: 8%; animation: float-diagonal 8.5s ease-in-out infinite;">
+    <code style="color: #FBBF24;">&&</code>
   </div>
-  <div class="layer" id="l9">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan-2.png" alt="bg-shape">
-  </div> -->
-  <!-- social icon -->
-  <ul class="list-unstyled ml-5 mt-3 position-relative zindex-1">
+  
+  <!-- Social icons - KEPT IN SAME POSITION -->
+  <ul class="list-unstyled ml-5 mt-3 position-absolute zindex-1" style="left: 0; top: 50%; transform: translateY(-50%);">
     {% for social in site.data.settings.social %}
     <li class="mb-3"><a class="text-white" href="{{ social.link }}"><i class="{{ social.icon }}"></i></a></li>
     {% endfor %}

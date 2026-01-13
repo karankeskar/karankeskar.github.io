@@ -4,8 +4,11 @@
       {% if site.data.settings.logo %}
         <img src="{{ site.data.settings.logo | absolute_url }}" alt="{{ site.data.settings.title }}">
         {% else if %}
-        <h3 class="text-white font-tertiary">{{site.data.settings.title}}</h3>
-      {% endif %}
+          <span style="color: #F59E0B; font-weight: 700; font-size: 1.5rem; font-family: monospace; letter-spacing: 0.02em;">const</span> 
+          <span style="color: #FFFFFF; font-weight: 700; font-size: 1.5rem; letter-spacing: 0.02em;">{{ site.data.settings.title }}</span>
+          <span style="color: #60A5FA; font-weight: 700; font-size: 1.5rem; font-family: monospace; letter-spacing: 0.02em;"> = ( )</span> 
+          <span style="color: #34D399; font-weight: 700; font-size: 1.5rem; font-family: monospace; letter-spacing: 0.02em;">=&gt;</span>
+        {% endif %}
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
       aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">

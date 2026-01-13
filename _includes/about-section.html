@@ -1,12 +1,50 @@
 <!-- about -->
-<section class="section">
+<section class="section section-decorated" style="position: relative; overflow: hidden; background: #FFFFFF;">
   <div class="container">
     <div class="row">
-      <div class="col-lg-10 mx-auto text-center">
-        <p class="font-secondary paragraph-lg text-dark">{{ site.data.settings.blurb }}</p>
-        <a href="{{ site.data.settings.blurb-btn-link }}" class="btn btn-transparent">{{ site.data.settings.blurb-btn-name }}</a>
+      <div class="col-lg-9 mx-auto text-center" style="position: relative; z-index: 2;">
+        <p class="font-secondary paragraph-lg text-dark mb-4" style="
+          font-size: 1.3rem; 
+          line-height: 1.9; 
+          color: #475569 !important; 
+          max-width: 750px; 
+          margin-left: auto; 
+          margin-right: auto;
+          font-weight: 400;
+        ">
+          {{ site.data.settings.blurb }}
+        </p>
+        
+        <a href="{{ site.data.settings.blurb-btn-link }}" class="btn btn-transparent mt-3" style="
+          border: 2px solid #000000; 
+          color: #000000; 
+          padding: 0.75rem 2.5rem; 
+          font-weight: 600;
+          transition: all 0.3s ease;
+          border-radius: 6px;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          font-size: 0.9rem;
+        " onmouseover="this.style.backgroundColor='#000000'; this.style.color='#fff';" 
+           onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000000';">
+          {{ site.data.settings.blurb-btn-name }}
+        </a>
       </div>
     </div>
+  </div>
+  
+  <!-- Floating code elements -->
+  <div class="code-element size-lg" style="top: 15%; left: 8%; animation: float 6.5s ease-in-out infinite; z-index: 1;">
+    <code style="color: #60A5FA;">console</code>
+  </div>
+  <div class="code-element size-md" style="top: 30%; right: 10%; animation: float-slow 8s ease-in-out infinite; z-index: 1;">
+    <code style="color: #34D399;">.log</code>
+  </div>
+  <div class="code-element size-sm" style="bottom: 25%; left: 12%; animation: float-diagonal 7s ease-in-out infinite; z-index: 1;">
+    <code style="color: #A78BFA;">( )</code>
+  </div>
+  <div class="code-element size-md" style="bottom: 20%; right: 15%; animation: float 9s ease-in-out infinite; z-index: 1;">
+    <code style="color: #F59E0B;">"Hi"</code>
   </div>
 </section>
 <!-- /about -->

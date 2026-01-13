@@ -9,7 +9,7 @@ description: this is meta description
 email: karankeskar058@gmail.com
 # phone: +880 2544 658 256
 address: Camperdown, Sydney, NSW
-copyright: Copyright &copy; 2020 Designed by [Themefisher](https://themefisher.com) & Developed by [Getjekyllthemes](https://getjekyllthemes.com)
+copyright: Copyright &copy; Karan Keskar
 
 menu:
   - { name: About, link: "/about" }
@@ -157,7 +157,7 @@ experience:
     description:
       - Architected microservices infrastructure reducing API response time by 45%
       - Implemented CI/CD pipeline cutting deployment time from 2 hours to 15 minutes
-      - Mentored 3 junior developers on best practices and code review
+      - Mentored 1 junior developers on best practices and code review
     technologies:
       - React
       - Node.js
