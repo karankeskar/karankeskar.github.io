@@ -3,8 +3,17 @@
 <section class="section section-decorated" style="position: relative; overflow: hidden;">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center mb-5">
-        <h2 class="section-title" style="color: #0F172A;">{{ site.data.settings.experience-title }}</h2>
+]     <div class="col-12 text-center mb-5">
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+          <div style="width: 12px; height: 12px; background: #EF4444; border-radius: 50%;"></div>
+          <div style="width: 12px; height: 12px; background: #F59E0B; border-radius: 50%;"></div>
+          <div style="width: 12px; height: 12px; background: #10B981; border-radius: 50%;"></div>
+        </div>
+        <h6 class="text-uppercase mb-2" style="color: #94A3B8; font-weight: 600; letter-spacing: 0.15em; font-size: 0.75rem;">
+          Where I've worked
+        </h6>
+        <h2 class="section-title mb-3" style="color: #0F172A; font-weight: 700;">{{ site.data.settings.experience-title }}</h2>
+        <div style="width: 60px; height: 3px; background: #000000; margin: 0 auto;"></div>
       </div>
       <div class="col-lg-10 mx-auto" style="position: relative; z-index: 2;">
         {% for experience in site.data.settings.experience %}

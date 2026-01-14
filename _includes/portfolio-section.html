@@ -1,27 +1,145 @@
 {% if site.data.settings.portfolio-home-items %}
 <!-- portfolio -->
-<section class="section">
+<section class="section section-decorated" style="background: #FFFFFF; position: relative; overflow: hidden; padding: 80px 0;">
   <div class="container">
+    <!-- Section Header -->
     <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">Portfolio</h2>
+      <div class="col-12 text-center mb-5">
+        <h6 class="text-uppercase mb-2" style="color: #94A3B8; font-weight: 600; letter-spacing: 0.15em; font-size: 0.75rem;">
+          Featured Work
+        </h6>
+        <h2 class="section-title mb-3" style="color: #0F172A; font-weight: 700;">Portfolio</h2>
+        <div style="width: 60px; height: 3px; background: #F59E0B; margin: 0 auto;"></div>
       </div>
     </div>
-    <div class="row shuffle-wrapper">
-      {% for item in site.data.settings.portfolio-home-items %}
-      <div class="col-lg-4 col-6 mb-4 shuffle-item">
-        <div class="position-relative rounded hover-wrapper">
-          <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
-          <div class="hover-overlay">
-            <div class="hover-content">
-              <a class="btn btn-light btn-sm" href="{{ item.url }}">view project</a>
+    
+    <!-- Portfolio Grid - Only 2 projects -->
+    <div class="row justify-content-center" style="position: relative; z-index: 2;">
+      {% for item in site.data.settings.portfolio-home-items limit:2 %}
+      <div class="col-lg-6 col-md-6 mb-4">
+        <div class="portfolio-card" style="
+          background: #FFFFFF;
+          border-radius: 12px;
+          overflow: hidden;
+          border: 1px solid #E2E8F0;
+          transition: all 0.3s ease;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        ">
+          <!-- Project Image -->
+          <div class="portfolio-image-wrapper" style="position: relative; overflow: hidden; height: 280px;">
+            <img src="{{ site.baseurl }}/{{ item.image }}" 
+                 alt="{{ item.title }}" 
+                 style="width: 100%; height: 100%; object-fit: cover;">
+            
+            <!-- Project Type Badge (Optional) -->
+            {% if item.project_type %}
+            <div style="position: absolute; top: 1rem; left: 1rem;">
+              <span style="
+                background: rgba(15, 23, 42, 0.9);
+                color: #F59E0B;
+                padding: 0.4rem 0.8rem;
+                border-radius: 4px;
+                font-size: 0.75rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+              ">{{ item.project_type }}</span>
             </div>
+            {% endif %}
+          </div>
+          
+          <!-- Project Info -->
+          <div style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;">
+            <h3 style="color: #0F172A; font-weight: 700; font-size: 1.5rem; margin-bottom: 1rem;">
+              {{ item.title }}
+            </h3>
+            
+            <!-- Description -->
+            {% if item.description %}
+            <p style="color: #64748B; font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; flex-grow: 1;">
+              {{ item.description }}
+            </p>
+            {% endif %}
+            
+            <!-- Technologies -->
+            {% if item.technologies %}
+            <div style="margin-top: auto;">
+              <h6 class="mb-2" style="color: #64748B; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">
+                Tech Stack
+              </h6>
+              <div class="d-flex flex-wrap" style="gap: 0.5rem;">
+                {% for tech in item.technologies %}
+                <span style="
+                  background: #F1F5F9;
+                  color: #475569;
+                  padding: 0.4rem 0.8rem;
+                  border-radius: 4px;
+                  font-size: 0.8rem;
+                  font-weight: 600;
+                  border: 1px solid #E2E8F0;
+                  font-family: monospace;
+                ">{{ tech }}</span>
+                {% endfor %}
+              </div>
+            </div>
+            {% endif %}
           </div>
         </div>
       </div>
       {% endfor %}
     </div>
+    
+    <!-- View All Projects Button -->
+    <div class="row mt-4">
+      <div class="col-12 text-center">
+        <a href="{{ site.baseurl }}/portfolio" class="btn btn-transparent" style="
+                  background: #000000;
+                  color: #FFFFFF;
+                  padding: 0.85rem 2.5rem;
+                  border: none;
+                  border-radius: 8px;
+                  font-weight: 600;
+                  font-size: 0.95rem;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  text-transform: uppercase;
+                  letter-spacing: 0.05em;
+                " onmouseover="this.style.backgroundColor='#000000'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(245, 158, 11, 0.4)';"
+          onmouseout="this.style.backgroundColor='#000000'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+          View All Projects
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Floating code elements for portfolio section -->
+  <div class="code-element size-md" style="top: 10%; left: 8%; animation: float 7s ease-in-out infinite; z-index: 1;">
+    <code style="color: #A78BFA;">build</code>
+  </div>
+  <div class="code-element size-sm" style="top: 30%; right: 8%; animation: float-slow 8s ease-in-out infinite; z-index: 1;">
+    <code style="color: #34D399;">deploy</code>
+  </div>
+  <div class="code-element size-lg" style="bottom: 20%; left: 10%; animation: float-diagonal 9s ease-in-out infinite; z-index: 1;">
+    <code style="color: #F472B6;">projects</code>
+  </div>
+  <div class="code-element size-md" style="bottom: 35%; right: 12%; animation: float 8.5s ease-in-out infinite; z-index: 1;">
+    <code style="color: #64748B;">code</code>
   </div>
 </section>
+
+<style>
+/* Portfolio Card Hover Effects */
+.portfolio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: #F59E0B;
+}
+
+.portfolio-card:hover .portfolio-image-wrapper img {
+  transform: scale(1.05);
+}
+</style>
 <!-- /portfolio -->
 {% endif %}

@@ -13,7 +13,7 @@ copyright: Copyright &copy; Karan Keskar
 
 menu:
   - { name: About, link: "/about" }
-  - { name: Blog, link: "/blog" }
+  # - { name: Blog, link: "/blog" }
   - { name: Portfolio, link: "/portfolio" }
   - { name: Contact, link: "/contact" }
 
@@ -54,33 +54,6 @@ blurb-btn-name: know more
 
 # About Page
 
-# Work Process Section
-work-process:
-  - title: "Research and Plan"
-    icon: "assets/images/icons/plan.png"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-
-  - title: "Design and Develop"
-    icon: "assets/images/icons/design.png"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-
-  - title: "Deliver"
-    icon: "assets/images/icons/print.png"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-
-# My Team Section
-team:
-  - title: "Jack Schenziwe"
-    image: "assets/images/team/member-1.png"
-    designation: "Project Manager"
-
-  - title: "Julias Carlie"
-    image: "assets/images/team/member-2.png"
-    designation: "Web Developer"
-
-  - title: "John Doe"
-    image: "assets/images/team/member-3.png"
-    designation: "Designer"
 
 #-------------------------------
 # Skills Section
@@ -155,15 +128,15 @@ experience:
     organization: "Slidezilla.ai"
     location: "Sydney, NSW"
     description:
-      - Architected microservices infrastructure reducing API response time by 45%
-      - Implemented CI/CD pipeline cutting deployment time from 2 hours to 15 minutes
-      - Mentored 1 junior developers on best practices and code review
+      - Built and owned the end-to-end MVP architecture for an ADHD-focused EdTech platform using React, Node.js, Express, and MongoDB, delivering a responsive and neurodiverse-friendly user experience.
+      - Integrated AI-powered personalised learning features via external APIs (Google Gemini), enabling adaptive content delivery and improved learning outcomes.
     technologies:
       - React
       - Node.js
       - TypeScript
-      - PostgreSQL
+      - MongoDB
       - AWS
+      - Vercel
   
   - name: Assessment and AI Transition Assistant
     icon: "usyd-logo.png"
@@ -171,8 +144,8 @@ experience:
     organization: "The University of Sydney"
     location: "Sydney, NSW"
     description:
-      - Built responsive web applications
-      - Optimized database queries
+      - Led a university-wide AI assessment integration across 8 faculties and 3,500 academic units, defining AI usage guidelines and standardising assessment documentation.
+      - Managed large-scale data migration and QA workflows, validating 20–30 units daily with 99% accuracy while reviewing team outputs to ensure consistent AI policy adoption.
     technologies:
       - JavaScript
       - Python
@@ -184,8 +157,8 @@ experience:
     organization: "Agilepoint"
     location: "Bangalore, Karnataka, India"
     description:
-      - Built responsive web applications
-      - Optimized database queries
+      - Led development of an IT procurement automation system using HTML, CSS, JavaScript, streamlining 70% of the procurement lifecycle and reducing manual notifications by 50%.
+      - Built a Training-as-a-Service (TaaS) tracking platform with automated reporting and email workflows, eliminating 60% of manual effort and saving 10+ hours per month.
     technologies:
       - JavaScript
       - Python
@@ -197,8 +170,8 @@ experience:
     organization: "Epsilon"
     location: "Bangalore, Karnataka, India"
     description:
-      - Built responsive web applications
-      - Optimized database queries
+      - Optimised production data pipelines using SQL, Amazon Redshift, Informatica, reducing incident resolution time by 40% and improving data accuracy across 100+ pipelines.
+      - Automated quality checks, testing, and documentation, preventing 80% of defects pre-production and accelerating onboarding through structured knowledge transfer.
     technologies:
       - JavaScript
       - Python
@@ -210,8 +183,8 @@ experience:
     organization: "Uncanny Vision"
     location: "Bangalore, Karnataka, India"
     description:
-      - Built responsive web applications
-      - Optimized database queries
+      - Supported AI model development through data acquisition, annotation, and augmentation, improving training dataset quality and boosting model performance by 15%.
+      - Ensured high-precision data validation and organisation, reducing data-related issues during model testing by 15%.
     technologies:
       - JavaScript
       - Python
@@ -254,61 +227,82 @@ portfolio-home-items:
     url: "#"
 
 # Portfolio Page
-portfolio-label:
-  - { title: "UI/UX Design", type: "design" }
-  - { title: "BRANDING", type: "branding" }
-  - { title: "ILLUSTRATION", type: "illustration" }
-
 portfolio-items:
-  - image: "assets/images/portfolio/item-1.png"
-    url: "#"
-    portfolio-type:
-      - type: "design"
-      - type: "illustration"
+  - title: "PhD Finder"
+    project_type: "University Capstone Project"
+    description: "Designed and developed this portfolio website using Jekyll static site generator and GitHub Pages. Implemented responsive design with mobile-first approach, floating code animations, and modern SWE-themed interface. Optimized for performance with 95+ Lighthouse score. Features include dynamic project showcase, blog integration, and contact form."
+    image: "assets/images/portfolio/portfolio-site.jpg"
+    github: "https://github.com/karankeskar/portfolio"
+    live_demo: "https://karankeskar.github.io"
+    technologies:
+      - Jekyll
+      - HTML/CSS
+      - JavaScript
+      - GitHub Pages
+      - Liquid
 
-  - image: "assets/images/portfolio/item-2.png"
-    url: "#"
-    portfolio-type:
-      - type: "branding"
-
-  - image: "assets/images/portfolio/item-3.png"
-    url: "#"
-    portfolio-type:
-      - type: "illustration"
-
-  - image: "assets/images/portfolio/item-6.png"
-    url: "#"
-    portfolio-type:
-      - type: "design"
-      - type: "branding"
-
-  - image: "assets/images/portfolio/item-8.png"
-    url: "#"
-    portfolio-type:
-      - type: "illustration"
-
-  - image: "assets/images/portfolio/item-5.png"
-    url: "#"
-    portfolio-type:
-      - type: "design"
-
-  - image: "assets/images/portfolio/item-1.png"
-    url: "#"
-    portfolio-type:
-      - type: "branding"
-
-  - image: "assets/images/portfolio/item-3.png"
-    url: "#"
-    portfolio-type:
-      - type: "design"
-      - type: "illustration"
-      - type: "branding"
-
-  - image: "assets/images/portfolio/item-7.png"
-    url: "#"
-    portfolio-type:
-      - type: "illustration"
-
+  - title: "Real-Time Chat Application"
+    project_type: "University Project"
+    description: "Built WebSocket-based chat application supporting multiple chat rooms, private messaging, file sharing, and user presence detection. Implemented message persistence with MongoDB and typing indicators. Optimized server-side event handling to reduce message latency by 60%. Deployed with Docker containers for scalability."
+    image: "assets/images/portfolio/chat.jpg"
+    technologies:
+      - React
+      - Socket.io
+      - Node.js
+      - MongoDB
+      - Redis
+      - Docker
+      
+  - title: "Data Visualization Dashboard"
+    project_type: "University Project"
+    description: "Interactive analytics dashboard processing 50,000+ records of sales data. Created custom visualizations using D3.js and Chart.js with drill-down capabilities. Implemented advanced filtering by multiple dimensions, CSV export functionality, and responsive design. Reduced initial load time by 70% through data pagination and Redis caching. Received High Distinction (90%) grade."
+    image: "assets/images/portfolio/dashboard.jpg"
+    technologies:
+      - JavaScript
+      - D3.js
+      - Chart.js
+      - Python
+      - Flask
+      - Pandas
+      - Redis
+      
+  - title: "Task Management API"
+    project_type: "University Project"
+    description: "RESTful API for collaborative task management system with 25+ endpoints. Implemented JWT authentication, role-based access control (RBAC), and complex querying with filtering, sorting, and pagination. Wrote comprehensive API documentation using Swagger and achieved 85% code coverage with JUnit tests. Designed normalized database schema supporting tasks, projects, teams, and user permissions."
+    image: "assets/images/portfolio/api.jpg"
+    technologies:
+      - Java
+      - Spring Boot
+      - PostgreSQL
+      - JUnit
+      - Swagger
+      - Docker
+      - JWT
+      
+  - title: "Machine Learning Model Deployment"
+    project_type: "University Project"
+    description: "Built end-to-end ML pipeline for sentiment analysis on product reviews. Trained model on 100,000+ samples achieving 92% accuracy. Created Flask API for real-time predictions and deployed on AWS with auto-scaling. Implemented model versioning and A/B testing framework. Optimized inference time to under 100ms per request."
+    image: "assets/images/portfolio/ml.jpg"
+    technologies:
+      - Python
+      - TensorFlow
+      - scikit-learn
+      - Flask
+      - AWS
+      - Docker
+      
+  - title: "Portfolio Website"
+    project_type: "Personal Project"
+    description: "Designed and developed this portfolio website using Jekyll static site generator and GitHub Pages. Implemented responsive design with mobile-first approach, floating code animations, and modern SWE-themed interface. Optimized for performance with 95+ Lighthouse score. Features include dynamic project showcase, blog integration, and contact form."
+    image: "assets/images/portfolio/portfolio-site.jpg"
+    github: "https://github.com/karankeskar/portfolio"
+    live_demo: "https://karankeskar.github.io"
+    technologies:
+      - Jekyll
+      - HTML/CSS
+      - JavaScript
+      - GitHub Pages
+      - Liquid
 
 #-------------------------------
 # Contact Section
