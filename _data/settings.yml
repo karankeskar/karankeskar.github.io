@@ -231,7 +231,7 @@ portfolio-items:
   - title: "PhD Finder"
     project_type: "University Capstone Project"
     description: "Designed and developed this portfolio website using Jekyll static site generator and GitHub Pages. Implemented responsive design with mobile-first approach, floating code animations, and modern SWE-themed interface. Optimized for performance with 95+ Lighthouse score. Features include dynamic project showcase, blog integration, and contact form."
-    image: "assets/images/portfolio/portfolio-site.jpg"
+    image: "assets/images/portfolio/image.png"
     github: "https://github.com/karankeskar/portfolio"
     live_demo: "https://karankeskar.github.io"
     technologies:
