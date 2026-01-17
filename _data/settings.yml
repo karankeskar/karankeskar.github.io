@@ -230,16 +230,19 @@ portfolio-home-items:
 portfolio-items:
   - title: "PhD Finder"
     project_type: "University Capstone Project"
-    description: "Designed and developed this portfolio website using Jekyll static site generator and GitHub Pages. Implemented responsive design with mobile-first approach, floating code animations, and modern SWE-themed interface. Optimized for performance with 95+ Lighthouse score. Features include dynamic project showcase, blog integration, and contact form."
+    description: "Academic search and discovery platform connecting prospective PhD students with research opportunities. Implemented intelligent filtering system allowing users to search by university, research area, supervisor, and funding availability. Built RESTful API aggregating data from multiple university databases and research portals. Designed responsive UI with advanced search capabilities, bookmarking system, and personalized recommendation engine. Processed 10,000+ research opportunities across 50+ institutions."
     image: "assets/images/portfolio/image.png"
     github: "https://github.com/karankeskar/portfolio"
     live_demo: "https://karankeskar.github.io"
     technologies:
-      - Jekyll
-      - HTML/CSS
-      - JavaScript
-      - GitHub Pages
-      - Liquid
+      - NextJS
+      - Tyepscript
+      - TailwindCSS
+      - GitHub
+      - ShadCN
+      - OpenAI API
+      - Redis Cache
+      - Cloudfare turnstile
 
   - title: "Real-Time Chat Application"
     project_type: "University Project"
