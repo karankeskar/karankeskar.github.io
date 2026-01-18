@@ -211,20 +211,22 @@ education:
 
 # Portfolio Home Section
 portfolio-home-items:
-  - image: "assets/images/portfolio/item-1.png"
-    url: "#"
-
-  - image: "assets/images/portfolio/item-2.png"
-    url: "#"
-
-  - image: "assets/images/portfolio/item-3.png"
-    url: "#"
-
-  - image: "assets/images/portfolio/item-4.png"
-    url: "#"
-
-  - image: "assets/images/portfolio/item-5.png"
-    url: "#"
+  - title: "StayFresh - Food Inventory Tracker"
+    description: "Mobile app reducing food wastage through AI-powered inventory management. Integrated Google Gemini API for automatic food recognition from images and QR scanning for quick item registration."
+    image: "assets/images/portfolio/stayfresh.jpg"
+    technologies:
+      - React Native
+      - Firebase
+      - Google Gemini API
+      - AI/ML
+      
+  - title: "PhD Finder Platform"
+    description: "Academic search platform connecting PhD candidates with research opportunities. Intelligent filtering across universities, research areas, and funding options. Aggregated 10,000+ opportunities from 50+ institutions."
+    image: "assets/images/portfolio/phd-finder.jpg"
+    technologies:
+      - Next.js
+      - TypeScript
+      - OpenAI API
 
 # Portfolio Page
 portfolio-items:
@@ -232,8 +234,6 @@ portfolio-items:
     project_type: "University Capstone Project"
     description: "Academic search and discovery platform connecting prospective PhD students with research opportunities. Implemented intelligent filtering system allowing users to search by university, research area, supervisor, and funding availability. Built RESTful API aggregating data from multiple university databases and research portals. Designed responsive UI with advanced search capabilities, bookmarking system, and personalized recommendation engine. Processed 10,000+ research opportunities across 50+ institutions."
     image: "assets/images/portfolio/image.png"
-    github: "https://github.com/karankeskar/portfolio"
-    live_demo: "https://karankeskar.github.io"
     technologies:
       - NextJS
       - Tyepscript
@@ -243,56 +243,20 @@ portfolio-items:
       - OpenAI API
       - Redis Cache
       - Cloudfare turnstile
-
-  - title: "Real-Time Chat Application"
-    project_type: "University Project"
-    description: "Built WebSocket-based chat application supporting multiple chat rooms, private messaging, file sharing, and user presence detection. Implemented message persistence with MongoDB and typing indicators. Optimized server-side event handling to reduce message latency by 60%. Deployed with Docker containers for scalability."
-    image: "assets/images/portfolio/chat.jpg"
+  - title: "StayFresh - Food Inventory Tracker"
+    project_type: "University Capstone Project"
+    description: "Full-stack mobile application built with React Native to reduce food wastage through intelligent inventory management. Integrated Google Gemini LLM API for AI-powered image recognition to automatically identify and categorize food items from photos (produce, dairy, meat). Implemented QR code scanning for quick item registration and expiry tracking. Built dynamic inventory interface with real-time Firebase synchronization, displaying categorized items with expiry alerts. Developed as capstone project at University of Sydney."
+    image: "assets/images/portfolio/stayfresh.jpg"
     technologies:
-      - React
-      - Socket.io
-      - Node.js
-      - MongoDB
-      - Redis
-      - Docker
-      
-  - title: "Data Visualization Dashboard"
-    project_type: "University Project"
-    description: "Interactive analytics dashboard processing 50,000+ records of sales data. Created custom visualizations using D3.js and Chart.js with drill-down capabilities. Implemented advanced filtering by multiple dimensions, CSV export functionality, and responsive design. Reduced initial load time by 70% through data pagination and Redis caching. Received High Distinction (90%) grade."
-    image: "assets/images/portfolio/dashboard.jpg"
-    technologies:
+      - React Native
+      - Firebase
+      - Google Gemini API
+      - QR Scanner
+      - AI/ML
+      - Expo
       - JavaScript
-      - D3.js
-      - Chart.js
-      - Python
-      - Flask
-      - Pandas
-      - Redis
       
-  - title: "Task Management API"
-    project_type: "University Project"
-    description: "RESTful API for collaborative task management system with 25+ endpoints. Implemented JWT authentication, role-based access control (RBAC), and complex querying with filtering, sorting, and pagination. Wrote comprehensive API documentation using Swagger and achieved 85% code coverage with JUnit tests. Designed normalized database schema supporting tasks, projects, teams, and user permissions."
-    image: "assets/images/portfolio/api.jpg"
-    technologies:
-      - Java
-      - Spring Boot
-      - PostgreSQL
-      - JUnit
-      - Swagger
-      - Docker
-      - JWT
-      
-  - title: "Machine Learning Model Deployment"
-    project_type: "University Project"
-    description: "Built end-to-end ML pipeline for sentiment analysis on product reviews. Trained model on 100,000+ samples achieving 92% accuracy. Created Flask API for real-time predictions and deployed on AWS with auto-scaling. Implemented model versioning and A/B testing framework. Optimized inference time to under 100ms per request."
-    image: "assets/images/portfolio/ml.jpg"
-    technologies:
-      - Python
-      - TensorFlow
-      - scikit-learn
-      - Flask
-      - AWS
-      - Docker
+
       
   - title: "Portfolio Website"
     project_type: "Personal Project"

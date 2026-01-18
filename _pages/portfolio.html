@@ -3,150 +3,114 @@ layout: page
 title: Portfolio
 subtitle: Projects I've built and shipped
 ---
-<!-- portfolio -->
-<section class="section section-decorated" style="position: relative; overflow: hidden; padding: 80px 0;">
-  <div class="container">
+
+<!-- Close any existing containers and create our own full-width section -->
+</div></div></div>
+
+<!-- portfolio - Full Width -->
+<section class="section section-decorated" style="position: relative; overflow: hidden; padding: 80px 0; width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%);">
+  <div style="width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 3rem;">
     <!-- Portfolio Grid -->
-    <div class="row" style="position: relative; z-index: 2;">
-      {% for item in site.data.settings.portfolio-items %}
-      <div class="col-lg-6 col-md-6 mb-5">
-        <div class="portfolio-card" style="
-          background: #FFFFFF;
-          border-radius: 12px;
-          overflow: hidden;
-          border: 1px solid #E2E8F0;
-          transition: all 0.3s ease;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-        ">
-          <!-- Project Image -->
-          <div class="portfolio-image-wrapper" style="position: relative; overflow: hidden; height: 280px;">
-            <img src="{{ site.baseurl }}/{{ item.image }}" 
-                 alt="{{ item.title }}" 
-                 style="width: 100%; height: 100%; object-fit: cover;">
-            
-            <!-- Project Type Badge (Optional) -->
-            {% if item.project_type %}
-            <div style="position: absolute; top: 1rem; left: 1rem;">
-              <span style="
-                background: rgba(15, 23, 42, 0.9);
-                color: #F59E0B;
-                padding: 0.4rem 0.8rem;
-                border-radius: 4px;
-                font-size: 0.75rem;
-                font-weight: 600;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-              ">{{ item.project_type }}</span>
-            </div>
-            {% endif %}
-          </div>
-          
-          <!-- Project Info -->
-          <div style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;">
-            <h3 style="color: #0F172A; font-weight: 700; font-size: 1.5rem; margin-bottom: 1rem;">
-              {{ item.title }}
-            </h3>
-            
-            <!-- Description - More prominent -->
-            {% if item.description %}
-            <p style="color: #64748B; font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; flex-grow: 1;">
-              {{ item.description }}
-            </p>
-            {% endif %}
-            
-            <!-- Technologies -->
-            {% if item.technologies %}
-            <div style="margin-top: auto;">
-              <h6 class="mb-2" style="color: #64748B; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">
-                Tech Stack
-              </h6>
-              <div class="d-flex flex-wrap" style="gap: 0.5rem; margin-bottom: 1.25rem;">
-                {% for tech in item.technologies %}
-                <span style="
-                  background: #F1F5F9;
-                  color: #475569;
-                  padding: 0.4rem 0.8rem;
-                  border-radius: 4px;
-                  font-size: 0.8rem;
-                  font-weight: 600;
-                  border: 1px solid #E2E8F0;
-                  font-family: monospace;
-                ">{{ tech }}</span>
-                {% endfor %}
-              </div>
-            </div>
-            {% endif %}
-            
-            <!-- Action Buttons (Only show if available) -->
-            {% if item.live_demo or item.github or item.url %}
-            <div class="d-flex" style="gap: 0.75rem;">
-              {% if item.live_demo %}
-              <a href="{{ item.live_demo }}" target="_blank" style="
-                flex: 1;
-                background: #000000;
-                color: #FFFFFF;
-                padding: 0.75rem 1.5rem;
-                border-radius: 6px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 0.9rem;
-                text-align: center;
-                transition: all 0.3s ease;
-              " onmouseover="this.style.backgroundColor='#000000';" 
-                 onmouseout="this.style.backgroundColor='#000000';">
-                <i class="ti-world mr-2"></i>Live Demo
-              </a>
-              {% endif %}
-              
-              {% if item.github %}
-              <a href="{{ item.github }}" target="_blank" style="
-                flex: 1;
-                background: #FFFFFF;
-                color: #0F172A;
-                padding: 0.75rem 1.5rem;
-                border-radius: 6px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 0.9rem;
-                text-align: center;
-                transition: all 0.3s ease;
-                border: 2px solid #E2E8F0;
-              " onmouseover="this.style.borderColor='#0F172A'; this.style.backgroundColor='#F8FAFC';" 
-                 onmouseout="this.style.borderColor='#E2E8F0'; this.style.backgroundColor='#FFFFFF';">
-                <i class="ti-github mr-2"></i>View Code
-              </a>
-              {% endif %}
-              
-              {% if item.url and item.url != '' %}
-              <a href="{{ item.url }}" style="
-                flex: 1;
-                background: #FFFFFF;
-                color: #0F172A;
-                padding: 0.75rem 1.5rem;
-                border-radius: 6px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 0.9rem;
-                text-align: center;
-                transition: all 0.3s ease;
-                border: 2px solid #E2E8F0;
-              " onmouseover="this.style.borderColor='#0F172A'; this.style.backgroundColor='#F8FAFC';" 
-                 onmouseout="this.style.borderColor='#E2E8F0'; this.style.backgroundColor='#FFFFFF';">
-                <i class="ti-arrow-right mr-2"></i>Details
-              </a>
-              {% endif %}
-            </div>
-            {% endif %}
+    {% for item in site.data.settings.portfolio-items %}
+    <div class="portfolio-card-horizontal mb-5" style="
+      background: #FFFFFF;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #E2E8F0;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    ">
+      <!-- Project Image - Left Side -->
+      <div class="portfolio-image-wrapper" style="position: relative; overflow: hidden; width: 45%; flex-shrink: 0;">
+        <img src="{{ site.baseurl }}/{{ item.image }}" 
+             alt="{{ item.title }}" 
+             style="width: 100%; height: 100%; object-fit: cover; min-height: 450px;">
+      </div>
+      
+      <!-- Project Info - Right Side -->
+      <div style="padding: 3rem 4rem; flex-grow: 1; display: flex; flex-direction: column; width: 55%;">
+        <h2 style="color: #0F172A; font-weight: 700; font-size: 2.25rem; margin-bottom: 1.5rem; line-height: 1.2;">
+          {{ item.title }}
+        </h2>
+        
+        <!-- Description -->
+        {% if item.description %}
+        <p style="color: #64748B; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2.5rem; flex-grow: 1;">
+          {{ item.description }}
+        </p>
+        {% endif %}
+        
+        <!-- Technologies -->
+        {% if item.technologies %}
+        <div style="margin-bottom: 2rem;">
+          <h6 class="mb-3" style="color: #0F172A; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">
+            Tech Stack
+          </h6>
+          <div class="d-flex flex-wrap" style="gap: 0.75rem;">
+            {% for tech in item.technologies %}
+            <span style="
+              background: #F1F5F9;
+              color: #475569;
+              padding: 0.6rem 1.2rem;
+              border-radius: 6px;
+              font-size: 0.9rem;
+              font-weight: 600;
+              border: 1px solid #E2E8F0;
+              font-family: monospace;
+            ">{{ tech }}</span>
+            {% endfor %}
           </div>
         </div>
+        {% endif %}
+        
+        <!-- Action Buttons -->
+        {% if item.live_demo or item.github or item.url %}
+        <div class="d-flex" style="gap: 1rem; margin-top: auto;">
+          {% if item.live_demo %}
+          <a href="{{ item.live_demo }}" target="_blank" style="
+            background: #0F172A;
+            color: #FFFFFF;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #0F172A;
+          " onmouseover="this.style.backgroundColor='#1E293B'; this.style.borderColor='#1E293B';" 
+             onmouseout="this.style.backgroundColor='#0F172A'; this.style.borderColor='#0F172A';">
+            <i class="ti-world mr-2"></i>Live Demo
+          </a>
+          {% endif %}
+          
+          {% if item.github %}
+          <a href="{{ item.github }}" target="_blank" style="
+            background: #FFFFFF;
+            color: #0F172A;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #E2E8F0;
+          " onmouseover="this.style.borderColor='#0F172A'; this.style.backgroundColor='#F8FAFC';" 
+             onmouseout="this.style.borderColor='#E2E8F0'; this.style.backgroundColor='#FFFFFF';">
+            <i class="ti-github mr-2"></i>View Code
+          </a>
+          {% endif %}
+        </div>
+        {% endif %}
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
   </div>
   
-  <!-- Floating code elements for portfolio section -->
+  <!-- Floating code elements -->
   <div class="code-element size-lg" style="top: 12%; right: 8%; animation: float 7s ease-in-out infinite; z-index: 1;">
     <code style="color: #64748B; background: rgba(248, 250, 252, 0.9);">build()</code>
   </div>
@@ -164,16 +128,56 @@ subtitle: Projects I've built and shipped
   </div>
 </section>
 
+<!-- Reopen containers for rest of page -->
+<div class="container"><div class="row"><div class="col">
+
 <style>
 /* Portfolio Card Styles */
-.portfolio-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+.portfolio-card-horizontal:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   border-color: #F59E0B;
 }
 
-.portfolio-card:hover .portfolio-image-wrapper img {
+.portfolio-card-horizontal:hover .portfolio-image-wrapper img {
   transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .section > div {
+    padding: 0 2rem !important;
+  }
+  
+  .portfolio-card-horizontal > div:last-child {
+    padding: 2.5rem 3rem !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .portfolio-card-horizontal {
+    flex-direction: column !important;
+  }
+  
+  .portfolio-card-horizontal .portfolio-image-wrapper {
+    width: 100% !important;
+    min-height: 350px !important;
+  }
+  
+  .portfolio-card-horizontal > div:last-child {
+    padding: 2rem !important;
+    width: 100% !important;
+  }
+  
+  .section > div {
+    padding: 0 1.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section > div {
+    padding: 0 1rem !important;
+  }
 }
 </style>
 <!-- /portfolio -->
