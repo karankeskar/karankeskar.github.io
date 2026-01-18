@@ -21,7 +21,7 @@ menu:
 #-------------------------------
 # Google Analytics Section
 
-google-analytics: # UA-XXXXXX-X
+google-analytics: G-966R0D0T3M
 
 #-------------------------------
 # Comment Section (Disqus)
@@ -43,7 +43,7 @@ social:
 # About (Section and Page)
 
 # About Section
-blurb: Aspiring Software Engineer with professional experience in Full-Stack Development, Data Analysis, Production Support and Data Engineering. Currently pursuing a Master’s degree in Computer Science, Specialising in Software Engineering at the University of Sydney. Seeking to leverage my industry experience and academic knowledge to contribute to innovative software solutions.
+blurb: Aspiring Software Engineer with professional experience in Full-Stack Development, Data Analysis, Production Support and Data Engineering. With a Master’s degree in Computer Science, specialised in Software Engineering at the University of Sydney. Seeking to leverage my industry experience and academic knowledge to contribute to innovative software solutions.
 
 blurb-btn-link: "/about"
 blurb-btn-name: know more

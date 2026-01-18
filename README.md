@@ -1,72 +1,231 @@
-# Kross Jekyll
+# Karan Keskar - Portfolio
 
-Kross Jekyll Creative Portfolio Template ported from [Kross HTML Template](https://themefisher.com/products/kross/)
+> A modern, developer-focused portfolio showcasing my journey as a Full-Stack Software Engineer.
 
-## Demo
+[![Live Demo](https://img.shields.io/badge/demo-live-success)](https://karankeskar.github.io)
+[![Jekyll](https://img.shields.io/badge/Jekyll-4.x-red)](https://jekyllrb.com/)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-| Homepage  | About  | Blog  | Portfolio  | Contact  |
-|---|---|---|---|---|
-| ![Homepage](https://user-images.githubusercontent.com/37659754/58154295-1a9c5300-7c93-11e9-992c-ad8d2ff8d99f.png) | ![About](https://user-images.githubusercontent.com/37659754/58154317-28ea6f00-7c93-11e9-914b-b7e5f1cdab0e.png) | ![Blog](https://user-images.githubusercontent.com/37659754/58154339-369ff480-7c93-11e9-9568-53b7ebdc6b2d.png) | ![portfolio](https://user-images.githubusercontent.com/37659754/58154368-491a2e00-7c93-11e9-8900-f5a6abe0a61d.png) | ![contact](https://user-images.githubusercontent.com/37659754/58154403-57684a00-7c93-11e9-9cea-ea28253a6f6a.png) |
+[**View Live Portfolio →**](https://karankeskar.github.io)
 
-[Live Preview](http://demo.themefisher.com/kross).
+---
 
-## Setup
+## About This Portfolio
 
-To start your project, fork this repository
-After forking the repo, your site will be live immediately on your personal Github Pages account, e.g. `https://yourusername.github.io/your-repo-name/`.
+This is my personal portfolio website built to showcase my software engineering projects, experience, and technical skills. The site features a clean, modern design with a distinct developer aesthetic - think terminal windows, code snippets, and smooth animations.
 
-Make sure GitHub Pages is enabled for your repo. It might take some time for the site to propagate entirely.
+### Key Features
 
-## Customize
+- **Modern SWE Theme** - Terminal-inspired design with floating code elements
+- **Fully Responsive** - Optimized for all devices
+- **Fast & Lightweight** - Built with Jekyll for optimal performance
+- **Project Showcase** - Detailed portfolio section with live demos
+- **Interactive Skills Section** - Visual tech stack display
+- **Dynamic Content** - Easy to update via YAML configuration
+- **Contact Form** - Integrated with Formspree
 
-Things you can customize in `_data/settings.yml` (no HTML/CSS):
+---
 
-- Theme General Settings ( name, logo, email, phone, address )
-- Hero Section
-- About Section
-- Team Section
-- Skills Section
-- Experience Section
-- Education Section
-- Services Section
-- Portfolio Section
-- Testimonials Section
-- Client Slider Section
-- Contact Section
+## Quick Start
+
+### Prerequisites
+
+- Ruby (version 2.5 or higher)
+- RubyGems
+- Jekyll
+- Bundler
+
+### Installation
+
+1. **Clone the repository**
+```bash
+   git clone https://github.com/karankeskar/portfolio.git
+   cd portfolio
+```
+
+2. **Install dependencies**
+```bash
+   bundle install
+```
+
+3. **Run locally**
+```bash
+   bundle exec jekyll serve
+```
+
+4. **View in browser**
+```
+   Open http://localhost:4000
+```
+
+---
+
+## Customization
+
+All content can be customized through the `_data/settings.yml` file without touching HTML/CSS:
+
+### What You Can Update
+
+- Personal Information (name, email, location)
+- Hero Section & About Me
+- Work Experience
+- Education
+- Skills & Technologies
+- Projects/Portfolio Items
+- Social Media Links
+- Resume Link
+
+### Example: Updating Projects
+
+Edit `_data/settings.yml`:
+```yaml
+portfolio-items:
+  - title: "Your Project Name"
+    description: "Project description here"
+    image: "assets/images/portfolio/project.jpg"
+    technologies:
+      - React
+      - Node.js
+      - MongoDB
+    github: "https://github.com/yourusername/project"
+    live_demo: "https://yourproject.com"
+```
+
+---
+
+## Project Structure
+```
+portfolio/
+├── _data/
+│   └── settings.yml          # Main configuration file
+├── _includes/                # Reusable components
+│   ├── hero-section.html
+│   ├── about-section.html
+│   ├── experience-section.html
+│   ├── skills-section.html
+│   ├── portfolio-section.html
+│   └── contact-section.html
+├── _layouts/                 # Page templates
+├── assets/
+│   ├── css/
+│   ├── images/
+│   ├── js/
+│   └── files/               # Store resume here
+├── about.md
+├── portfolio.html
+├── contact.html
+└── index.html
+```
+
+---
+
+## Design Features
+
+### Terminal-Inspired Aesthetic
+- Floating code elements with smooth animations
+- Terminal-style skills section (`$ cat tech-stack.sh`)
+- Monospace fonts and syntax highlighting colors
+- Traffic light window controls (red, yellow, green dots)
+
+### Color Palette
+- **Primary:** `#0F172A` (Slate)
+- **Accent:** `#F59E0B` (Amber)
+- **Success:** `#10B981` (Emerald)
+- **Code Blue:** `#60A5FA`
+- **Code Purple:** `#A78BFA`
+
+### Technologies Used
+- **Static Site Generator:** Jekyll
+- **Styling:** Custom CSS with Bootstrap
+- **Icons:** Font Awesome, Themify Icons
+- **Animations:** Custom CSS keyframes
+- **Forms:** Formspree integration
+- **Hosting:** GitHub Pages
+
+---
 
 ## Deployment
 
-To run the theme locally, navigate to the theme directory and run `bundle install` to install the dependencies, then run `jekyll serve` or `bundle exec jekyll serve` to start the Jekyll server.
-I would recommend checking the [Deployment Methods](https://jekyllrb.com/docs/deployment-methods/) page on Jekyll's website.
+### GitHub Pages (Recommended)
 
-<!-- edit with sitepins -->
+1. Push your changes to GitHub
+2. Go to repository Settings → Pages
+3. Select branch: `main` or `gh-pages`
+4. Site will be live at `https://yourusername.github.io/portfolio`
 
-## 📝 Edit Content with CMS
+### Custom Domain (Optional)
 
-This template comes pre-configured with [**Sitepins**](https://sitepins.com), a Git-based Headless CMS designed for seamless content management. You can update your website’s text, images, and configuration without touching a single line of code.
+1. Add `CNAME` file with your domain
+2. Configure DNS records with your domain provider
+3. Enable HTTPS in GitHub Pages settings
 
-**How to get started:**
+---
 
-Click the Edit with Sitepins button below and follow the on-screen instructions to start editing your content visually.
+## Contact
 
-  <a target="_blank" href="https://app.sitepins.com/new/clone?name=Kross%20Jekyll&repository=https://github.com/themefisher/kross-jekyll/">
-    <img src="https://sitepins.com/button.svg" alt="Edit with Sitepins">
-  </a>
-  
-## Reporting Issues
+- **Email:** [karankeskar058@gmail.com](mailto:karankeskar058@gmail.com)
+- **LinkedIn:** [linkedin.com/in/karan-keskar](https://www.linkedin.com/in/karan-keskar/)
+- **GitHub:** [github.com/karankeskar](https://github.com/karankeskar)
+- **Portfolio:** [karankeskar.github.io](https://karankeskar.github.io)
 
-We use GitHub Issues as the official bug tracker for the **Kross Theme**. Please Search [existing issues](https://github.com/themefisher/kross-jekyll/issues). It’s possible someone has already reported the same problem.
-If your problem or idea is not addressed yet, [open a new issue](https://github.com/themefisher/kross-jekyll/issues/new)
+---
 
-## Technical Support or Questions
+## License & Credits
 
-If you have questions or need help integrating the product please [contact us](mailto:themefisher@gmail.com) instead of opening an issue.
+### Theme
+This portfolio is built using the [Kross Jekyll Theme](https://github.com/themefisher/kross-jekyll) by [Themefisher](https://themefisher.com).
 
-<!-- licence -->
-## License
+**Theme License:** [MIT License](https://github.com/themefisher/kross-jekyll/blob/main/LICENSE)
 
-Copyright (c) 2016 - Present, Designed & Developed by [Themefisher](https://themefisher.com)
+### Portfolio Content
+All portfolio content, projects, and customizations © 2026 Karan Keskar. Original content and projects are not covered under the theme's MIT license.
 
-**Code License:** Released under the [MIT](https://github.com/themefisher/kross-jekyll/blob/main/LICENSE) license.
+### Images
+- Profile and project images are personal content
+- Stock images and illustrations have their respective licenses
 
-**Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
+---
+
+## Contributing
+
+While this is a personal portfolio, I'm open to suggestions for improvements:
+
+1. Found a bug? [Open an issue](https://github.com/karankeskar/portfolio/issues)
+2. Have a suggestion? Feel free to reach out
+3. Want to use this as inspiration? Go for it! Just remember to credit the original theme.
+
+---
+
+## Roadmap
+
+- [x] Initial portfolio setup
+- [x] Add experience and education sections
+- [x] Create project showcase
+- [x] Implement contact form
+- [x] Optimize for mobile
+- [ ] Add blog section with technical articles
+- [ ] Implement dark mode toggle
+- [ ] Add project filtering by technology
+- [ ] Create case studies for major projects
+- [ ] Add testimonials section
+
+---
+
+## Inspiration & Resources
+
+- Design inspiration: Modern SWE portfolios, terminal aesthetics
+- Icons: [Font Awesome](https://fontawesome.com/), [Themify Icons](https://themify.me/themify-icons)
+- Animations: Custom CSS animations
+- Color palette: Tailwind CSS color system
+
+---
+
+<div align="center">
+
+### Star this repo if you found it helpful!
+
+**Built by Karan Keskar**
+
+[Portfolio](https://karankeskar.github.io) • [LinkedIn](https://www.linkedin.com/in/karan-keskar/) • [GitHub](https://github.com/karankeskar)
+
+</div>
