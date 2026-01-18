@@ -1,0 +1,224 @@
+/* ============================================
+   RESPONSIVE FIXES FOR ALL SECTIONS
+   ============================================ */
+
+/* Mobile First - Base styles for mobile, then scale up */
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  /* Typography */
+  h1, .h1 { font-size: 2rem !important; }
+  h2, .h2 { font-size: 1.75rem !important; }
+  h3, .h3 { font-size: 1.5rem !important; }
+  h4, .h4 { font-size: 1.25rem !important; }
+  
+  /* Hero Section */
+  .hero-area h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .hero-area {
+    min-height: 80vh !important;
+    padding: 3rem 0 !important;
+  }
+  
+  /* Code Window Illustration */
+  .code-window-illustration {
+    max-width: 100% !important;
+  }
+  
+  /* Navigation */
+  .navbar-brand span {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Sections */
+  .section {
+    padding: 3rem 0 !important;
+  }
+  
+  /* Portfolio Cards - CRITICAL FIX */
+  .portfolio-card-horizontal {
+    flex-direction: column !important;
+  }
+  
+  .portfolio-card-horizontal .portfolio-image-wrapper {
+    width: 100% !important;
+    min-height: 250px !important;
+  }
+  
+  .portfolio-card-horizontal > div:last-child {
+    padding: 1.5rem !important;
+    width: 100% !important;
+  }
+  
+  .portfolio-card-horizontal h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .portfolio-card-horizontal p {
+    font-size: 0.95rem !important;
+  }
+  
+  /* Experience Section */
+  .experience-item .row {
+    flex-direction: column;
+  }
+  
+  .experience-item .col-md-3 {
+    margin-bottom: 1rem;
+  }
+  
+  /* Skills Section */
+  .skill-item {
+    padding: 0.75rem !important;
+  }
+  
+  /* Contact Form */
+  .blog-card-horizontal {
+    flex-direction: column !important;
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Floating Code Elements - Hide on mobile */
+  .code-element {
+    display: none !important;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .hero-area h1 {
+    font-size: 3rem !important;
+  }
+  
+  .portfolio-card-horizontal {
+    flex-direction: column !important;
+  }
+  
+  .portfolio-card-horizontal .portfolio-image-wrapper {
+    width: 100% !important;
+  }
+  
+  .portfolio-card-horizontal > div:last-child {
+    width: 100% !important;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .portfolio-card-horizontal .portfolio-image-wrapper {
+    width: 40% !important;
+  }
+  
+  .portfolio-card-horizontal > div:last-child {
+    padding: 2rem !important;
+  }
+  
+  .hero-area h1 {
+    font-size: 3rem !important;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .portfolio-card-horizontal .portfolio-image-wrapper {
+    width: 42% !important;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .portfolio-card-horizontal .portfolio-image-wrapper {
+    width: 45% !important;
+  }
+}
+
+/* ============================================
+   SPECIFIC SECTION FIXES
+   ============================================ */
+
+/* Portfolio Section - Full Width Container Fix */
+@media (max-width: 991.98px) {
+  .section.section-decorated > div {
+    padding: 0 1.5rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .section.section-decorated > div {
+    padding: 0 1rem !important;
+  }
+}
+
+/* Contact Section */
+@media (max-width: 991.98px) {
+  .blog-card-horizontal {
+    flex-direction: column !important;
+  }
+  
+  .blog-card-horizontal .blog-image-wrapper {
+    width: 100% !important;
+    height: 200px !important;
+  }
+}
+
+/* Experience Cards */
+@media (max-width: 767.98px) {
+  .experience-item .d-flex {
+    flex-direction: column !important;
+  }
+  
+  .experience-item img {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* About Section Code Window */
+@media (max-width: 767.98px) {
+  .sticky-top {
+    position: relative !important;
+    top: 0 !important;
+  }
+}
+
+/* Navigation */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    padding: 1rem 0;
+  }
+  
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Blog Cards */
+@media (max-width: 767.98px) {
+  .blog-card {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Tech Stack Badges - Wrap properly */
+.d-flex.flex-wrap {
+  word-break: break-word;
+}
+
+/* Images - Always responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container overrides for portfolio */
+.portfolio-card-horizontal {
+  max-width: 100%;
+  overflow: hidden;
+}
