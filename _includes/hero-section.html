@@ -68,9 +68,9 @@
   </div>
   
   <!-- Social icons - KEPT IN SAME POSITION -->
-  <ul class="list-unstyled ml-5 mt-3 position-absolute zindex-1" style="left: 0; top: 50%; transform: translateY(-50%);">
+  <ul class="list-unstyled hero-social-icons">
     {% for social in site.data.settings.social %}
-    <li class="mb-3"><a class="text-white" href="{{ social.link }}"><i class="{{ social.icon }}"></i></a></li>
+    <li><a class="text-white" href="{{ social.link }}"><i class="{{ social.icon }}"></i></a></li>
     {% endfor %}
   </ul>
   <!-- /social icon -->

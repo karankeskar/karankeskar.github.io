@@ -1,13 +1,13 @@
 <header class="navigation fixed-top">
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand font-tertiary h3" href="{{ site.baseurl }}/">
+    <a class="navbar-brand font-tertiary h3 brand-logo" href="{{ site.baseurl }}/">
       {% if site.data.settings.logo %}
         <img src="{{ site.data.settings.logo | absolute_url }}" alt="{{ site.data.settings.title }}">
         {% else if %}
-          <span style="color: #F59E0B; font-weight: 700; font-size: 1.5rem; font-family: monospace; letter-spacing: 0.02em;">const</span> 
-          <span style="color: #FFFFFF; font-weight: 700; font-size: 1.5rem; letter-spacing: 0.02em;">{{ site.data.settings.title }}</span>
-          <span style="color: #60A5FA; font-weight: 700; font-size: 1.5rem; font-family: monospace; letter-spacing: 0.02em;"> = ( )</span> 
-          <span style="color: #34D399; font-weight: 700; font-size: 1.5rem; font-family: monospace; letter-spacing: 0.02em;">=&gt;</span>
+          <span class="brand-const" style="color: #F59E0B; font-weight: 700; font-size: 1.5rem; font-family: monospace; letter-spacing: 0.02em;">const</span> 
+          <span class="brand-name" style="color: #FFFFFF; font-weight: 700; font-size: 1.5rem; letter-spacing: 0.02em;">{{ site.data.settings.title }}</span>
+          <span class="brand-syntax d-none d-md-inline" style="color: #60A5FA; font-weight: 700; font-size: 1.5rem; font-family: monospace; letter-spacing: 0.02em;"> = ( )</span> 
+          <span class="brand-arrow d-none d-md-inline" style="color: #34D399; font-weight: 700; font-size: 1.5rem; font-family: monospace; letter-spacing: 0.02em;">=></span>
         {% endif %}
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
