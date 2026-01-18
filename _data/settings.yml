@@ -9,8 +9,9 @@ description: this is meta description
 email: karankeskar058@gmail.com
 # phone: +880 2544 658 256
 address: Camperdown, Sydney, NSW
-copyright: Copyright &copy; Karan Keskar
-
+copyright: |
+  Copyright &copy; 2026 Karan Keskar<br>
+  Theme by <a href="https://themefisher.com" target="_blank" style="color: #0000FF; text-decoration: none;">Themefisher</a>
 menu:
   - { name: About, link: "/about" }
   # - { name: Blog, link: "/blog" }
