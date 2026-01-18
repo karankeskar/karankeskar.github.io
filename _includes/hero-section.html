@@ -1,21 +1,21 @@
 <!-- hero area -->
 <section class="hero-area bg-primary" id="parallax" style="position: relative; overflow: hidden; min-height: 100vh; display: flex; align-items: center;">
   <div class="container">
-    <div class="row align-items-center">
+    <div class="row align-items-center justify-content-center">
       <!-- Left side: Text content -->
-      <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10; position: relative;">
-        <h1 class="text-white font-tertiary" style="font-size: 3.5rem; line-height: 1.2;">
+      <div class="col-lg-6 col-md-8 col-12 mb-4 mb-lg-0 text-center text-lg-left" style="z-index: 10; position: relative;">
+        <h1 class="text-white font-tertiary hero-title">
           {{ site.data.settings.hero.hero-title }}
         </h1>
         {% if site.data.settings.hero.hero-description %}
-        <p class="text-white-50 mt-4 mb-4" style="font-size: 1.1rem; max-width: 500px;">
+        <p class="text-white-50 mt-4 mb-4 hero-description mx-auto mx-lg-0">
           {{ site.data.settings.hero.hero-description }}
         </p>
         {% endif %}
       </div>
       
       <!-- Right side: Code window illustration -->
-      <div class="col-lg-6" style="position: relative; z-index: 10;">
+      <div class="col-lg-6 col-md-8 col-12 d-none d-md-block" style="position: relative; z-index: 10;">
         <svg viewBox="0 0 500 500" class="code-window-illustration">
           <!-- Main code window -->
           <rect x="50" y="100" width="400" height="300" rx="10" fill="#1E293B" opacity="0.9"/>

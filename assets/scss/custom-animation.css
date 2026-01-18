@@ -155,13 +155,66 @@
    RESPONSIVE ADJUSTMENTS
    ======================================== */
 
-@media (max-width: 768px) {
+/* ========================================
+   HERO SECTION SPECIFIC STYLES
+   ======================================== */
+
+.hero-area .list-unstyled {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-area .list-unstyled a {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.hero-area .list-unstyled a:hover {
+  transform: translateX(5px);
+  color: #F59E0B !important;
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+/* Hide floating elements on tablets and below */
+@media (max-width: 991.98px) {
   .code-element {
-    display: none; /* Hide floating elements on mobile for cleaner look */
+    display: none !important;
   }
   
   .section-decorated::before,
   .section-decorated::after {
-    opacity: 0.08; /* Reduce decoration opacity on mobile */
+    opacity: 0.05;
   }
-}  
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 767.98px) {
+  .code-element {
+    display: none !important;
+  }
+  
+  .section-decorated::before,
+  .section-decorated::after {
+    opacity: 0.08;
+  }
+  
+  .code-window-illustration {
+    max-width: 280px;
+  }
+  
+  /* Hero social icons - position for mobile */
+  .hero-area .list-unstyled {
+    position: relative !important;
+    transform: none !important;
+    margin: 2rem auto 0 !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    left: auto !important;
+    top: auto !important;
+  }
+}

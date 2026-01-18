@@ -2,25 +2,51 @@
    RESPONSIVE FIXES FOR ALL SECTIONS
    ============================================ */
 
-/* Mobile First - Base styles for mobile, then scale up */
+/* Hero Title Sizing */
+.hero-title {
+  font-size: 2.5rem !important;
+  line-height: 1.3 !important;
+}
+
+.hero-description {
+  font-size: 1rem !important;
+  max-width: 500px !important;
+}
 
 /* Extra small devices (phones, less than 576px) */
 @media (max-width: 575.98px) {
   /* Typography */
+    /* Typography */
   h1, .h1 { font-size: 2rem !important; }
   h2, .h2 { font-size: 1.75rem !important; }
   h3, .h3 { font-size: 1.5rem !important; }
   h4, .h4 { font-size: 1.25rem !important; }
   
-  /* Hero Section */
-  .hero-area h1 {
-    font-size: 2.5rem !important;
-    line-height: 1.2 !important;
+  /* Hero Section - CRITICAL MOBILE FIXES */
+  .hero-area {
+    min-height: 100vh !important;
+    padding: 80px 0 60px 0 !important;
   }
   
-  .hero-area {
-    min-height: 80vh !important;
-    padding: 3rem 0 !important;
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero-description {
+    font-size: 0.95rem !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Hide social icons on mobile - they're in footer anyway */
+  .hero-area .list-unstyled {
+    display: none !important;
+  }
+  
+  /* Center align hero content on mobile */
+  .hero-area .text-lg-left {
+    text-align: center !important;
   }
   
   /* Code Window Illustration */
@@ -94,8 +120,16 @@
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
-  .hero-area h1 {
-    font-size: 3rem !important;
+  .hero-title {
+    font-size: 2.5rem !important;
+  }
+  
+  .hero-description {
+    font-size: 1rem !important;
+  }
+  
+  .hero-area {
+    min-height: 100vh !important;
   }
   
   .portfolio-card-horizontal {
@@ -113,6 +147,14 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-title {
+    font-size: 3rem !important;
+  }
+  
+  .hero-description {
+    font-size: 1.05rem !important;
+  }
+  
   .portfolio-card-horizontal .portfolio-image-wrapper {
     width: 40% !important;
   }
@@ -120,14 +162,18 @@
   .portfolio-card-horizontal > div:last-child {
     padding: 2rem !important;
   }
-  
-  .hero-area h1 {
-    font-size: 3rem !important;
-  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
+  .hero-title {
+    font-size: 3.5rem !important;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem !important;
+  }
+  
   .portfolio-card-horizontal .portfolio-image-wrapper {
     width: 42% !important;
   }
@@ -135,6 +181,14 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+  .hero-title {
+    font-size: 3.5rem !important;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem !important;
+  }
+  
   .portfolio-card-horizontal .portfolio-image-wrapper {
     width: 45% !important;
   }

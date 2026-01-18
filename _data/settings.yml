@@ -222,7 +222,7 @@ portfolio-home-items:
       
   - title: "PhD Finder Platform"
     description: "Academic search platform connecting PhD candidates with research opportunities. Intelligent filtering across universities, research areas, and funding options. Aggregated 10,000+ opportunities from 50+ institutions."
-    image: "assets/images/portfolio/phd-finder.jpg"
+    image: "assets/images/portfolio/image.jpg"
     technologies:
       - Next.js
       - TypeScript
