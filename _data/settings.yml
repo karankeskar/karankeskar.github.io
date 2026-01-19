@@ -158,7 +158,9 @@ experience:
       - JavaScript
       - HTML
       - CSS
-      - API
+      - DocuSign API
+      - Microsoft Onedrive API
+      - React JS
 
   - name: Production Support Engineer
     icon: "Epsilon-Logo.jpg"
