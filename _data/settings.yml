@@ -143,9 +143,8 @@ experience:
       - Led a university-wide AI assessment integration across 8 faculties and 3,500 academic units, defining AI usage guidelines and standardising assessment documentation.
       - Managed large-scale data migration and QA workflows, validating 20–30 units daily with 99% accuracy while reviewing team outputs to ensure consistent AI policy adoption.
     technologies:
-      - JavaScript
-      - Python
-      - MySQL
+      - Akari
+      - Airtable
 
   - name: Software Engineer
     icon: "agilepoint.jpg"
@@ -157,8 +156,9 @@ experience:
       - Built a Training-as-a-Service (TaaS) tracking platform with automated reporting and email workflows, eliminating 60% of manual effort and saving 10+ hours per month.
     technologies:
       - JavaScript
-      - Python
-      - MySQL
+      - HTML
+      - CSS
+      - API
 
   - name: Production Support Engineer
     icon: "Epsilon-Logo.jpg"
@@ -169,9 +169,11 @@ experience:
       - Optimised production data pipelines using SQL, Amazon Redshift, Informatica, reducing incident resolution time by 40% and improving data accuracy across 100+ pipelines.
       - Automated quality checks, testing, and documentation, preventing 80% of defects pre-production and accelerating onboarding through structured knowledge transfer.
     technologies:
-      - JavaScript
-      - Python
       - MySQL
+      - AWS Redshift
+      - Shell Script
+      - Python
+      - Informatica
 
   - name: Data Engineering Intern
     icon: "eagle-eye.png"
@@ -182,9 +184,7 @@ experience:
       - Supported AI model development through data acquisition, annotation, and augmentation, improving training dataset quality and boosting model performance by 15%.
       - Ensured high-precision data validation and organisation, reducing data-related issues during model testing by 15%.
     technologies:
-      - JavaScript
-      - Python
-      - MySQL
+      - Excel
 #-------------------------------
 # Education Section
 
