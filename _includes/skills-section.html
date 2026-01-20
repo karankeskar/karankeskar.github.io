@@ -2,7 +2,7 @@
 <!-- skills -->
 <section class="section section-decorated" style="padding: 80px 0; position: relative; overflow: hidden; background: #FFFFFF;">
   <div class="container">
-    <!-- Terminal Header -->
+    <!-- Section Header -->
     <div class="row">
       <div class="col-12 text-center mb-5">
         <div style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
@@ -10,50 +10,63 @@
           <div style="width: 12px; height: 12px; background: #F59E0B; border-radius: 50%;"></div>
           <div style="width: 12px; height: 12px; background: #10B981; border-radius: 50%;"></div>
         </div>
-        <h2 class="section-title" style="color: #191919; font-weight: 700; font-size: 2rem; font-family: monospace;">
-          $ cat skills.json
-        </h2>
+        <h6 class="text-uppercase mb-2" style="color: #94A3B8; font-weight: 600; letter-spacing: 0.15em; font-size: 0.75rem;">
+          Technical Proficiency
+        </h6>
+        <h2 class="section-title mb-3" style="color: #0F172A; font-weight: 700;">Skills & Technologies</h2>
+        <div style="width: 60px; height: 3px; background: #F59E0B; margin: 0 auto;"></div>
       </div>
     </div>
 
-    <!-- Skills Terminal Output -->
+    <!-- Skills Grid -->
     <div class="row justify-content-center" style="position: relative; z-index: 2;">
       <div class="col-lg-10">
-        <div style="background: #1E293B; border-radius: 12px; padding: 2.5rem; border: 1px solid #334155;">
-          {% for category in site.data.settings.skill-categories %}
-          <div class="mb-4">
-            <!-- Category -->
-            <div class="mb-3">
-              <span style="color: #94A3B8; font-family: monospace; font-size: 0.9rem;">"{{ category.category | downcase }}":</span>
-              <span style="color: #FFFFFF; font-family: monospace;"> [</span>
-            </div>
-            
-            <!-- Skills -->
-            <div style="padding-left: 2rem;">
-              {% for skill in category.skills %}
-              <div style="margin-bottom: 0.5rem;">
-                <span style="color: #34D399; font-family: monospace; font-size: 0.9rem;">"{{ skill.name }}"</span><span style="color: #94A3B8; font-family: monospace;">{% unless forloop.last %},{% endunless %}</span>
-              </div>
-              {% endfor %}
-            </div>
-            
-            <div class="mb-3">
-              <span style="color: #FFFFFF; font-family: monospace;">]{% unless forloop.last %},{% endunless %}</span>
-            </div>
+        {% for category in site.data.settings.skill-categories %}
+        <div class="mb-5">
+          <!-- Category Header with minimal terminal vibe -->
+          <div class="mb-3" style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="color: #10B981; font-family: monospace; font-size: 0.85rem; font-weight: 600;">$</span>
+            <h3 style="color: #0F172A; font-weight: 700; font-size: 1.25rem; margin: 0;">
+              {{ category.category }}
+            </h3>
+            <div style="flex-grow: 1; height: 1px; background: linear-gradient(to right, #E2E8F0, transparent);"></div>
           </div>
-          {% endfor %}
+          
+          <!-- Skills -->
+          <div class="d-flex flex-wrap" style="gap: 0.75rem; padding-left: 2rem;">
+            {% for skill in category.skills %}
+            <span style="
+              background: #FFFFFF;
+              color: #000000;
+              padding: 0.6rem 1.2rem;
+              border-radius: 6px;
+              font-size: 0.95rem;
+              font-weight: 600;
+              border: 1px solid #E2E8F0;
+              font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+              transition: all 0.2s ease;
+            " onmouseover="this.style.borderColor='#A8ACB2'; this.style.backgroundColor='#FFFFFF';" 
+               onmouseout="this.style.borderColor='#E2E8F0'; this.style.backgroundColor='#FFFFFF';">
+              {{ skill.name }}
+            </span>
+            {% endfor %}
+          </div>
         </div>
+        {% endfor %}
       </div>
     </div>
   </div>
   
-  <!-- Cursor blink animation -->
-  <style>
-  @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-  }
-  </style>
+  <!-- Floating code elements -->
+  <div class="code-element size-md" style="top: 15%; right: 8%; animation: float 7s ease-in-out infinite; z-index: 1;">
+    <code style="color: #60A5FA;">npm install</code>
+  </div>
+  <div class="code-element size-sm" style="bottom: 20%; left: 6%; animation: float-slow 8s ease-in-out infinite; z-index: 1;">
+    <code style="color: #34D399;">git commit</code>
+  </div>
+  <div class="code-element size-lg" style="top: 50%; right: 5%; animation: float-diagonal 9s ease-in-out infinite; z-index: 1;">
+    <code style="color: #A78BFA;">const skills</code>
+  </div>
 </section>
 <!-- /skills -->
 {% endif %}
