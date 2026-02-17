@@ -9,126 +9,51 @@ subtitle: Projects I've built and shipped
 
 <!-- portfolio - Full Width -->
 <section class="section section-decorated" style="position: relative; overflow: hidden; padding: 80px 0; width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%);">
-  <div style="width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 3rem;">
-    <!-- Portfolio Grid -->
-    {% for item in site.data.settings.portfolio-items %}
-    <div class="portfolio-card-horizontal mb-5" style="
-      background: #FFFFFF;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #E2E8F0;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-    ">
-      <!-- Project Image - Left Side -->
-      <div class="portfolio-image-wrapper" style="position: relative; overflow: hidden; width: 45%; flex-shrink: 0;">
-        <img src="{{ site.baseurl }}/{{ item.image }}" 
-             alt="{{ item.title }}" 
-             style="width: 100%; height: 100%; object-fit: cover; min-height: 450px;">
-      </div>
-      
-      <!-- Project Info - Right Side -->
-      <div style="padding: 3rem 4rem; flex-grow: 1; display: flex; flex-direction: column; width: 55%;">
-        <h2 style="color: #0F172A; font-weight: 700; font-size: 2.25rem; margin-bottom: 1.5rem; line-height: 1.2;">
-          {{ item.title }}
-        </h2>
-        
-        <!-- Description -->
-        {% if item.description %}
-        <p style="color: #64748B; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2.5rem; flex-grow: 1;">
-          {{ item.description }}
-        </p>
-        {% endif %}
-        
-        <!-- Technologies -->
-        {% if item.technologies %}
-        <div style="margin-bottom: 2rem;">
-          <h6 class="mb-3" style="color: #0F172A; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">
-            Tech Stack
-          </h6>
-          <div class="d-flex flex-wrap" style="gap: 0.75rem;">
-            {% for tech in item.technologies %}
-            <span style="
-              background: #F1F5F9;
-              color: #475569;
-              padding: 0.6rem 1.2rem;
-              border-radius: 6px;
-              font-size: 0.9rem;
-              font-weight: 600;
-              border: 1px solid #E2E8F0;
-              font-family: monospace;
-            ">{{ tech }}</span>
-            {% endfor %}
-          </div>
-        </div>
-        {% endif %}
-        
-<!-- Action Buttons -->
-{% if item.live_demo or item.github or item.url %}
-<div class="d-flex" style="gap: 1rem; margin-top: auto;">
-  {% if item.live_demo %}
-  <a href="{{ item.live_demo }}" target="_blank" style="
-    background: #000000;
-    color: #FFFFFF;
-    padding: 1rem 2.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 2px solid #0F172A;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  " onmouseover="this.style.backgroundColor='#000000'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(245, 158, 11, 0.4)';" 
-     onmouseout="this.style.backgroundColor='#000000'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-      <polyline points="15 3 21 3 21 9"></polyline>
-      <line x1="10" y1="14" x2="21" y2="3"></line>
-    </svg>
-    Live Demo
-  </a>
-  {% endif %}
-  
-  {% if item.github %}
-  <a href="{{ item.github }}" target="_blank" style="
-    background: #000000;
-    color: #FFFFFF;
-    padding: 1rem 2.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 2px solid #E2E8F0;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  " onmouseover="this.style.backgroundColor='#000000'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(245, 158, 11, 0.4)';" 
-     onmouseout="this.style.backgroundColor='#000000'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-    </svg>
-    View Code
-  </a>
-  {% endif %}
-</div>
-{% endif %}      
-</div>
+  <div style="width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 3rem; position: relative; z-index: 2;">
+    <div style="margin-bottom: 2rem;">
+      <h2 style="color: #0F172A; font-weight: 700; font-size: 2rem; margin-bottom: 0.5rem;">Projects</h2>
+      <p style="color: #64748B; margin: 0;">Click a card to open the full project details.</p>
     </div>
-    {% endfor %}
+
+    <!-- Project Cards -->
+    <div class="portfolio-card-grid">
+      {% for item in site.data.settings.portfolio-items %}
+      <button
+        type="button"
+        class="project-summary-card"
+        data-project-index="{{ forloop.index0 }}"
+        onclick="openProjectDetail({{ forloop.index0 }})"
+      >
+        <div class="project-summary-image-wrap">
+          <img src="{{ site.baseurl }}/{{ item.image }}" alt="{{ item.title }}" class="project-summary-image{% if item.title contains 'PhD Finder' %} project-summary-image-contain{% endif %}">
+        </div>
+        <div class="project-summary-content">
+          <h3 class="project-summary-title">{{ item.title }}</h3>
+          {% if item.description %}
+          <p class="project-summary-desc">{{ item.description | truncate: 170 }}</p>
+          {% endif %}
+          {% if item.technologies %}
+          <div class="project-summary-tech">
+            {% for tech in item.technologies limit: 4 %}
+            <span>{{ tech }}</span>
+            {% endfor %}
+            {% if item.technologies.size > 4 %}
+            <span>+{{ item.technologies.size | minus: 4 }} more</span>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+      </button>
+      {% endfor %}
+    </div>
+
   </div>
   
   <!-- Floating code elements -->
   <div class="code-element size-lg" style="top: 12%; right: 8%; animation: float 7s ease-in-out infinite; z-index: 1;">
     <code style="color: #60A5FA;">build()</code>
   </div>
-  <div class="code-element size-md" style="top: 35%; left: 6%; animation: float-slow 8s ease-in-out infinite; z-index: 1;">
+  <div class="code-element size-md" style="top: 25%; left: 6%; animation: float-slow 8s ease-in-out infinite; z-index: 1;">
     <code style="color: #34D399;">deploy</code>
   </div>
   <div class="code-element size-sm" style="bottom: 25%; right: 10%; animation: float-diagonal 9s ease-in-out infinite; z-index: 1;">
@@ -142,56 +67,517 @@ subtitle: Projects I've built and shipped
   </div>
 </section>
 
+<!-- Project Detail Templates -->
+<div id="project-detail-templates" style="display: none;">
+  {% for item in site.data.settings.portfolio-items %}
+  <article id="project-template-{{ forloop.index0 }}" class="project-detail-item-template">
+    <!-- {% if item.project_type %}
+    <span class="project-type-badge">{{ item.project_type }}</span>
+    {% endif %} -->
+
+    <h2 class="project-detail-title">{{ item.title }}</h2>
+    {% if item.description %}
+    <p class="project-detail-description">{{ item.description }}</p>
+    {% endif %}
+
+    {% if item.technologies %}
+    <div style="margin-bottom: 2rem;">
+      <h5 style="color: #0F172A; font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">Tech Stack</h5>
+      <div class="project-detail-tech">
+        {% for tech in item.technologies %}
+        <span>{{ tech }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if item.live_demo or item.github or item.url %}
+    <div class="project-actions">
+      {% if item.live_demo %}
+      <a href="{{ item.live_demo }}" target="_blank" rel="noopener noreferrer">Live Demo</a>
+      {% endif %}
+      {% if item.github %}
+      <a href="{{ item.github }}" target="_blank" rel="noopener noreferrer">View Code</a>
+      {% endif %}
+      {% if item.url %}
+      <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">Learn More</a>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if item.gallery_images %}
+    <div style="margin-top: 2rem;">
+      <h5 style="color: #0F172A; font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">Project Screenshots ({{ item.gallery_images | size }})</h5>
+      <div class="project-gallery-grid">
+        {% for img in item.gallery_images %}
+        {% assign image_name = img | split: '/' | last | split: '.' | first %}
+        {% capture image_caption %}
+          {% if image_name == 'Application_Architecture' %}
+            Application Architecture
+          {% elsif image_name contains 'Picture' %}
+            Feature Screen {{ image_name | remove: 'Picture' }}
+          {% else %}
+            {{ image_name | replace: '_', ' ' | replace: '-', ' ' }}
+          {% endif %}
+        {% endcapture %}
+        <div class="gallery-item">
+          <img src="{{ site.baseurl }}/{{ img }}" alt="{{ item.title }} - {{ image_caption | strip }}" onclick="openImageModal(this.src)">
+          <p>{{ image_caption | strip }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% else %}
+    <div style="margin-top: 2rem;">
+      <img src="{{ site.baseurl }}/{{ item.image }}" alt="{{ item.title }}" onclick="openImageModal(this.src)" class="project-detail-main-image">
+    </div>
+    {% endif %}
+  </article>
+  {% endfor %}
+</div>
+
+<!-- Image Zoom Modal -->
+<div id="imageModal" style="
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 2147483647;
+  cursor: zoom-out;
+  align-items: center;
+  justify-content: center;
+">
+  <img id="modalImage" style="
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+  ">
+  
+  <button onclick="closeImageModal()" style="
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  " onmouseover="this.style.background='rgba(245, 158, 11, 0.9)'; this.style.borderColor='#F59E0B';"
+     onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.borderColor='#FFFFFF';">
+    ✕
+  </button>
+</div>
+
 <!-- Reopen containers for rest of page -->
 <div class="container"><div class="row"><div class="col">
 
-<style>
-/* Portfolio Card Styles */
-.portfolio-card-horizontal:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  border-color: #F59E0B;
+<!-- Simple Modal Script -->
+<script>
+var projectModalRoot = null;
+var projectModalBody = null;
+var imageModalEl = null;
+
+function ensureImageModal() {
+  if (!imageModalEl) {
+    imageModalEl = document.getElementById('imageModal');
+    if (imageModalEl && imageModalEl.parentNode !== document.body) {
+      document.body.appendChild(imageModalEl);
+    }
+  }
+  return imageModalEl;
 }
 
-.portfolio-card-horizontal:hover .portfolio-image-wrapper img {
+function ensureProjectModal() {
+  if (projectModalRoot) {
+    return;
+  }
+
+  projectModalRoot = document.createElement('div');
+  projectModalRoot.id = 'projectDetailModal';
+  projectModalRoot.className = 'project-detail-modal-overlay';
+  projectModalRoot.innerHTML = '' +
+    '<div class="project-detail-modal-dialog">' +
+      '<button type="button" class="project-detail-modal-close" aria-label="Close project details">✕</button>' +
+      '<div class="project-detail-modal-body"></div>' +
+    '</div>';
+
+  document.body.appendChild(projectModalRoot);
+  projectModalBody = projectModalRoot.querySelector('.project-detail-modal-body');
+
+  projectModalRoot.querySelector('.project-detail-modal-close').addEventListener('click', closeProjectDetailModal);
+  projectModalRoot.addEventListener('click', function(e) {
+    if (e.target === projectModalRoot) {
+      closeProjectDetailModal(e);
+    }
+  });
+}
+
+function updateBodyScrollLock() {
+  var isProjectModalOpen = projectModalRoot && projectModalRoot.style.display === 'flex';
+  var imageModal = ensureImageModal();
+  var isImageModalOpen = imageModal && imageModal.style.display === 'flex';
+  var isAnyModalOpen = isProjectModalOpen || isImageModalOpen;
+  document.body.style.overflow = isAnyModalOpen ? 'hidden' : 'auto';
+  document.body.classList.toggle('modal-open-locked', isAnyModalOpen);
+}
+
+function openProjectDetail(index) {
+  ensureProjectModal();
+
+  var cards = document.querySelectorAll('.project-summary-card');
+  var template = document.getElementById('project-template-' + index);
+
+  cards.forEach(function(card) {
+    card.classList.remove('active');
+    if (card.getAttribute('data-project-index') === String(index)) {
+      card.classList.add('active');
+    }
+  });
+
+  if (template && projectModalBody) {
+    var clone = template.cloneNode(true);
+    clone.removeAttribute('id');
+    clone.className = 'project-detail-item active';
+    projectModalBody.innerHTML = '';
+    projectModalBody.appendChild(clone);
+    projectModalRoot.style.display = 'flex';
+    updateBodyScrollLock();
+  }
+}
+
+function closeProjectDetailModal(evt) {
+  if (evt) {
+    evt.preventDefault();
+    evt.stopPropagation();
+  }
+  if (projectModalRoot) {
+    projectModalRoot.style.display = 'none';
+  }
+  updateBodyScrollLock();
+}
+
+function openImageModal(src) {
+  var modal = ensureImageModal();
+  if (!modal) {
+    return;
+  }
+  var img = document.getElementById('modalImage');
+  img.src = src;
+  modal.style.display = 'flex';
+  updateBodyScrollLock();
+}
+
+function closeImageModal() {
+  var modal = ensureImageModal();
+  if (!modal) {
+    return;
+  }
+  modal.style.display = 'none';
+  updateBodyScrollLock();
+}
+
+// Close on click outside image
+var initImageModal = ensureImageModal();
+if (initImageModal) {
+  initImageModal.addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeImageModal();
+    }
+  });
+}
+
+// Close on Escape key
+document.addEventListener('keydown', function(e) {
+  var imageModal = ensureImageModal();
+  if (e.key === 'Escape') {
+    if (imageModal && imageModal.style.display === 'flex') {
+      closeImageModal();
+    } else if (projectModalRoot && projectModalRoot.style.display === 'flex') {
+      closeProjectDetailModal(e);
+    }
+  }
+});
+
+</script>
+
+<style>
+.portfolio-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.project-summary-card {
+  width: 100%;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  background: #FFFFFF;
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project-summary-card:hover,
+.project-summary-card.active {
+  transform: translateY(-8px);
+  /* border-color: #F59E0B; */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.project-summary-image-wrap {
+  height: 190px;
+  background: #F8FAFC;
+}
+
+.project-summary-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-summary-image-contain {
+  object-fit: contain;
+  padding: 0.75rem;
+  background: #FFFFFF;
+}
+
+.project-summary-content {
+  padding: 1.25rem;
+}
+
+.project-summary-title {
+  color: #0F172A;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+}
+
+.project-summary-desc {
+  color: #64748B;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.project-summary-tech,
+.project-detail-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-summary-tech span,
+.project-detail-tech span {
+  background: #F1F5F9;
+  color: #475569;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.project-detail-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.96);
+  z-index: 999999;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  pointer-events: auto;
+}
+
+.project-detail-modal-dialog {
+  width: min(1100px, 100%);
+  max-height: 90vh;
+  background: #FFFFFF;
+  border-radius: 14px;
+  border: 1px solid #E2E8F0;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-detail-modal-close {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-right));
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  background: rgba(15, 23, 42, 0.85);
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  z-index: 1000001;
+}
+
+.project-detail-modal-body {
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 4.5rem 2rem 2rem;
+}
+
+.project-detail-item {
+  display: none;
+}
+
+.project-detail-item.active {
+  display: block;
+}
+
+.project-type-badge {
+  background: #FEF3C7;
+  color: #92400E;
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.project-detail-title {
+  color: #0F172A;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.project-detail-description {
+  color: #64748B;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 0 0 1.5rem;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.project-actions a {
+  background: #0F172A;
+  color: #FFFFFF;
+  padding: 0.65rem 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-actions a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  background: #F8FAFC;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  transition: all 0.3s ease;
+  cursor: zoom-in;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  /* border-color: #000000; */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
   transform: scale(1.05);
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
-  .section > div {
-    padding: 0 2rem !important;
-  }
-  
-  .portfolio-card-horizontal > div:last-child {
-    padding: 2.5rem 3rem !important;
-  }
+.gallery-item p {
+  margin: 0;
+  padding: 0.6rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #64748B;
+  background: #FFFFFF;
 }
 
-@media (max-width: 992px) {
-  .portfolio-card-horizontal {
-    flex-direction: column !important;
-  }
-  
-  .portfolio-card-horizontal .portfolio-image-wrapper {
-    width: 100% !important;
-    min-height: 350px !important;
-  }
-  
-  .portfolio-card-horizontal > div:last-child {
-    padding: 2rem !important;
-    width: 100% !important;
-  }
-  
-  .section > div {
-    padding: 0 1.5rem !important;
-  }
+.project-detail-main-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  cursor: zoom-in;
 }
 
+/* Gallery Item Hover */
+/* Responsive Grid */
 @media (max-width: 768px) {
   .section > div {
     padding: 0 1rem !important;
   }
+
+  .project-detail-modal-overlay {
+    padding: 0.75rem;
+  }
+
+  .project-detail-modal-body {
+    padding: 4rem 1.25rem 1.25rem;
+  }
+
+  .project-detail-modal-close {
+    top: max(10px, env(safe-area-inset-top));
+  }
+
+  .project-detail-title {
+    font-size: 1.5rem;
+  }
+
+  .gallery-item img,
+  .project-summary-image-wrap {
+    height: 170px !important;
+  }
+}
+
+body.modal-open-locked .navigation {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 </style>
 <!-- /portfolio -->

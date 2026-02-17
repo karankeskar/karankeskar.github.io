@@ -6,7 +6,7 @@ title: Karan Keskar
 logo:
 author: themefisher
 description: this is meta description
-email: karankeskar058@gmail.com
+email: karankeskar.dev@gmail.com
 # phone: +880 2544 658 256
 address: Camperdown, Sydney, NSW
 copyright: |
@@ -35,7 +35,7 @@ hero:
   hero-title: Hi! I’m <br> Karan <br> Software Developer
 
 social:
-  - { icon: "ti-email", link: "mailto:karankeskar058@gmail.com" }
+  - { icon: "ti-email", link: "mailto:karankeskar.dev@gmail.com" }
   - { icon: "ti-github", link: "https://github.com/karankeskar" }
   - { icon: "ti-linkedin", link: "https://www.linkedin.com/in/karan-keskar/" }
 
@@ -211,7 +211,7 @@ education:
 portfolio-home-items:
   - title: "StayFresh - Food Inventory Tracker"
     description: "Mobile app reducing food wastage through AI-powered inventory management. Integrated Google Gemini API for automatic food recognition from images and QR scanning for quick item registration."
-    image: "assets/images/portfolio/stayfresh.jpg"
+    image: "assets/images/portfolio/stayfresh/StayFresh.png"
     technologies:
       - React Native
       - Firebase
@@ -220,7 +220,7 @@ portfolio-home-items:
       
   - title: "PhD Finder Platform"
     description: "Academic search platform connecting PhD candidates with research opportunities. Intelligent filtering across universities, research areas, and funding options. Aggregated 10,000+ opportunities from 50+ institutions."
-    image: "assets/images/portfolio/image.jpg"
+    image: "assets/images/portfolio/phdfinder/Application_Architecture.png"
     technologies:
       - Next.js
       - TypeScript
@@ -231,7 +231,22 @@ portfolio-items:
   - title: "PhD Finder"
     project_type: "University Capstone Project"
     description: "Academic search and discovery platform connecting prospective PhD students with research opportunities. Implemented intelligent filtering system allowing users to search by university, research area, supervisor, and funding availability. Built RESTful API aggregating data from multiple university databases and research portals. Designed responsive UI with advanced search capabilities, bookmarking system, and personalized recommendation engine. Processed 10,000+ research opportunities across 50+ institutions."
-    image: "assets/images/portfolio/image.png"
+    image: "assets/images/portfolio/phdfinder/Application_Architecture.png"
+    gallery_images:  # NEW: Add this array
+      - "assets/images/portfolio/phdfinder/Application_Architecture.png"
+      - "assets/images/portfolio/phdfinder/Picture2.png"
+      - "assets/images/portfolio/phdfinder/Picture3.png"
+      - "assets/images/portfolio/phdfinder/Picture4.png"
+      - "assets/images/portfolio/phdfinder/Picture5.png"
+      - "assets/images/portfolio/phdfinder/Picture6.png"
+      - "assets/images/portfolio/phdfinder/Picture7.png"
+      - "assets/images/portfolio/phdfinder/Picture8.png"
+      - "assets/images/portfolio/phdfinder/Picture9.png"
+      - "assets/images/portfolio/phdfinder/Picture10.png"
+      - "assets/images/portfolio/phdfinder/Picture11.png"
+      - "assets/images/portfolio/phdfinder/Picture12.png"
+      - "assets/images/portfolio/phdfinder/Picture13.png"
+      - "assets/images/portfolio/phdfinder/Picture14.png"
     technologies:
       - NextJS
       - Tyepscript
@@ -244,7 +259,14 @@ portfolio-items:
   - title: "StayFresh - Food Inventory Tracker"
     project_type: "University Capstone Project"
     description: "Full-stack mobile application built with React Native to reduce food wastage through intelligent inventory management. Integrated Google Gemini LLM API for AI-powered image recognition to automatically identify and categorize food items from photos (produce, dairy, meat). Implemented QR code scanning for quick item registration and expiry tracking. Built dynamic inventory interface with real-time Firebase synchronization, displaying categorized items with expiry alerts. Developed as capstone project at University of Sydney."
-    image: "assets/images/portfolio/stayfresh.jpg"
+    image: "assets/images/portfolio/stayfresh/StayFresh.png"
+    gallery_images:  # NEW: Add this array
+      - "assets/images/portfolio/stayfresh/Add New Item Page.png"
+      - "assets/images/portfolio/stayfresh/Alerts Page.png"
+      - "assets/images/portfolio/stayfresh/Fridge Page.png"
+      - "assets/images/portfolio/stayfresh/Login Page.png"
+      - "assets/images/portfolio/stayfresh/Recipe Page.png"
+      - "assets/images/portfolio/stayfresh/Register Page.png"
     technologies:
       - React Native
       - Firebase
@@ -254,14 +276,23 @@ portfolio-items:
       - Expo
       - JavaScript
       
-
       
   - title: "Portfolio Website"
     project_type: "Personal Project"
     description: "Designed and developed this portfolio website using Jekyll static site generator and GitHub Pages. Implemented responsive design with mobile-first approach, floating code animations, and modern SWE-themed interface. Optimized for performance with 95+ Lighthouse score. Features include dynamic project showcase, blog integration, and contact form."
-    image: "assets/images/portfolio/portfolio-site.jpg"
+    image: "assets/images/portfolio/portfolio/Homepage.png"
     github: "https://github.com/karankeskar/portfolio"
     live_demo: "https://karankeskar.github.io"
+    gallery_images:  # NEW: Add this array
+      - "assets/images/portfolio/portfolio/about.png"
+      - "assets/images/portfolio/portfolio/Skills.png"
+      - "assets/images/portfolio/portfolio/Education.png"
+      - "assets/images/portfolio/portfolio/Experience.png"
+      - "assets/images/portfolio/portfolio/Expereince 2.png"
+      - "assets/images/portfolio/portfolio/Homepage.png"
+      - "assets/images/portfolio/portfolio/portfolio.png"
+      - "assets/images/portfolio/portfolio/Projects.png"
+      - "assets/images/portfolio/portfolio/Resume.png"
     technologies:
       - Jekyll
       - HTML/CSS
@@ -273,4 +304,4 @@ portfolio-items:
 # Contact Section
 
 contact-title: Contact Info
-contact-email: karankeskar058@gmail.com
+contact-email: karankeskar.dev@gmail.com
