@@ -281,7 +281,7 @@ portfolio-items:
     project_type: "Personal Project"
     description: "Designed and developed this portfolio website using Jekyll static site generator and GitHub Pages. Implemented responsive design with mobile-first approach, floating code animations, and modern SWE-themed interface. Optimized for performance with 95+ Lighthouse score. Features include dynamic project showcase, blog integration, and contact form."
     image: "assets/images/portfolio/portfolio/Homepage.png"
-    github: "https://github.com/karankeskar/portfolio"
+    github: "https://github.com/karankeskar/karankeskar.github.io"
     live_demo: "https://karankeskar.github.io"
     gallery_images:  # NEW: Add this array
       - "assets/images/portfolio/portfolio/about.png"
@@ -299,6 +299,27 @@ portfolio-items:
       - JavaScript
       - GitHub Pages
       - Liquid
+
+  - title: "Fauna - Wildlife Social Media"
+    project_type: "University Capstone Project"
+    description: "Full stack application A home for naturalists, wildlife photographers, and those who still choose the wild."
+    image: "assets/images/portfolio/fauna/Image1.png"
+    github: "https://github.com/karankeskar/fauna-waitlist"
+    live_demo: "https://fauna-waitlist-production.up.railway.app"
+    gallery_images:  # NEW: Add this array
+      - "assets/images/portfolio/fauna/Image1.png"
+      - "assets/images/portfolio/fauna/Image2.png"
+      - "assets/images/portfolio/fauna/Image3.png"
+      - "assets/images/portfolio/fauna/Image4.png"
+      - "assets/images/portfolio/fauna/Image5.png"
+      - "assets/images/portfolio/fauna/Image6.png"
+    technologies:
+      - React JS
+      - MongoDB
+      - Typescript
+      - JavaScript
+      - Cloudinary
+      - Railway
 
 #-------------------------------
 # Contact Section
