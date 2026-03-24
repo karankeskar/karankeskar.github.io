@@ -324,7 +324,7 @@ portfolio-items:
   - title: "YARP Reverse Proxy — .NET Learning Project"
     project_type: "Personal Learning Project"
     description: "A multi-project ASP.NET Core solution exploring reverse proxying, request routing, and load balancing using Microsoft's YARP library."
-    image: "assets/images/portfolio/yarp/Image1.png"
+    image: "assets/images/portfolio/YARP-Gateway/YARP-Reverse-Proxy-Architecture.png"
     github: "https://github.com/karankeskar/yarp-reverse-proxy"
     live_demo: ""
     gallery_images:
