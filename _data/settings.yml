@@ -321,6 +321,21 @@ portfolio-items:
       - Cloudinary
       - Railway
 
+  - title: "YARP Reverse Proxy — .NET Learning Project"
+    project_type: "Personal Learning Project"
+    description: "A multi-project ASP.NET Core solution exploring reverse proxying, request routing, and load balancing using Microsoft's YARP library."
+    image: "assets/images/portfolio/yarp/Image1.png"
+    github: "https://github.com/karankeskar/yarp-reverse-proxy"
+    live_demo: ""
+    gallery_images:
+      - "assets/images/portfolio/YARP-Gateway/YARP-Reverse-Proxy-Architecture.png"
+    technologies:
+    - C#
+    - .NET 8
+    - ASP.NET Core
+    - YARP
+    - Razor Pages
+
 #-------------------------------
 # Contact Section
 
