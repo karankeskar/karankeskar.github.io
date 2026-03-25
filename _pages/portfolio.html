@@ -105,7 +105,44 @@ subtitle: Projects I've built and shipped
     </div>
     {% endif %}
 
-    {% if item.gallery_images %}
+    <!-- ============================================================
+         MEDIA SECTION: PDF deck → gallery images → single image
+         ============================================================ -->
+    {% if item.deck_pdf %}
+    <!-- PDF Deck Viewer (e.g. PhD Finder) -->
+    <div class="deck-section">
+      <div class="deck-header">
+        <h5 class="deck-heading">Project Deck</h5>
+        <a
+          href="{{ site.baseurl }}/{{ item.deck_pdf }}"
+          download
+          class="deck-download-btn"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download PDF
+        </a>
+      </div>
+      <div class="deck-embed-wrap">
+        <iframe
+          src="{{ site.baseurl }}/{{ item.deck_pdf }}#toolbar=0&navpanes=0&scrollbar=1&view=FitH"
+          class="deck-iframe"
+          title="{{ item.title }} Project Deck"
+          loading="lazy"
+        >
+          <p style="color: #64748B; padding: 2rem; text-align: center;">
+            Your browser can't display PDFs inline.
+            <a href="{{ site.baseurl }}/{{ item.deck_pdf }}" target="_blank" style="color: #0F172A; font-weight: 600;">Open the deck directly →</a>
+          </p>
+        </iframe>
+      </div>
+    </div>
+
+    {% elsif item.gallery_images %}
+    <!-- Gallery Grid -->
     <div style="margin-top: 2rem;">
       <h5 style="color: #0F172A; font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">Project Screenshots ({{ item.gallery_images | size }})</h5>
       <div class="project-gallery-grid">
@@ -127,11 +164,15 @@ subtitle: Projects I've built and shipped
         {% endfor %}
       </div>
     </div>
+
     {% else %}
+    <!-- Single fallback image -->
     <div style="margin-top: 2rem;">
       <img src="{{ site.baseurl }}/{{ item.image }}" alt="{{ item.title }}" onclick="openImageModal(this.src)" class="project-detail-main-image">
     </div>
     {% endif %}
+    <!-- ============================================================ -->
+
   </article>
   {% endfor %}
 </div>
@@ -330,7 +371,6 @@ document.addEventListener('keydown', function(e) {
 .project-summary-card:hover,
 .project-summary-card.active {
   transform: translateY(-8px);
-  /* border-color: #F59E0B; */
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
@@ -512,7 +552,6 @@ document.addEventListener('keydown', function(e) {
 .gallery-item:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  /* border-color: #000000; */
 }
 
 .gallery-item img {
@@ -545,8 +584,65 @@ document.addEventListener('keydown', function(e) {
   cursor: zoom-in;
 }
 
-/* Gallery Item Hover */
-/* Responsive Grid */
+/* ── PDF Deck Viewer ─────────────────────────────────────── */
+.deck-section {
+  margin-top: 2rem;
+}
+
+.deck-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.deck-heading {
+  color: #0F172A;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.deck-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #0F172A;
+  color: #FFFFFF;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.deck-download-btn:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(245, 158, 11, 0.35);
+}
+
+.deck-embed-wrap {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  background: #F8FAFC;
+}
+
+.deck-iframe {
+  width: 100%;
+  height: 520px;
+  border: none;
+  display: block;
+}
+/* ─────────────────────────────────────────────────────────── */
+
+/* Responsive */
 @media (max-width: 768px) {
   .section > div {
     padding: 0 1rem !important;
@@ -571,6 +667,10 @@ document.addEventListener('keydown', function(e) {
   .gallery-item img,
   .project-summary-image-wrap {
     height: 170px !important;
+  }
+
+  .deck-iframe {
+    height: 380px;
   }
 }
 
