@@ -14,7 +14,7 @@ copyright: |
   Theme by <a href="https://themefisher.com" target="_blank" style="color: #0000FF; text-decoration: none;">Themefisher</a>
 menu:
   - { name: About, link: "/about" }
-  # - { name: Blog, link: "/blog" }
+  - { name: Blog, link: "/blog" }
   - { name: Portfolio, link: "/portfolio" }
   - { name: Contact, link: "/contact" }
 
