@@ -41,24 +41,15 @@ subtitle: Thoughts on software development and technology
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #E2E8F0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.45s ease-out, box-shadow 0.45s ease-out, border-color 0.45s ease-out;
   height: 100%;
   display: flex;
   flex-direction: column;
-  text-decoration: none;
-  color: inherit;
+  cursor: pointer;
 }
 .blog-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  text-decoration: none;
-  color: inherit;
-}
-.blog-card:focus,
-.blog-card:active,
-.blog-card:visited {
-  text-decoration: none;
-  color: inherit;
 }
 .blog-card-content {
   padding: 1.75rem;
@@ -103,16 +94,6 @@ subtitle: Thoughts on software development and technology
 .blog-card:hover .blog-card-link {
   color: #000000;
 }
-a.blog-card,
-a.blog-card:hover,
-a.blog-card:focus,
-a.blog-card:active,
-a.blog-card:visited {
-  text-decoration: none !important;
-  box-shadow: none !important;
-  border-bottom: none !important;
-  outline: none !important;
-}
 </style>
 
 <script>
@@ -127,15 +108,16 @@ fetch('https://api.rss2json.com/v1/api.json?rss_url=https://karanbuilds.wordpres
     grid.innerHTML = data.items.map(function(post) {
       var date = new Date(post.pubDate).toLocaleDateString('en-AU', { year: 'numeric', month: 'short', day: 'numeric' });
       var excerpt = post.description.replace(/<[^>]+>/g, '').substring(0, 160).trim() + '...';
+      var safeLink = post.link.replace(/'/g, '%27');
       return '<div class="col-lg-6 col-md-6 mb-4">' +
-        '<a href="' + post.link + '" target="_blank" rel="noopener noreferrer" class="blog-card">' +
+        '<div class="blog-card" role="link" tabindex="0" onclick="window.open(\'' + safeLink + '\', \'_blank\', \'noopener,noreferrer\')" onkeydown="if(event.key===\'Enter\'){window.open(\'' + safeLink + '\', \'_blank\', \'noopener,noreferrer\')}">' +
           '<div class="blog-card-content">' +
             '<p class="blog-card-date">' + date + '</p>' +
             '<h3 class="blog-card-title">' + post.title + '</h3>' +
             '<p class="blog-card-excerpt">' + excerpt + '</p>' +
             '<span class="blog-card-link">Read on WordPress <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>' +
           '</div>' +
-        '</a>' +
+        '</div>' +
       '</div>';
     }).join('');
   })
