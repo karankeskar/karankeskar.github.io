@@ -20,14 +20,15 @@
   {% endfor %}
 
   <!-- Main Stylesheet -->
-  <link href="{{ '/assets/scss/style.css' | relative_url }}" rel="stylesheet">
+  {% comment %} ?v= changes every build so browsers never mix cached CSS/JS with new HTML {% endcomment %}
+  <link href="{{ '/assets/scss/style.css' | relative_url }}?v={{ site.time | date: "%s" }}" rel="stylesheet">
 
   <!--Favicon-->
   <link rel="shortcut icon" href="{{ '/assets/images/favicon.ico' | relative_url }} " type="image/x-icon">
   <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }} " type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Animation Stylesheet -->
-   <link rel="stylesheet" href="{{ site.baseurl }}/assets/scss/custom-animation.css">
+   <link rel="stylesheet" href="{{ site.baseurl }}/assets/scss/custom-animation.css?v={{ site.time | date: "%s" }}">
    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/responsive.css">
    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-966R0D0T3M"></script>

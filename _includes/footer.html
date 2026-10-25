@@ -34,8 +34,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <!-- Main Script -->
-<script src="{{ '/assets/js/script.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/animations.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/script.js' | relative_url }}?v={{ site.time | date: "%s" }}"></script>
+<script src="{{ '/assets/js/animations.js' | relative_url }}?v={{ site.time | date: "%s" }}"></script>
 
 <!-- Command palette (⌘K) -->
 <script>
@@ -47,5 +47,5 @@
     projects: [{% for item in site.data.settings.portfolio-items %}{{ item.title | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}]
   };
 </script>
-<script src="{{ '/assets/js/command-palette.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/contact.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/command-palette.js' | relative_url }}?v={{ site.time | date: "%s" }}"></script>
+<script src="{{ '/assets/js/contact.js' | relative_url }}?v={{ site.time | date: "%s" }}"></script>
