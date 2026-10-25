@@ -22,7 +22,7 @@
   color: #F59E0B;
   font-weight: 700;
   font-size: 1.5rem;
-  font-family: monospace;
+  font-family: var(--font-mono);
   letter-spacing: 0.02em;
 }
 
@@ -37,7 +37,7 @@
   color: #60A5FA;
   font-weight: 700;
   font-size: 1.5rem;
-  font-family: monospace;
+  font-family: var(--font-mono);
   letter-spacing: 0.02em;
 }
 
@@ -45,7 +45,7 @@
   color: #34D399;
   font-weight: 700;
   font-size: 1.5rem;
-  font-family: monospace;
+  font-family: var(--font-mono);
   letter-spacing: 0.02em;
 }
 

@@ -1,27 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-// Color Variables
-$primary-color: #000000;  // Almost black
-$secondary-color: #3B82F6;  // Bright blue
-$text-color: #F8FAFC;
-$text-color-dark: #000;
-$text-color-light: #000;
-$body-color: #fff;
-$border-color: #c7c7c7;
+// ===== Dark hero / banner palette (hero-area + page-title bands only) =====
+$bg-base: #0A0E14;            // Dark section background (.bg-primary), used by hero + page-title bands
+
+// ===== Light, clean palette (everything else) =====
+// Surfaces (page -> elevated)
+$bg-surface: #F8FAFC;         // Section alt background / image wrappers
+$bg-elevated: #FFFFFF;        // Cards / panels
+$bg-elevated-hover: #F1F5F9;  // Card hover / chip hover
+$border-color: #E2E8F0;       // Default hairline border
+$border-hover: #CBD5E1;       // Hovered border
+
+// Text
+$text-color: #0F172A;         // Primary text (near-black)
+$text-color-dark: $text-color; // legacy alias
+$text-color-light: #64748B;   // legacy alias, now maps to muted text
+$text-muted: #475569;         // Secondary / muted text
+$text-faint: #94A3B8;         // Tertiary / faint text
+
+// Brand / accents (unchanged - read well on light and dark)
+$primary-color: $text-color;  // legacy alias used by buttons etc.
+$accent: #3B82F6;             // Primary accent - blue
+$accent-hover: #60A5FA;
+$secondary-color: $accent;    // legacy alias
+$accent-green: #10B981;       // terminal prompt / success accent
+$accent-amber: #F59E0B;       // warm highlight accent
+$accent-violet: #A78BFA;      // rare highlight accent
+
+$body-color: #FFFFFF;         // Page canvas is light; hero/page-title bands force dark via .bg-primary
 $black: #000;
 $white: #fff;
-$gray: #eaeaea;
+$gray: $bg-elevated;
 
-// Extended Color Palette
-$slate-gray: #64748B;        // Secondary text
-$border-light: #E5E7EB;      // Light borders
-$bg-lightest: #F8FAFC;       // Lightest backgrounds
-$bg-light: #F1F5F9;          // Light backgrounds
-$bg-gray: #F3F4F6;           // Gray backgrounds
-$bg-blue-light: #EFF6FF;     // Light blue backgrounds
-$primary-dark: #1E293B;      // Dark hover states
+// Extended Color Palette (kept for compatibility, remapped to light surfaces)
+$slate-gray: $text-muted;         // Secondary text
+$border-light: $border-color;     // "light" borders now mean hairline light borders
+$bg-lightest: $bg-surface;
+$bg-light: $bg-elevated;
+$bg-gray: $bg-elevated;
+$bg-blue-light: rgba($accent, .08);
+$primary-dark: #060809;           // Reserved for any deliberately dark surface (unused by default now)
 
 // Font Variables
+// Button colours: black with white text everywhere
+$btn-bg: #111111;
+$btn-bg-hover: #000000;
+
 $primary-font: 'Inter', sans-serif;
 $secondary-font: 'Inter', sans-serif;
+$mono-font: $primary-font;       // Labels/logo/code window also use Inter (one font site-wide)
 $icon-font: 'themify';

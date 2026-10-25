@@ -1,49 +1,47 @@
 <!-- about -->
-<section class="section section-decorated" style="position: relative; overflow: hidden; background: #FFFFFF;">
+<section class="section section-decorated section-white" id="about">
   <div class="container">
     <div class="row">
-      <div class="col-lg-9 mx-auto text-center" style="position: relative; z-index: 2;">
-        <div style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-          <div style="width: 12px; height: 12px; background: #EF4444; border-radius: 50%;"></div>
-          <div style="width: 12px; height: 12px; background: #F59E0B; border-radius: 50%;"></div>
-          <div style="width: 12px; height: 12px; background: #10B981; border-radius: 50%;"></div>
+      <div class="col-12 text-center mb-5">
+        <div class="section-eyebrow">Who I am</div>
+        <h2 class="section-title section-heading mb-3">About Me</h2>
+        <div class="section-divider"></div>
+      </div>
+    </div>
+
+    <div class="row align-items-center justify-content-center about-body">
+      {% if site.data.settings.about-photo %}
+      <div class="col-lg-4 col-md-6 col-9 mb-5 mb-lg-0">
+        <div class="about-photo-wrap">
+          <img src="{{ site.baseurl }}/{{ site.data.settings.about-photo }}"
+               alt="{{ site.data.settings.title }}"
+               class="about-photo">
+          <span class="about-location">
+            <i class="ti-location-pin"></i> {{ site.data.settings.address }}
+          </span>
         </div>
-        <p class="font-secondary paragraph-lg text-dark mb-4" style="
-          font-size: 1.3rem; 
-          line-height: 1.9; 
-          color: #475569 !important; 
-          max-width: 750px; 
-          margin-left: auto; 
-          margin-right: auto;
-          font-weight: 400;
-        ">
-          {{ site.data.settings.blurb }}
-        </p>
-        
-        <!-- Action Buttons -->
-        <div class="d-flex flex-wrap justify-content-center" style="gap: 1rem; margin-top: 2rem;">
-          <!-- Download Resume Button -->
-          <a href="{{ site.baseurl }}/assets/resume/Karan_Keskar_Resume.pdf" 
+      </div>
+      {% endif %}
+
+      <div class="col-lg-6 offset-lg-1">
+        <h3 class="about-headline">{{ site.data.settings.about-headline }}</h3>
+        <p class="about-intro">{{ site.data.settings.about-intro }}</p>
+
+        {% if site.data.settings.about-facts %}
+        <dl class="about-facts">
+          {% for fact in site.data.settings.about-facts %}
+          <div class="about-fact">
+            <dt>{{ fact.label }}</dt>
+            <dd>{{ fact.value }} <span>@ {{ fact.where }}</span></dd>
+          </div>
+          {% endfor %}
+        </dl>
+        {% endif %}
+
+        <div class="d-flex flex-wrap about-actions">
+          <a href="{{ site.baseurl }}/assets/resume/Karan_Keskar_Resume.pdf"
              download
-             class="btn btn-transparent" 
-             style="
-               background: #000000;
-               color: #FFFFFF;
-               padding: 0.85rem 2.5rem;
-               border: none;
-               border-radius: 8px;
-               font-weight: 600;
-               font-size: 0.95rem;
-               cursor: pointer;
-               transition: all 0.3s ease;
-               text-transform: uppercase;
-               letter-spacing: 0.05em;
-               display: inline-flex;
-               align-items: center;
-               gap: 0.6rem;
-             " 
-             onmouseover="this.style.backgroundColor='#000000'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(245, 158, 11, 0.4)';"
-             onmouseout="this.style.backgroundColor='#000000'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+             class="btn-accent">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="7 10 12 15 17 10"></polyline>
@@ -51,45 +49,13 @@
             </svg>
             Download Resume
           </a>
-          
-          <!-- Original Button -->
-          <a href="{{ site.data.settings.blurb-btn-link }}" 
-             class="btn btn-transparent" 
-             style="
-               background: #000000;
-               color: #FFFFFF;
-               padding: 0.85rem 2.5rem;
-               /* border: 2px solid #E2E8F0; */
-               border-radius: 8px;
-               font-weight: 600;
-               font-size: 0.95rem;
-               cursor: pointer;
-               transition: all 0.3s ease;
-               text-transform: uppercase;
-               letter-spacing: 0.05em;
-             " 
-             onmouseover="this.style.backgroundColor='#000000'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(245, 158, 11, 0.4)';"
-             onmouseout="this.style.backgroundColor='#000000'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-            {{ site.data.settings.blurb-btn-name }}
+
+          <a href="{{ site.baseurl }}/portfolio" class="btn-outline-accent">
+            View My Work
           </a>
         </div>
       </div>
     </div>
-  </div>
-  
-
-  <!-- Floating code elements -->
-  <div class="code-element size-lg" style="top: 15%; left: 8%; animation: float 6.5s ease-in-out infinite; z-index: 1;">
-    <code style="color: #60A5FA;">console</code>
-  </div>
-  <div class="code-element size-md" style="top: 30%; right: 10%; animation: float-slow 8s ease-in-out infinite; z-index: 1;">
-    <code style="color: #34D399;">.log</code>
-  </div>
-  <div class="code-element size-sm" style="bottom: 25%; left: 12%; animation: float-diagonal 7s ease-in-out infinite; z-index: 1;">
-    <code style="color: #A78BFA;">( )</code>
-  </div>
-  <div class="code-element size-md" style="bottom: 20%; right: 15%; animation: float 9s ease-in-out infinite; z-index: 1;">
-    <code style="color: #F59E0B;">"Hi"</code>
   </div>
 </section>
 <!-- /about -->

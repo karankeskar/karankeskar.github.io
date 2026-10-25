@@ -1,128 +1,115 @@
 ---
 layout: page
+prompt: "cat posts/*.md"
+prose: false
 title: Blog
 subtitle: Thoughts on software development and technology
 ---
 
-<section class="section section-decorated" style="position: relative; overflow: hidden; padding: 80px 0;">
-  <div class="container">
-    
-    <div class="row mb-5">
-      <div class="col-12 text-center">
-        <div style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-          <div style="width: 12px; height: 12px; background: #EF4444; border-radius: 50%;"></div>
-          <div style="width: 12px; height: 12px; background: #F59E0B; border-radius: 50%;"></div>
-          <div style="width: 12px; height: 12px; background: #10B981; border-radius: 50%;"></div>
-        </div>
-        <h6 class="text-uppercase mb-2" style="color: #94A3B8; font-weight: 600; letter-spacing: 0.15em; font-size: 0.75rem;">Writing</h6>
-        <h2 class="section-title mb-3" style="color: #0F172A; font-weight: 700;">Blog</h2>
-        <div style="width: 60px; height: 3px; background: #F59E0B; margin: 0 auto 1rem;"></div>
-        <p style="color: #64748B; font-size: 0.95rem;">
-          Also published on 
-          <a href="https://karanbuilds.wordpress.com" target="_blank" rel="noopener noreferrer" 
-             style="color: #0F172A; font-weight: 600; text-decoration: underline;">karanbuilds.wordpress.com</a>
-        </p>
-      </div>
-    </div>
+<section class="blog-page">
+  <p class="blog-source">
+    <i class="ti-wordpress" aria-hidden="true"></i>
+    Also published on
+    <a href="https://karanbuilds.wordpress.com" target="_blank" rel="noopener noreferrer">karanbuilds.wordpress.com</a>
+  </p>
 
-    <!-- Posts injected here by JS -->
-    <div id="blog-grid" class="row" style="position: relative; z-index: 2;">
-      <div class="col-12 text-center" style="padding: 3rem 0;">
-        <p style="color: #94A3B8;">Loading posts...</p>
-      </div>
-    </div>
-
+  <!-- Posts injected here by JS; skeletons show while loading -->
+  <div id="blog-list" class="blog-list" aria-live="polite" aria-busy="true">
+    <div class="blog-skeleton blog-skeleton-featured"></div>
+    <div class="blog-skeleton"></div>
+    <div class="blog-skeleton"></div>
+    <div class="blog-skeleton"></div>
   </div>
 </section>
 
-<style>
-.blog-card {
-  background: #FFFFFF;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #E2E8F0;
-  transition: transform 0.45s ease-out, box-shadow 0.45s ease-out, border-color 0.45s ease-out;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-}
-.blog-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-.blog-card-content {
-  padding: 1.75rem;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-.blog-card-date {
-  color: #000000;
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-bottom: 0.6rem;
-  font-family: monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.blog-card-title {
-  color: #000000;
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.4;
-}
-.blog-card-excerpt {
-  color: #000000;
-  font-size: 0.92rem;
-  line-height: 1.7;
-  flex-grow: 1;
-  margin-bottom: 1.25rem;
-}
-.blog-card-link {
-  color: #000000;
-  font-weight: 600;
-  font-size: 0.85rem;
-  font-family: monospace;
-  margin-top: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: color 0.2s ease;
-}
-.blog-card:hover .blog-card-link {
-  color: #000000;
-}
-</style>
-
 <script>
-fetch('https://api.rss2json.com/v1/api.json?rss_url=https://karanbuilds.wordpress.com/feed/')
-  .then(function(res) { return res.json(); })
-  .then(function(data) {
-    var grid = document.getElementById('blog-grid');
-    if (!data.items || data.items.length === 0) {
-      grid.innerHTML = '<div class="col-12 text-center"><p style="color:#94A3B8;">No posts found.</p></div>';
-      return;
-    }
-    grid.innerHTML = data.items.map(function(post) {
-      var date = new Date(post.pubDate).toLocaleDateString('en-AU', { year: 'numeric', month: 'short', day: 'numeric' });
-      var excerpt = post.description.replace(/<[^>]+>/g, '').substring(0, 160).trim() + '...';
-      var safeLink = post.link.replace(/'/g, '%27');
-      return '<div class="col-lg-6 col-md-6 mb-4">' +
-        '<div class="blog-card" role="link" tabindex="0" onclick="window.open(\'' + safeLink + '\', \'_blank\', \'noopener,noreferrer\')" onkeydown="if(event.key===\'Enter\'){window.open(\'' + safeLink + '\', \'_blank\', \'noopener,noreferrer\')}">' +
-          '<div class="blog-card-content">' +
-            '<p class="blog-card-date">' + date + '</p>' +
-            '<h3 class="blog-card-title">' + post.title + '</h3>' +
-            '<p class="blog-card-excerpt">' + excerpt + '</p>' +
-            '<span class="blog-card-link">Read on WordPress <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>' +
-          '</div>' +
-        '</div>' +
-      '</div>';
-    }).join('');
-  })
-  .catch(function() {
-    document.getElementById('blog-grid').innerHTML = 
-      '<div class="col-12 text-center"><p style="color:#94A3B8;">Could not load posts. <a href="https://karanbuilds.wordpress.com" target="_blank" style="color:#0F172A;font-weight:600;">Visit the blog directly →</a></p></div>';
-  });
+(function () {
+  var list = document.getElementById('blog-list');
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  /* WordPress returns HTML; turn it into plain text */
+  function toText(html) {
+    var tmp = document.createElement('div');
+    tmp.innerHTML = html || '';
+    return (tmp.textContent || '').trim();
+  }
+
+  function readingTime(html) {
+    var words = toText(html).split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.round(words / 220)) + ' min read';
+  }
+
+  function formatDate(iso, opts) {
+    return new Date(iso).toLocaleDateString('en-AU', opts);
+  }
+
+  function safeUrl(url) {
+    return /^https:\/\//.test(url) ? url : '#';
+  }
+
+  function renderFeatured(post) {
+    var tags = Object.keys(post.tags || {}).slice(0, 3);
+    return '<a class="blog-featured" href="' + safeUrl(post.URL) + '" target="_blank" rel="noopener noreferrer">' +
+      '<span class="blog-featured-label"><span class="blog-featured-dot"></span>Latest post</span>' +
+      '<span class="blog-meta">' + formatDate(post.date, { day: 'numeric', month: 'long', year: 'numeric' }) +
+        ' &middot; ' + readingTime(post.content) + '</span>' +
+      '<h2 class="blog-featured-title">' + escapeHtml(toText(post.title)) + '</h2>' +
+      '<p class="blog-featured-excerpt">' + escapeHtml(toText(post.excerpt).replace(/\s*\[…\]\s*$/, '…')) + '</p>' +
+      '<span class="blog-featured-footer">' +
+        '<span class="blog-tags">' + tags.map(function (t) { return '<span>' + escapeHtml(t) + '</span>'; }).join('') + '</span>' +
+        '<span class="blog-read">Read on WordPress <i class="ti-arrow-top-right"></i></span>' +
+      '</span>' +
+    '</a>';
+  }
+
+  function renderRow(post) {
+    var excerpt = toText(post.excerpt).replace(/\s*\[…\]\s*$/, '…');
+    if (excerpt.length > 150) excerpt = excerpt.slice(0, 150).trim() + '…';
+    return '<a class="blog-row" href="' + safeUrl(post.URL) + '" target="_blank" rel="noopener noreferrer">' +
+      '<span class="blog-row-date">' +
+        '<span class="blog-row-day">' + formatDate(post.date, { day: '2-digit' }) + '</span>' +
+        '<span class="blog-row-month">' + formatDate(post.date, { month: 'short', year: 'numeric' }) + '</span>' +
+      '</span>' +
+      '<span class="blog-row-body">' +
+        '<span class="blog-row-title">' + escapeHtml(toText(post.title)) + '</span>' +
+        '<span class="blog-row-excerpt">' + escapeHtml(excerpt) + '</span>' +
+      '</span>' +
+      '<span class="blog-row-meta">' + readingTime(post.content) + '</span>' +
+      '<span class="blog-row-arrow" aria-hidden="true"><i class="ti-arrow-right"></i></span>' +
+    '</a>';
+  }
+
+  function showError() {
+    list.setAttribute('aria-busy', 'false');
+    list.innerHTML = '<p class="blog-empty">Could not load posts. ' +
+      '<a href="https://karanbuilds.wordpress.com" target="_blank" rel="noopener noreferrer">Visit the blog directly &rarr;</a></p>';
+  }
+
+  fetch('https://public-api.wordpress.com/rest/v1.1/sites/karanbuilds.wordpress.com/posts/?number=20&fields=title,URL,date,excerpt,content,tags')
+    .then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function (data) {
+      list.setAttribute('aria-busy', 'false');
+      if (!data.posts || data.posts.length === 0) {
+        list.innerHTML = '<p class="blog-empty">No posts yet.</p>';
+        return;
+      }
+      var posts = data.posts;
+      list.innerHTML = renderFeatured(posts[0]) +
+        (posts.length > 1 ? '<div class="blog-rows">' + posts.slice(1).map(renderRow).join('') + '</div>' : '');
+
+      if (window.gsap && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.from('.blog-featured', { autoAlpha: 0, y: 24, duration: 0.7, ease: 'power3.out' });
+        gsap.from('.blog-row', { autoAlpha: 0, y: 16, duration: 0.5, stagger: 0.07, delay: 0.15, ease: 'power3.out' });
+      }
+    })
+    .catch(showError);
+})();
 </script>

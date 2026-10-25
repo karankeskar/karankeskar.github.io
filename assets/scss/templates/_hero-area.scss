@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .hero-area {
   padding: 300px 0 200px;
   position: relative;
@@ -65,4 +68,154 @@
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+/* ---------- Hero code editor illustration ---------- */
+.code-window-illustration {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 24px 0 48px;
+  font-family: $mono-font;
+}
+
+// Soft coloured glow behind the window
+.cw-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 25% 30%, rgba($accent, .35), transparent 55%),
+    radial-gradient(circle at 80% 75%, rgba($accent-violet, .3), transparent 55%);
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.cw-window {
+  position: relative;
+  z-index: 1;
+  background: rgba(#0F172A, .92);
+  border: 1px solid rgba($white, .08);
+  border-radius: 12px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .7), 0 0 0 1px rgba($white, .02);
+  overflow: hidden;
+  text-align: left;
+}
+
+.cw-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba($white, .04);
+  border-bottom: 1px solid rgba($white, .06);
+}
+
+.cw-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  &-red { background: #EF4444; }
+  &-amber { background: $accent-amber; }
+  &-green { background: $accent-green; }
+}
+
+.cw-tab {
+  margin-left: 12px;
+  font-size: 12px;
+  color: rgba($white, .6);
+  padding: 2px 10px;
+  border-radius: 6px;
+  background: rgba($white, .06);
+}
+
+.cw-code {
+  counter-reset: cw-line;
+  padding: 18px 20px 20px 0;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #E2E8F0;
+}
+
+.cw-line {
+  counter-increment: cw-line;
+  min-height: 1.75em;
+  white-space: pre;
+  // Line numbers in a gutter
+  &::before {
+    content: counter(cw-line);
+    display: inline-block;
+    width: 44px;
+    padding-right: 16px;
+    text-align: right;
+    color: rgba($white, .22);
+  }
+}
+
+// Indentation (spaces get collapsed by compress_html, so use padding)
+.cw-i1::before {
+  margin-right: 2ch;
+}
+
+// Syntax colours, matching the navbar logo
+.tk-k { color: $accent-amber; }   // keywords
+.tk-v { color: $white; }          // identifiers
+.tk-a { color: #60A5FA; }         // object keys
+.tk-s { color: #34D399; }         // strings
+.tk-p { color: #94A3B8; }         // punctuation
+.tk-c { color: #64748B; font-style: italic; } // comments
+
+.cw-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: $accent;
+}
+
+// Small terminal card overlapping the bottom-left corner
+.cw-terminal {
+  position: absolute;
+  z-index: 2;
+  left: -28px;
+  bottom: 0;
+  padding: 12px 18px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  text-align: left;
+  color: #E2E8F0;
+  background: rgba($bg-base, .95);
+  border: 1px solid rgba($white, .1);
+  border-radius: 10px;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, .8);
+  @include desktop {
+    left: 0;
+  }
+}
+
+.tk-prompt {
+  color: $accent-green;
+  margin-right: 6px;
+}
+
+.cw-term-ok {
+  color: $accent-green;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cw-window {
+    animation: cw-float 6s ease-in-out infinite;
+  }
+  .cw-cursor {
+    animation: cw-blink 1s steps(1) infinite;
+  }
+}
+
+@keyframes cw-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes cw-blink {
+  50% { opacity: 0; }
 }

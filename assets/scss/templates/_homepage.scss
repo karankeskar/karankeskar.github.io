@@ -1,4 +1,35 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
 /* skills */
+.skills-category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.skills-category-title {
+  color: $text-color;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.skills-category-line {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(to right, $border-color, transparent);
+}
+
+.skills-chip-row {
+  gap: 0.75rem;
+  padding-left: 2rem;
+
+  @include tablet {
+    padding-left: 0;
+  }
+}
+
 .progress-wrapper {
   height: 130px;
   overflow: hidden;
@@ -45,12 +76,179 @@
 
 /* /skills */
 
+/* experience */
+.experience-item {
+  border-color: $border-color !important;
+}
+
+.experience-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  opacity: 0.85;
+  border-radius: 8px;
+  background: $bg-elevated;
+  padding: 8px;
+
+  // Horizontal wordmarks (e.g. StackMarks) need width, not a square box
+  &-wide {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+  }
+}
+
+.experience-date {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $text-muted;
+  font-family: $mono-font;
+}
+
+.experience-location {
+  font-size: 0.8rem;
+  color: $text-faint;
+
+  i {
+    font-size: 0.75rem;
+    color: $btn-bg;
+  }
+}
+
+.experience-name {
+  color: $text-color;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.experience-org {
+  font-weight: 600;
+  color: $text-muted;
+  font-size: 1rem;
+}
+
+.experience-description {
+  color: $text-muted;
+  line-height: 1.8;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+  list-style-position: outside;
+
+  li {
+    display: list-item;
+    padding-left: 0.25rem;
+  }
+}
+
+.experience-tech-label {
+  font-size: 0.75rem;
+  color: $text-faint;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 /* education */
 .edu-bg-image {
   position: absolute;
   left: 0;
   top: -300px;
   z-index: -1;
+}
+
+.edu-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.edu-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+// Year pill in the card's top-right corner
+.edu-year {
+  flex: 0 0 auto;
+  padding: .35rem .85rem;
+  border-radius: 999px;
+  background: $btn-bg;
+  color: $white;
+  font-weight: 600;
+  font-size: .8rem;
+  letter-spacing: .04em;
+}
+
+.edu-card {
+  height: 100%;
+  padding: 2rem;
+  background: $bg-elevated;
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba($text-color, .04);
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: $border-hover;
+    box-shadow: 0 20px 40px -20px rgba($text-color, .25);
+  }
+}
+
+.edu-logo {
+  height: 48px;
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 100%;
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+  }
+}
+
+// Fallback when there's no logo: initials in a black tile
+.edu-monogram {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: $btn-bg;
+  color: $white;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .04em;
+}
+
+.education-name {
+  color: $text-color;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-bottom: .5rem;
+}
+
+.education-org {
+  color: $text-muted;
+}
+
+.badge-honors {
+  background-color: $btn-bg;
+  color: $white;
+  border-color: $btn-bg;
 }
 
 /* /education */
@@ -188,7 +386,38 @@
 
 /* footer */
 .footer-section {
-  padding-top: 200px;
+  > .section {
+    padding-top: 56px;
+    padding-bottom: 32px;
+  }
+
+  .section-heading {
+    color: $white;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: .4rem;
+  }
+
+  .paragraph-lg {
+    font-size: 1rem;
+  }
+
+  p {
+    color: rgba($white, .75);
+  }
+
+  .text-light {
+    color: rgba($white, .55) !important;
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+.footer-divider {
+  border-top-color: rgba($white, .1) !important;
 }
 
 .section-on-footer {
@@ -211,3 +440,122 @@
 }
 
 /* /footer */
+
+/* portfolio home cards */
+.portfolio-card {
+  background: $bg-elevated;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid $border-color;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+    border-color: $border-hover;
+  }
+}
+
+.portfolio-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 240px;
+  background: $bg-surface;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+  }
+}
+
+.portfolio-card:hover .portfolio-image-wrapper img {
+  transform: scale(1.03);
+}
+
+.portfolio-type-badge-wrap {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.portfolio-type-badge {
+  background: rgba(10, 14, 20, 0.85);
+  color: $white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: $mono-font;
+}
+
+.portfolio-card-body {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card-title {
+  color: $text-color;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.portfolio-card-desc {
+  color: $text-muted;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.portfolio-tech-wrap {
+  margin-top: auto;
+}
+
+.portfolio-tech-label {
+  color: $text-faint;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-tech-chip {
+  background: $bg-elevated-hover;
+  color: $text-muted;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid $border-color;
+  font-family: $mono-font;
+}
+
+.portfolio-card-link {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* contact */
+#contact {
+  scroll-margin-top: 100px;
+}
+
+/* Contact section styles live in templates/_contact.scss */

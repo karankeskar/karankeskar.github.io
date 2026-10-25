@@ -1,0 +1,281 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* Command palette (assets/js/command-palette.js) */
+
+// Nav button
+.cmdk-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-left: .75rem;
+  padding: .35rem .5rem .35rem .7rem;
+  border: 1px solid rgba($white, .15);
+  border-radius: 8px;
+  background: rgba($white, .04);
+  color: rgba($white, .75);
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: $white;
+    border-color: rgba($white, .35);
+    background: rgba($white, .08);
+    outline: none;
+  }
+
+  @include desktop {
+    margin: .5rem 0 0;
+  }
+}
+
+.cmdk-trigger-key {
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba($white, .1);
+  color: inherit;
+  font-family: $primary-font;
+  font-size: 11px;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+// Lock page scroll while open
+.cmdk-open,
+.cmdk-open body {
+  overflow: hidden;
+}
+
+.cmdk {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 14vh 16px 16px;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.cmdk-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba($bg-base, .55);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+
+.cmdk-panel {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #0F172A;
+  border: 1px solid rgba($white, .1);
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, .7);
+  font-family: $primary-font;
+  opacity: 0;
+  transform: translateY(-8px) scale(.98);
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.cmdk.is-open {
+  .cmdk-backdrop {
+    opacity: 1;
+  }
+  .cmdk-panel {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.cmdk-search {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 0 1.1rem;
+  border-bottom: 1px solid rgba($white, .08);
+  color: rgba($white, .45);
+}
+
+.cmdk-input {
+  flex: 1;
+  min-width: 0;
+  height: 56px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: $white;
+  font-size: 1rem;
+
+  &::placeholder {
+    color: rgba($white, .35);
+  }
+}
+
+.cmdk kbd {
+  display: inline-block;
+  min-width: 20px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: rgba($white, .08);
+  border: 1px solid rgba($white, .1);
+  color: rgba($white, .6);
+  font-family: $primary-font;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  box-shadow: none;
+}
+
+.cmdk-list {
+  max-height: min(380px, 55vh);
+  margin: 0;
+  padding: .5rem;
+  overflow-y: auto;
+  list-style: none;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba($white, .15) transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($white, .15);
+    border-radius: 4px;
+  }
+}
+
+.cmdk-group {
+  padding: .75rem .75rem .35rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba($white, .35);
+}
+
+.cmdk-item {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  padding: .65rem .75rem;
+  border-radius: 8px;
+  color: rgba($white, .8);
+  font-size: .925rem;
+  cursor: pointer;
+
+  i {
+    width: 18px;
+    text-align: center;
+    color: rgba($white, .45);
+  }
+
+  mark {
+    padding: 0;
+    background: none;
+    color: $accent-green;
+    font-weight: 700;
+  }
+
+  &.is-selected {
+    background: rgba($white, .08);
+    color: $white;
+
+    i {
+      color: $white;
+    }
+
+    .cmdk-item-group {
+      opacity: 1;
+    }
+  }
+}
+
+.cmdk-item-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cmdk-item-group {
+  font-size: 11px;
+  color: rgba($white, .35);
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+
+.cmdk-empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: rgba($white, .45);
+  font-size: .9rem;
+}
+
+.cmdk-footer {
+  display: flex;
+  gap: 1.25rem;
+  padding: .65rem 1.1rem;
+  border-top: 1px solid rgba($white, .08);
+  font-size: 12px;
+  color: rgba($white, .4);
+
+  kbd {
+    margin-right: 3px;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+// Confirmation toast (e.g. "Email copied")
+.cmdk-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 3100;
+  padding: .7rem 1.1rem;
+  border-radius: 999px;
+  background: $btn-bg;
+  color: $white;
+  font-size: .9rem;
+  font-weight: 500;
+  box-shadow: 0 16px 32px -12px rgba(0, 0, 0, .5);
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+
+  i {
+    color: $accent-green;
+    margin-right: .35rem;
+  }
+
+  &.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cmdk-backdrop,
+  .cmdk-panel,
+  .cmdk-toast {
+    transition: none;
+  }
+}

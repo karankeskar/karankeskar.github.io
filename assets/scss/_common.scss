@@ -1,10 +1,17 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: $body-color;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: lighten($color: $primary-color, $amount: 10);
+  background: $accent;
   color: $white;
 }
 
@@ -16,7 +23,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $white;
+  background-color: $bg-base;
   z-index: 999;
   display: flex;
   align-items: center;
@@ -66,8 +73,8 @@ a:hover {
 }
 
 .section {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 110px;
+  padding-bottom: 110px;
 
   &-title {
     margin-bottom: 80px;
@@ -107,7 +114,7 @@ a:hover {
 }
 
 .bg-primary {
-  background: $primary-color !important;
+  background: $bg-base !important;
 }
 
 .bg-gray{
@@ -195,7 +202,7 @@ a:hover {
 }
 
 .bg-dark{
-  background-color: #222222 !important;
+  background-color: $primary-dark !important;
 }
 
 /* icon */
@@ -249,8 +256,10 @@ a:hover {
   border-radius: 0;
   border-bottom: 1px solid $border-color;
   height: 60px;
+  background: transparent;
+  color: $text-color;
   &:focus{
-    border-color: $primary-color;
+    border-color: $accent;
     outline: 0;
     box-shadow: none !important;
   }
@@ -382,35 +391,35 @@ textarea.form-control{
 .form-input {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 1px solid $border-light;
+  border: 1px solid $border-color;
   border-radius: 8px;
   font-size: 1rem;
-  background: $white;
-  color: $primary-color;
+  background: $bg-elevated;
+  color: $text-color;
   transition: all 0.3s ease;
 
   &:focus {
     outline: none;
-    border-color: $secondary-color;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: $accent;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
   }
 }
 
 .form-textarea {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 1px solid $border-light;
+  border: 1px solid $border-color;
   border-radius: 8px;
   font-size: 1rem;
-  background: $white;
-  color: $primary-color;
+  background: $bg-elevated;
+  color: $text-color;
   transition: all 0.3s ease;
   resize: vertical;
 
   &:focus {
     outline: none;
-    border-color: $secondary-color;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: $accent;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
   }
 }
 
@@ -418,7 +427,7 @@ textarea.form-control{
 .btn-dark {
   width: 100%;
   padding: 0.875rem;
-  background: $primary-color;
+  background: $accent;
   color: $white;
   border: none;
   border-radius: 8px;
@@ -428,9 +437,9 @@ textarea.form-control{
   transition: all 0.3s ease;
 
   &:hover {
-    background: $primary-dark;
+    background: $accent-hover;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
   }
 }
 
@@ -439,7 +448,7 @@ textarea.form-control{
   transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
     transform: translateY(-5px);
   }
 }
@@ -449,16 +458,16 @@ textarea.form-control{
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: $bg-light;
+  background: $bg-elevated;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $primary-color;
+  color: $text-color;
   text-decoration: none;
   transition: all 0.3s ease;
 
   &:hover {
-    background: $secondary-color;
+    background: $accent;
     color: $white;
     transform: translateY(-2px);
   }
@@ -530,50 +539,186 @@ textarea.form-control{
 .tech-tag {
   display: inline-block;
   background: $bg-blue-light;
-  color: $secondary-color;
+  color: $accent-hover;
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 0.8rem;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
+  font-family: $mono-font;
 }
 
 /* Project Card Component */
 .project-card {
-  border: 1px solid $border-light;
+  border: 1px solid $border-color;
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
   height: 100%;
-  background: $white;
+  background: $bg-elevated;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
 
   &:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: $border-hover;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
     transform: translateY(-5px);
   }
 }
 
 .project-title {
-  color: $primary-color;
+  color: $text-color;
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   font-weight: 600;
 }
 
 .project-desc {
-  color: $slate-gray;
+  color: $text-muted;
   margin-bottom: 1rem;
   line-height: 1.6;
   font-size: 0.95rem;
 }
 
 .project-link {
-  color: $secondary-color;
+  color: $accent;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
 
   &:hover {
-    color: darken($secondary-color, 10%);
+    color: $accent-hover;
+  }
+}
+
+/* ========== Shared section components ========== */
+
+/* Section eyebrow / title / divider used across every section */
+.section-eyebrow {
+  color: $text-faint;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-heading {
+  color: $text-color;
+  font-weight: 700;
+}
+
+.section-divider {
+  width: 40px;
+  height: 2px;
+  background: $accent;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Surface card: white elevated panel with hairline border + soft shadow */
+.surface-card {
+  background: $bg-elevated;
+  border: 1px solid $border-color;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+  transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+
+  &:hover {
+    border-color: $border-hover;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+  }
+}
+
+/* Pill badge used for tech stacks, GPA, honors, etc. */
+.badge-pill {
+  display: inline-block;
+  background: $bg-elevated-hover;
+  color: $text-muted;
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid $border-color;
+  font-family: $mono-font;
+}
+
+/* Skill / stack chip */
+.skill-chip {
+  background: $bg-elevated;
+  color: $text-color;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid $border-color;
+  font-family: $mono-font;
+  transition: all 0.2s ease;
+  display: inline-block;
+
+  &:hover {
+    border-color: $accent;
+    background: $bg-elevated-hover;
+  }
+}
+
+/* Solid CTA button (black, white text). .btn-outline-accent is kept as an
+   alias so every button on the site looks the same. */
+.btn-accent,
+.btn-outline-accent {
+  background: $btn-bg;
+  color: $white;
+  padding: 0.85rem 2.25rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+
+  &:hover {
+    background: $btn-bg-hover;
+    color: $white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Dark themed text input / textarea used in contact form */
+.field-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $text-muted;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-family: $mono-font;
+}
+
+/* Round icon button on dark surfaces (social links etc.) */
+.icon-btn {
+  width: 45px;
+  height: 45px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $btn-bg;
+  border-radius: 8px;
+  color: $white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid $btn-bg;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  &:hover {
+    background: $btn-bg-hover;
+    border-color: $btn-bg-hover;
+    color: $white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   }
 }

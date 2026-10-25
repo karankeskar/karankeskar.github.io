@@ -4,19 +4,17 @@
 
 title: Karan Keskar
 logo:
-author: themefisher
+author: Karan Keskar
 description: this is meta description
-email: karankeskar.dev@gmail.com
+email: karan@karankeskar.com
 # phone: +880 2544 658 256
-address: Camperdown, Sydney, NSW
+address: Sydney, NSW
 copyright: |
-  Copyright &copy; 2026 Karan Keskar<br>
-  Theme by <a href="https://themefisher.com" target="_blank" style="color: #0000FF; text-decoration: none;">Themefisher</a>
+  Copyright &copy; 2026 Karan Keskar
 menu:
-  - { name: About, link: "/about" }
-  - { name: Blog, link: "/blog" }
   - { name: Portfolio, link: "/portfolio" }
-  - { name: Contact, link: "/contact" }
+  - { name: Blog, link: "/blog" }
+  - { name: Contact, link: "/#contact" }
 
 #-------------------------------
 # Google Analytics Section
@@ -33,9 +31,15 @@ disqus-identifier: # Add your shortname for Disqus Comment. For example mr-brown
 
 hero:
   hero-title: Hi! I’m <br> Karan <br> Software Developer
+  # The last line of the title cycles through these (first should match the title)
+  roles:
+    - Software Developer
+    - Backend Engineer
+    - Data Engineer
+    - Academic Tutor
 
 social:
-  - { icon: "ti-email", link: "mailto:karankeskar.dev@gmail.com" }
+  - { icon: "ti-email", link: "mailto:karan@karankeskar.com" }
   - { icon: "ti-github", link: "https://github.com/karankeskar" }
   - { icon: "ti-linkedin", link: "https://www.linkedin.com/in/karan-keskar/" }
 
@@ -43,12 +47,16 @@ social:
 # About (Section and Page)
 
 # About Section
-blurb: Aspiring Software Engineer with professional experience in Full-Stack Development, Data Analysis, Production Support and Data Engineering. With a Master’s degree in Computer Science, specialised in Software Engineering at the University of Sydney. Seeking to leverage my industry experience and academic knowledge to contribute to innovative software solutions.
+about-photo: assets/images/about/karan.jpeg
 
-blurb-btn-link: "/about"
-blurb-btn-name: know more
+about-headline: I build scalable backends and the data platforms behind them.
 
-# About Page
+about-intro: Sydney-based software engineer working across full-stack development, data engineering and production support. I like turning messy problems into clean, reliable systems, and helping students do the same.
+
+about-facts:
+  - { label: "Now", value: "Software Engineer", where: "StackMarks" }
+  - { label: "Teaching", value: "COMP5348 Tutor", where: "University of Sydney" }
+  - { label: "Studied", value: "MSc Computer Science", where: "University of Sydney" }
 
 
 #-------------------------------
@@ -84,11 +92,20 @@ skill-categories:
       - name: "Express.js"
         icon: "fas fa-server"
         color: "#808080"
-  
+      - name: "NestJS"
+        icon: "fas fa-code"
+        color: "#808080"
+
   - category: "DATABASE"
     skills:
       - name: "MongoDB"
         icon: "fas fa-leaf"
+        color: "#808080"
+      - name: "Mongoose"
+        icon: "fas fa-leaf"
+        color: "#808080"
+      - name: "BigQuery"
+        icon: "fas fa-database"
         color: "#808080"
       - name: "PostgreSQL"
         icon: "fas fa-database"
@@ -118,6 +135,33 @@ skill-categories:
 
 experience-title: Experience
 experience:
+  - name: Academic Tutor
+    icon: "the-university-of-sydney-3.svg"
+    date: "Aug 2026 - Present"
+    organization: "The University of Sydney"
+    location: "Sydney, NSW"
+    description:
+      - Teaching weekly tutorials for COMP5348, supporting postgraduate students in enterprise software architecture concepts and coursework.
+    technologies:
+      - Enterprise Software Architecture
+
+  - name: Software Engineer
+    icon: "stackmarks-logo.png"
+    logo_wide: true
+    date: "Apr 2026 - Present"
+    organization: "StackMarks"
+    location: "Sydney, NSW"
+    description:
+      - Led migration of the backend ORM layer from TypeORM to Mongoose, coordinating across a cross-functional team to ensure zero disruption to existing functionality.
+      - Architected a MongoDB budget management module with nested schema design, delivering 7 REST endpoints in NestJS backed by a mock data layer.
+      - Designed a modular service architecture that separates mock and live data sources, allowing live BigQuery data to be swapped in without code changes post-deployment.
+    technologies:
+      - NestJS
+      - Mongoose
+      - MongoDB
+      - TypeScript
+      - BigQuery
+
   - name: Full Stack Developer
     icon: "icon-1.png"
     date: "Aug 2025 - Nov 2025"
@@ -136,7 +180,7 @@ experience:
   
   - name: Assessment and AI Transition Assistant
     icon: "the-university-of-sydney-3.svg"
-    date: "May 2025 - Present"
+    date: "May 2025 - Mar 2026"
     organization: "The University of Sydney"
     location: "Sydney, NSW"
     description:
@@ -196,11 +240,13 @@ education:
       name: Masters in Computer Science Specialising on Software Engineering,
       date: "2025",
       organization: "The University of Sydney",
+      logo: "experience/the-university-of-sydney-3.svg",
     }
   - {
       name: Bachelors in Computer Science and Engineering,
       date: "2020",
       organization: "New Horizon College of Engineering",
+      logo: "experience/new-horizon-logo.jpeg",
     }
 
 
@@ -258,7 +304,7 @@ portfolio-items:
       - Redis Cache
       - Cloudfare turnstile
   - title: "StayFresh - Food Inventory Tracker"
-    project_type: "University Capstone Project"
+    project_type: "University Project"
     description: "Full-stack mobile application built with React Native to reduce food wastage through intelligent inventory management. Integrated Google Gemini LLM API for AI-powered image recognition to automatically identify and categorize food items from photos (produce, dairy, meat). Implemented QR code scanning for quick item registration and expiry tracking. Built dynamic inventory interface with real-time Firebase synchronization, displaying categorized items with expiry alerts. Developed as capstone project at University of Sydney."
     image: "assets/images/portfolio/stayfresh/StayFresh.png"
     gallery_images:  # NEW: Add this array
@@ -302,7 +348,7 @@ portfolio-items:
       - Liquid
 
   - title: "Fauna - Wildlife Social Media"
-    project_type: "University Capstone Project"
+    project_type: "Personal Project"
     description: "Full stack application A home for naturalists, wildlife photographers, and those who still choose the wild."
     image: "assets/images/portfolio/fauna/Image1.png"
     github: "https://github.com/karankeskar/fauna-waitlist"
@@ -336,8 +382,3 @@ portfolio-items:
     - YARP
     - Razor Pages
 
-#-------------------------------
-# Contact Section
-
-contact-title: Contact Info
-contact-email: karankeskar.dev@gmail.com

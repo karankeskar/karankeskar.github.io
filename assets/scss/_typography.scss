@@ -1,17 +1,25 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
 /*  typography */
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:700|Roboto:400');
+
+// Expose the font stacks to plain CSS files and inline styles
+:root {
+  --font-sans: #{$primary-font};
+  --font-mono: #{$mono-font};
+}
 
 body {
   line-height: 1.2;
   font-family: $primary-font;
   -webkit-font-smoothing: antialiased;
   font-size: 15px;
-  color: $text-color;
+  color: $text-muted;
 }
 
 p, .paragraph {
   font-weight: 400;
-  color: $text-color;
+  color: $text-muted;
   font-size: 15px;
   line-height: 1.8;
   font-family: $primary-font;
@@ -21,9 +29,13 @@ p, .paragraph {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  color: $text-color-dark;
+  color: $text-color;
   font-family: $secondary-font;
   line-height: 1.2;
+}
+
+code, pre, kbd, samp, .mono {
+  font-family: $mono-font;
 }
 
 h1, .h1{

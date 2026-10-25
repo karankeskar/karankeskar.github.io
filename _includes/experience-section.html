@@ -1,81 +1,59 @@
 {% if site.data.settings.experience %}
 <!-- experience -->
-<section class="section section-decorated" style="position: relative; overflow: hidden;">
+<section class="section section-decorated section-white" id="experience">
   <div class="container">
     <div class="row">
      <div class="col-12 text-center mb-5">
-        <div style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-          <div style="width: 12px; height: 12px; background: #EF4444; border-radius: 50%;"></div>
-          <div style="width: 12px; height: 12px; background: #F59E0B; border-radius: 50%;"></div>
-          <div style="width: 12px; height: 12px; background: #10B981; border-radius: 50%;"></div>
-        </div>
-        <h6 class="text-uppercase mb-2" style="color: #94A3B8; font-weight: 600; letter-spacing: 0.15em; font-size: 0.75rem;">
-          Where I've worked
-        </h6>
-        <h2 class="section-title mb-3" style="color: #0F172A; font-weight: 700;">{{ site.data.settings.experience-title }}</h2>
-        <div style="width: 60px; height: 3px; background: #000000; margin: 0 auto;"></div>
+        <div class="section-eyebrow">Where I've worked</div>
+        <h2 class="section-title section-heading mb-3">{{ site.data.settings.experience-title }}</h2>
+        <div class="section-divider"></div>
       </div>
       <div class="col-lg-10 mx-auto" style="position: relative; z-index: 2;">
         {% for experience in site.data.settings.experience %}
-        <div class="experience-item mb-5 pb-5 {% unless forloop.last %}border-bottom{% endunless %}" style="border-color: #E2E8F0 !important;">
+        <div class="experience-item mb-5 pb-5 {% unless forloop.last %}border-bottom{% endunless %}">
           <div class="row">
             <!-- Left side: Logo and date -->
             <div class="col-md-3 col-12 mb-3 mb-md-0">
               <div class="d-flex align-items-center mb-3">
-                <img src="{{ site.baseurl }}/assets/images/experience/{{ experience.icon }}" 
-                     alt="{{ experience.organization }}" 
-                     style="width: 90px; height: 90px; object-fit: contain; opacity: 0.8; border-radius: 8px;">
+                <img class="experience-logo{% if experience.logo_wide %} experience-logo-wide{% endif %}" src="{{ site.baseurl }}/assets/images/experience/{{ experience.icon }}"
+                     alt="{{ experience.organization }}">
               </div>
               <div>
-                <p class="mb-1" style="font-size: 0.875rem; font-weight: 600; color: #64748B;">
+                <p class="mb-1 experience-date">
                   {{ experience.date }}
                 </p>
                 {% if experience.location %}
-                <p class="mb-0" style="font-size: 0.8rem; color: #94A3B8;">
-                  <i class="ti-location-pin" style="font-size: 0.75rem; color: #000000;"></i> {{ experience.location }}
+                <p class="mb-0 experience-location">
+                  <i class="ti-location-pin"></i> {{ experience.location }}
                 </p>
                 {% endif %}
               </div>
             </div>
-            
+
             <!-- Right side: Details -->
             <div class="col-md-9 col-12">
-              <h4 class="mb-1" style="color: #0F172A; font-weight: 700; font-size: 1.5rem;">
+              <h4 class="mb-1 experience-name">
                 {{ experience.name }}
               </h4>
-              <h6 class="mb-3" style="font-weight: 600; color: #64748B; font-size: 1rem;">
+              <h6 class="mb-3 experience-org">
                 {{ experience.organization }}
               </h6>
-              
+
               {% if experience.description %}
-              <ul class="mb-3" style="
-                color: #475569; 
-                line-height: 1.8; 
-                padding-left: 1.5rem; 
-                list-style-type: disc;
-                list-style-position: outside;
-              ">
+              <ul class="mb-3 experience-description">
                 {% for item in experience.description %}
-                <li class="mb-2" style="display: list-item; padding-left: 0.25rem;">{{ item }}</li>
+                <li class="mb-2">{{ item }}</li>
                 {% endfor %}
               </ul>
               {% endif %}
-              
+
               {% if experience.technologies %}
               <div class="mt-3">
-                <p class="mb-2" style="font-size: 0.75rem; color: #64748B; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
+                <p class="mb-2 experience-tech-label">
                   Technologies
                 </p>
                 {% for tech in experience.technologies %}
-                <span class="badge mr-2 mb-2" style="
-                  background-color: #F1F5F9; 
-                  color: #475569; 
-                  font-weight: 500;
-                  padding: 0.45rem 0.85rem;
-                  font-size: 0.8rem;
-                  border-radius: 6px;
-                  border: 1px solid #E2E8F0;
-                ">{{ tech }}</span>
+                <span class="badge badge-pill mr-2 mb-2">{{ tech }}</span>
                 {% endfor %}
               </div>
               {% endif %}
@@ -86,26 +64,7 @@
       </div>
     </div>
   </div>
-  
-  <!-- Floating code elements for experience section -->
-  <div class="code-element size-lg" style="top: 10%; right: 8%; animation: float-slow 8s ease-in-out infinite; z-index: 1;">
-    <code style="color: #A78BFA;">async</code>
-  </div>
-  <div class="code-element size-md" style="top: 35%; left: 6%; animation: float 7s ease-in-out infinite; z-index: 1;">
-    <code style="color: #F59E0B;">await</code>
-  </div>
-  <div class="code-element size-sm" style="top: 55%; right: 10%; animation: float-diagonal 9s ease-in-out infinite; z-index: 1;">
-    <code style="color: #60A5FA;">return</code>
-  </div>
-  <div class="code-element size-md" style="bottom: 20%; left: 12%; animation: float-slow 7.5s ease-in-out infinite; z-index: 1;">
-    <code style="color: #34D399;">try</code>
-  </div>
-  <div class="code-element size-lg" style="bottom: 40%; right: 15%; animation: float 8.5s ease-in-out infinite; z-index: 1;">
-    <code style="color: #F472B6;">catch</code>
-  </div>
-  <div class="code-element size-sm" style="top: 70%; left: 8%; animation: float-diagonal 6.5s ease-in-out infinite; z-index: 1;">
-    <code style="color: #FBBF24;">then</code>
-  </div>
+
 </section>
 <!-- ./experience -->
 {% endif %}

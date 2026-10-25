@@ -1,0 +1,403 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* Contact section (_includes/contact-section.html, assets/js/contact.js) */
+
+.contact-body {
+  position: relative;
+  z-index: 2;
+  align-items: flex-start;
+}
+
+.contact-headline {
+  margin-bottom: 1rem;
+  color: $text-color;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+
+.contact-intro {
+  margin-bottom: 1.5rem;
+  color: $text-muted;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+// "It's 3:42 pm in Sydney right now"
+.contact-clock {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: 2rem;
+  padding: .45rem .9rem;
+  border: 1px solid $border-color;
+  border-radius: 999px;
+  background: $bg-surface;
+  color: $text-muted;
+  font-size: .875rem;
+
+  strong {
+    color: $text-color;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.contact-clock-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $accent-green;
+  box-shadow: 0 0 0 3px rgba($accent-green, .2);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .contact-clock-dot {
+    animation: contact-pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes contact-pulse {
+  50% { box-shadow: 0 0 0 6px rgba($accent-green, 0); }
+}
+
+// Contact rows (email is click-to-copy)
+.contact-rows {
+  margin-bottom: 1.75rem;
+  border-top: 1px solid $border-color;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem .25rem;
+  border: 0;
+  border-bottom: 1px solid $border-color;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+
+  &.is-static {
+    cursor: default;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $btn-bg;
+    outline-offset: 2px;
+  }
+}
+
+.contact-row-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: $bg-surface;
+  border: 1px solid $border-color;
+  color: $text-color;
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
+
+  .contact-row:not(.is-static):hover & {
+    background: $btn-bg;
+    border-color: $btn-bg;
+    color: $white;
+  }
+}
+
+.contact-row-text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.contact-row-label {
+  color: $text-faint;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.contact-row-value {
+  overflow: hidden;
+  color: $text-color;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.contact-row-action {
+  padding: .25rem .65rem;
+  border-radius: 999px;
+  background: $bg-surface;
+  border: 1px solid $border-color;
+  color: $text-muted;
+  font-size: .75rem;
+  font-weight: 600;
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
+
+  .contact-row.is-copied & {
+    background: $btn-bg;
+    border-color: $btn-bg;
+    color: $white;
+  }
+}
+
+.contact-social {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* ---------------- message.ts editor ---------------- */
+.msg-editor {
+  overflow: hidden;
+  border: 1px solid $border-color;
+  border-radius: 18px;
+  background: $bg-elevated;
+  box-shadow: 0 30px 60px -36px rgba($text-color, .35);
+
+  // Light-theme syntax colours (the hero uses a dark theme)
+  .tk-k { color: #B45309; }   // keywords
+  .tk-v { color: $text-color; }
+  .tk-a { color: #2563EB; }   // object keys
+  .tk-s { color: #059669; }   // strings
+  .tk-p { color: $text-faint; }
+  .tk-f { color: #7C3AED; }   // functions
+}
+
+.msg-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid $border-color;
+  background: $bg-surface;
+}
+
+.msg-tab {
+  margin-left: 10px;
+  padding: 2px 10px;
+  border-radius: 6px;
+  background: $bg-elevated;
+  border: 1px solid $border-color;
+  color: $text-muted;
+  font-size: 12px;
+}
+
+.msg-state {
+  margin-left: auto;
+  color: $text-faint;
+  font-size: 12px;
+
+  &.is-dirty {
+    color: #B45309;
+  }
+
+  &.is-sent {
+    color: #059669;
+  }
+}
+
+.msg-code {
+  counter-reset: msg-line;
+  padding: 1.25rem 1.25rem 1.25rem 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.msg-line {
+  counter-increment: msg-line;
+  position: relative;
+  display: block;
+  min-height: 1.9em;
+  margin: 0;
+  padding-left: 52px;
+  border-radius: 6px;
+  font-weight: 400;
+  cursor: text;
+  transition: background .2s ease;
+
+  // Line numbers
+  &::before {
+    content: counter(msg-line);
+    position: absolute;
+    left: 0;
+    width: 36px;
+    text-align: right;
+    color: rgba($text-faint, .7);
+    font-size: 13px;
+  }
+
+  // Highlight the line being edited, like an editor
+  &.is-focused {
+    background: rgba($accent, .06);
+
+    &::before {
+      color: $text-color;
+    }
+  }
+
+  &.is-invalid {
+    background: rgba(#EF4444, .06);
+
+    .msg-string {
+      text-decoration: underline wavy #EF4444;
+      text-underline-offset: 5px;
+    }
+
+    &::before {
+      color: #EF4444;
+    }
+  }
+}
+
+.msg-i1 {
+  padding-left: calc(52px + 2ch);
+}
+
+// Lines that hold an input lay out key + string in a row
+label.msg-line {
+  display: flex;
+  align-items: baseline;
+}
+
+.msg-key {
+  flex: 0 0 auto;
+}
+
+.msg-string {
+  display: flex;
+  flex: 0 1 auto;
+  align-items: baseline;
+  min-width: 0;
+  max-width: 100%;
+  margin-left: .5ch;
+}
+
+.msg-editor input,
+.msg-editor textarea {
+  min-width: 2ch;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #059669;
+  font: inherit;
+  line-height: inherit;
+
+  &::placeholder {
+    color: rgba(#059669, .45);
+  }
+}
+
+// Inputs grow with their text (sized by JS) so the closing quote hugs it
+.msg-string input {
+  flex: 0 1 auto;
+  width: 14ch;
+}
+
+// body: `
+//   multi-line message
+// `,
+.msg-line-body {
+  flex-wrap: wrap;
+
+  textarea {
+    flex: 1 0 100%;
+    padding-left: 2ch;
+    resize: none;
+    overflow: hidden;
+    min-height: 3 * 1.9em;
+  }
+}
+
+.msg-line-send {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-top: .5rem;
+  cursor: default;
+
+  @include mobile {
+    padding-left: 1rem;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.msg-send {
+  padding: .6rem 1.25rem;
+  font-size: .875rem;
+
+  &:disabled {
+    opacity: .6;
+    cursor: wait;
+  }
+}
+
+// Terminal output after submit
+.msg-output {
+  margin: 0 1.25rem 1.25rem;
+  padding: .9rem 1.1rem;
+  border-radius: 10px;
+  background: $bg-base;
+  color: rgba($white, .85);
+  font-size: .875rem;
+  line-height: 1.7;
+
+  a {
+    color: $white;
+    text-decoration: underline;
+  }
+}
+
+.msg-prompt {
+  margin-right: .4rem;
+  color: $accent-green;
+}
+
+.msg-out-line {
+  &.is-muted { color: rgba($white, .5); }
+  &.is-success { color: $accent-green; }
+  &.is-error { color: #F87171; }
+}
+
+.msg-statusbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  padding: .45rem 1rem;
+  border-top: 1px solid $border-color;
+  background: $bg-surface;
+  color: $text-faint;
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+@include mobile {
+  .msg-code {
+    font-size: 14px;
+    padding-right: .75rem;
+  }
+  .msg-line {
+    padding-left: 34px;
+    &::before {
+      width: 22px;
+    }
+  }
+  .msg-i1 {
+    padding-left: calc(34px + 1ch);
+  }
+}

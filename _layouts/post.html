@@ -94,7 +94,7 @@ layout: default
               font-size: 0.85rem;
               font-weight: 500;
               border: 1px solid #E2E8F0;
-              font-family: monospace;
+              font-family: var(--font-mono);
             ">#{{ tag }}</span>
             {% endfor %}
           </div>
@@ -103,17 +103,7 @@ layout: default
         
         <!-- Back to Blog -->
         <div class="mt-5 text-center">
-          <a href="{{ site.baseurl }}/blog" class="btn btn-transparent" style="
-            border: 2px solid #F59E0B; 
-            color: #F59E0B; 
-            padding: 0.75rem 2rem; 
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border-radius: 6px;
-            text-decoration: none;
-            display: inline-block;
-          " onmouseover="this.style.backgroundColor='#F59E0B'; this.style.color='#fff';" 
-             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#F59E0B';">
+          <a href="{{ site.baseurl }}/blog" class="btn-accent">
             <i class="ti-arrow-left mr-2"></i> Back to Blog
           </a>
         </div>
@@ -233,7 +223,7 @@ layout: default
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 0.9em;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-weight: 600;
 }
 

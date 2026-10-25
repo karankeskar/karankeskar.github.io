@@ -1,0 +1,187 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* Styles that support the creative motion in assets/js/animations.js */
+
+/* Scroll progress bar (element created by JS) */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 2000;
+  background: linear-gradient(90deg, $accent-green, $accent, $accent-violet);
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+/* Masked line / word reveals (hero title + section titles) */
+.line-mask,
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: .15em; // room for descenders (g, p, y)
+  margin-bottom: -.15em;
+}
+
+.line-mask {
+  display: block;
+}
+
+.line-inner,
+.word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+// Rotating role line in the hero
+.hero-role {
+  background: linear-gradient(90deg, $white 0%, rgba($white, .65) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Magnetic buttons: JS drives transform, so keep CSS transitions off it */
+.is-magnetic {
+  transition-property: background, background-color, color, box-shadow, border-color !important;
+}
+
+/* 3D tilt cards with a cursor-following spotlight */
+.has-tilt {
+  position: relative;
+  transition-property: box-shadow, border-color !important;
+  transform-style: preserve-3d;
+  will-change: transform;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba($text-color, .07), transparent 45%);
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Git commit graph running down the home page (built by JS) */
+.git-graph {
+  position: absolute;
+  left: 0;
+  width: 0;
+  z-index: 5;
+  pointer-events: none;
+
+  &.is-hidden {
+    display: none;
+  }
+}
+
+.git-graph-track,
+.git-graph-fill {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 2px;
+  height: 100%;
+}
+
+.git-graph-track {
+  background-image: linear-gradient($border-hover 50%, transparent 50%);
+  background-size: 2px 10px;
+}
+
+.git-graph-fill {
+  background: $btn-bg;
+  transform-origin: top center;
+  transform: scaleY(0);
+}
+
+.git-node {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  transform: translate(-7px, -7px);
+}
+
+.git-node-dot {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: $white;
+  border: 2px solid $border-hover;
+  transition: background .3s ease, border-color .3s ease, transform .3s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.git-node-label {
+  display: flex;
+  flex-direction: column;
+  width: 92px;
+  margin: -1px 0 0 10px;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  color: $text-faint;
+  opacity: .5;
+  transform: translateX(-6px);
+  transition: opacity .4s ease, transform .4s ease, color .4s ease;
+}
+
+.git-node-hash {
+  font-weight: 700;
+}
+
+.git-node.is-active {
+  .git-node-dot {
+    background: $btn-bg;
+    border-color: $btn-bg;
+    transform: scale(1.15);
+  }
+  .git-node-label {
+    color: $text-color;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Tag that rides the tip of the line
+.git-head {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  white-space: nowrap; // positioned/centred by GSAP (x, yPercent)
+
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $accent-green;
+    box-shadow: 0 0 0 4px rgba($accent-green, .2);
+  }
+}
+
+.git-head-tag {
+  margin-left: 12px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  color: $white;
+  background: $btn-bg;
+  box-shadow: 0 6px 14px -6px rgba(0, 0, 0, .5);
+}

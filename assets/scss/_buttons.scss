@@ -1,3 +1,6 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
 /* Button style */
 .btn {
   font-size: 22px;
@@ -32,20 +35,21 @@
 }
 
 .btn-primary {
-  background: $primary-color;
+  background: $btn-bg;
   color: $white;
 
   &:active {
-    background: lighten($color: $primary-color, $amount: 10) !important;
+    background: $btn-bg-hover !important;
   }
 
   &:hover {
-    background: lighten($color: $primary-color, $amount: 10);
+    background: $btn-bg-hover;
+    color: $white;
   }
 
   &.focus,
   &.active {
-    background: lighten($color: $primary-color, $amount: 10) !important;
+    background: $btn-bg-hover !important;
     box-shadow: none !important;
   }
 }
@@ -53,11 +57,11 @@
 
 .btn-transparent {
   background: transparent;
-  color: $primary-color;
+  color: $text-color;
   font-weight: bold;
 
   &:active,
   &:hover {
-    color: $primary-color;
+    color: $accent-hover;
   }
 }

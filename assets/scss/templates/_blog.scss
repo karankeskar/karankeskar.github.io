@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .card-lg {
   flex-direction: row-reverse;
   align-items: center;

@@ -1,5 +1,6 @@
 ---
 layout: page
+prompt: "open ./projects"
 title: Portfolio
 subtitle: Projects I've built and shipped
 ---
@@ -8,24 +9,44 @@ subtitle: Projects I've built and shipped
 </div></div></div>
 
 <!-- portfolio - Full Width -->
-<section class="section section-decorated" style="position: relative; overflow: hidden; padding: 80px 0; width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%);">
-  <div style="width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 3rem; position: relative; z-index: 2;">
-    <div style="margin-bottom: 2rem;">
-      <h2 style="color: #0F172A; font-weight: 700; font-size: 2rem; margin-bottom: 0.5rem;">Projects</h2>
-      <p style="color: #64748B; margin: 0;">Click a card to open the full project details.</p>
+<section class="section section-decorated projects-page">
+  <div class="projects-wrap">
+    <div class="text-center mb-4">
+      <div class="section-eyebrow">Selected work</div>
+      <h2 class="section-title section-heading mb-3">Projects</h2>
+      <div class="section-divider"></div>
     </div>
 
-    <!-- Project Cards -->
+    <!-- Filter by project type -->
+    {% assign project_types = site.data.settings.portfolio-items | map: "project_type" | compact | uniq %}
+    <div class="project-filters" role="group" aria-label="Filter projects">
+      <button type="button" class="project-filter is-active" data-filter="all" aria-pressed="true">
+        All <span>{{ site.data.settings.portfolio-items | size }}</span>
+      </button>
+      {% for type in project_types %}
+      {% assign type_count = site.data.settings.portfolio-items | where: "project_type", type | size %}
+      <button type="button" class="project-filter" data-filter="{{ type | slugify }}" aria-pressed="false">
+        {{ type | remove: " Project" }} <span>{{ type_count }}</span>
+      </button>
+      {% endfor %}
+    </div>
+
+    <!-- Project Cards (first one is featured) -->
     <div class="portfolio-card-grid">
       {% for item in site.data.settings.portfolio-items %}
       <button
         type="button"
-        class="project-summary-card"
+        class="project-summary-card{% if forloop.first %} is-featured{% endif %}"
         data-project-index="{{ forloop.index0 }}"
+        data-type="{{ item.project_type | slugify }}"
         onclick="openProjectDetail({{ forloop.index0 }})"
       >
         <div class="project-summary-image-wrap">
           <img src="{{ site.baseurl }}/{{ item.image }}" alt="{{ item.title }}" class="project-summary-image{% if item.title contains 'PhD Finder' %} project-summary-image-contain{% endif %}">
+          <span class="project-index">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+          {% if item.project_type %}
+          <span class="project-type-chip">{{ item.project_type }}</span>
+          {% endif %}
         </div>
         <div class="project-summary-content">
           <h3 class="project-summary-title">{{ item.title }}</h3>
@@ -38,54 +59,36 @@ subtitle: Projects I've built and shipped
             <span>{{ tech }}</span>
             {% endfor %}
             {% if item.technologies.size > 4 %}
-            <span>+{{ item.technologies.size | minus: 4 }} more</span>
+            <span>+{{ item.technologies.size | minus: 4 }}</span>
             {% endif %}
           </div>
           {% endif %}
+          <span class="project-summary-cta">View details <i class="ti-arrow-right"></i></span>
         </div>
       </button>
       {% endfor %}
     </div>
-    <!-- GitHub Activity -->
-    <div style="margin-top: 4rem; text-align: center;">
-      <div style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-        <div style="width: 12px; height: 12px; background: #EF4444; border-radius: 50%;"></div>
-        <div style="width: 12px; height: 12px; background: #F59E0B; border-radius: 50%;"></div>
-        <div style="width: 12px; height: 12px; background: #10B981; border-radius: 50%;"></div>
+
+    <!-- GitHub Activity, framed as an editor window -->
+    <div class="github-activity">
+      <div class="text-center mb-4">
+        <div class="section-eyebrow">Open source</div>
+        <h2 class="section-title section-heading mb-3">GitHub Activity</h2>
+        <div class="section-divider"></div>
       </div>
-      <h6 style="color: #94A3B8; font-weight: 600; letter-spacing: 0.15em; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.5rem;">Open Source</h6>
-      <h2 style="color: #0F172A; font-weight: 700; font-size: 2rem; margin-bottom: 0.75rem;">GitHub Activity</h2>
-      <div style="width: 60px; height: 3px; background: #F59E0B; margin: 0 auto 2rem;"></div>
-      <a href="https://github.com/karankeskar" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; cursor: pointer;">
-        <img 
-          src="https://ghchart.rshah.org/karankeskar" 
-          alt="Karan's GitHub Contribution Graph" 
-          style="width: 100%; max-width: 900px; border-radius: 8px; border: 1px solid #E2E8F0; opacity: 0.9; transition: opacity 0.2s ease;"
-          onmouseover="this.style.opacity='1';"
-          onmouseout="this.style.opacity='0.9';"
-        />
+      <a href="https://github.com/karankeskar" target="_blank" rel="noopener noreferrer" class="gh-window">
+        <span class="gh-window-bar">
+          <span class="cw-dot cw-dot-red"></span>
+          <span class="cw-dot cw-dot-amber"></span>
+          <span class="cw-dot cw-dot-green"></span>
+          <span class="gh-window-title">github.com/karankeskar &mdash; contributions</span>
+          <span class="gh-window-open">Open <i class="ti-arrow-top-right"></i></span>
+        </span>
+        <span class="gh-window-body">
+          <img src="https://ghchart.rshah.org/karankeskar" alt="Karan's GitHub contribution graph" loading="lazy">
+        </span>
       </a>
     </div>
-
-  </div>
-
-  </div>
-  
-  <!-- Floating code elements -->
-  <div class="code-element size-lg" style="top: 12%; right: 8%; animation: float 7s ease-in-out infinite; z-index: 1;">
-    <code style="color: #60A5FA;">build()</code>
-  </div>
-  <div class="code-element size-md" style="top: 25%; left: 6%; animation: float-slow 8s ease-in-out infinite; z-index: 1;">
-    <code style="color: #34D399;">deploy</code>
-  </div>
-  <div class="code-element size-sm" style="bottom: 25%; right: 10%; animation: float-diagonal 9s ease-in-out infinite; z-index: 1;">
-    <code style="color: #A78BFA;">git push</code>
-  </div>
-  <div class="code-element size-lg" style="bottom: 40%; left: 8%; animation: float 8.5s ease-in-out infinite; z-index: 1;">
-    <code style="color: #F59E0B;">npm run</code>
-  </div>
-  <div class="code-element size-md" style="top: 85%; right: 5%; animation: float-slow 7.5s ease-in-out infinite; z-index: 1;">
-    <code style="color: #F472B6;">const</code>
   </div>
 </section>
 
@@ -347,7 +350,7 @@ function closeImageModal() {
   updateBodyScrollLock();
 }
 
-// Close on click outside image
+/* Close on click outside image */
 var initImageModal = ensureImageModal();
 if (initImageModal) {
   initImageModal.addEventListener('click', function(e) {
@@ -357,7 +360,7 @@ if (initImageModal) {
   });
 }
 
-// Close on Escape key
+/* Close on Escape key */
 document.addEventListener('keydown', function(e) {
   var imageModal = ensureImageModal();
   if (e.key === 'Escape') {
@@ -369,77 +372,46 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
+
+/* Filter chips: show only projects of the chosen type */
+document.querySelectorAll('.project-filter').forEach(function(chip) {
+  chip.addEventListener('click', function() {
+    var filter = chip.getAttribute('data-filter');
+    document.querySelectorAll('.project-filter').forEach(function(c) {
+      var on = c === chip;
+      c.classList.toggle('is-active', on);
+      c.setAttribute('aria-pressed', on);
+    });
+    var grid = document.querySelector('.portfolio-card-grid');
+    grid.classList.toggle('is-filtered', filter !== 'all');
+    var shown = [];
+    document.querySelectorAll('.project-summary-card').forEach(function(card) {
+      var match = filter === 'all' || card.getAttribute('data-type') === filter;
+      card.hidden = !match;
+      if (match) shown.push(card);
+    });
+    if (window.gsap && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.fromTo(shown, { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.06, ease: 'power3.out', overwrite: 'auto' });
+    }
+  });
+});
+
+/* Deep links: /portfolio#project-2 opens that project's details */
+function openProjectFromHash() {
+  var match = window.location.hash.match(/^#project-(\d+)$/);
+  if (match) openProjectDetail(parseInt(match[1], 10));
+}
+window.addEventListener('load', openProjectFromHash);
+window.addEventListener('hashchange', openProjectFromHash);
 </script>
 
 <style>
-.portfolio-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.25rem;
-}
-
-.project-summary-card {
-  width: 100%;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  background: #FFFFFF;
-  overflow: hidden;
-  padding: 0;
-  cursor: pointer;
-  text-align: left;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.project-summary-card:hover,
-.project-summary-card.active {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-.project-summary-image-wrap {
-  height: 190px;
-  background: #F8FAFC;
-}
-
-.project-summary-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.project-summary-image-contain {
-  object-fit: contain;
-  padding: 0.75rem;
-  background: #FFFFFF;
-}
-
-.project-summary-content {
-  padding: 1.25rem;
-}
-
-.project-summary-title {
-  color: #0F172A;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 0 0 0.6rem;
-}
-
-.project-summary-desc {
-  color: #64748B;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin: 0 0 1rem;
-}
-
-.project-summary-tech,
 .project-detail-tech {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.project-summary-tech span,
 .project-detail-tech span {
   background: #F1F5F9;
   color: #475569;
@@ -448,7 +420,7 @@ document.addEventListener('keydown', function(e) {
   padding: 0.35rem 0.7rem;
   font-size: 0.8rem;
   font-weight: 600;
-  font-family: monospace;
+  font-family: var(--font-mono);
 }
 
 .project-detail-modal-overlay {
@@ -631,7 +603,7 @@ document.addEventListener('keydown', function(e) {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  background: #0F172A;
+  background: #111111;
   color: #FFFFFF;
   padding: 0.55rem 1.1rem;
   border-radius: 8px;
@@ -644,8 +616,9 @@ document.addEventListener('keydown', function(e) {
 .deck-download-btn:hover {
   color: #FFFFFF;
   text-decoration: none;
+  background: #000000;
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .deck-embed-wrap {
@@ -666,9 +639,6 @@ document.addEventListener('keydown', function(e) {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .section > div {
-    padding: 0 1rem !important;
-  }
 
   .project-detail-modal-overlay {
     padding: 0.75rem;
@@ -686,8 +656,7 @@ document.addEventListener('keydown', function(e) {
     font-size: 1.5rem;
   }
 
-  .gallery-item img,
-  .project-summary-image-wrap {
+  .gallery-item img {
     height: 170px !important;
   }
 

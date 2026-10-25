@@ -163,7 +163,7 @@ portfolio/
 
 ## Contact
 
-- **Email:** [karankeskar058@gmail.com](mailto:karankeskar058@gmail.com)
+- **Email:** [karan@karankeskar.com](mailto:karan@karankeskar.com)
 - **LinkedIn:** [linkedin.com/in/karan-keskar](https://www.linkedin.com/in/karan-keskar/)
 - **GitHub:** [github.com/karankeskar](https://github.com/karankeskar)
 - **Portfolio:** [karankeskar.github.io](https://karankeskar.github.io)
